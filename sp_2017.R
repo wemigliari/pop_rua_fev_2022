@@ -59,7 +59,9 @@ mds_fam_2017$IN_PARC_MDS_FAM <- gsub(c("202"), c("Família de Pescadores Artesan
 
 mds_fam_2017$IN_PARC_MDS_FAM <- gsub(c("205"), c("Família de Agricultores Familiares"), mds_fam_2017$IN_PARC_MDS_FAM) 
 
-mds_fam_2017$IN_PARC_MDS_FAM <- gsub(c("303"), c("Família Acampada"), mds_fam_2017$IN_PARC_MDS_FAM)
+mds_fam_2017$IN_PARC_MDS_FAM <- gsub(c("301"), c("Família Acampada"), mds_fam_2017$IN_PARC_MDS_FAM)
+
+mds_fam_2017$IN_PARC_MDS_FAM <- gsub(c("303"), c("Família Assentada da Reforma Agrária"), mds_fam_2017$IN_PARC_MDS_FAM)
 
 mds_fam_2017$IN_PARC_MDS_FAM <- gsub(c("304"), c("Família Atingida por Empreendimentos de Infraestrutura"), mds_fam_2017$IN_PARC_MDS_FAM)
 
@@ -136,7 +138,7 @@ write.xlsx(ler_escrever_2017, "/Users/wemigliari/Documents/R/tabelas/min_cid_obs
 ###13 Seleção de Dados SP GRAU_INSTRUCAO
 instrucao_2017 <- data.frame(count(munic_2017 , "GRAU_INSTRUCAO"))
 
-instrucao_2017$GRAU_INSTRUCAO <- instrucao_2017$GRAU_INSTRUCAO[instrucao_2017$GRAU_INSTRUCAO==c(0, 1, 2, 3, 4, 5, 6)]<-c("Sem Dados", "Sem Instrução", "Fundamental Incompleto", "Fundamental Completo", "Médio Incompleto", "Médio Completo", "Superior Completo")
+instrucao_2017$GRAU_INSTRUCAO <- instrucao_2017$GRAU_INSTRUCAO[instrucao_2017$GRAU_INSTRUCAO==c(0, 1, 2, 3, 4, 5, 6)]<-c("Sem Dados", "Sem Instrução", "Fundamental Incompleto", "Fundamental Completo", "Ensino Médio Incompleto", "Ensino Médio Completo", "Superior Completo")
 
 write.xlsx(instrucao_2017, "/Users/wemigliari/Documents/R/tabelas/min_cid_observatorio/sp/2017.xlsx",
            sheetName="Instrução", append=TRUE)
