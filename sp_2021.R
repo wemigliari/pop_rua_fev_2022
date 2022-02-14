@@ -5,6 +5,7 @@ library(stringr)
 library(readr)
 library(tidyverse)
 library(writexl)
+library(xlsx)
 
 
 ### Tabela 2021 do Ministério das Cidades
@@ -71,7 +72,7 @@ mds_fam_2021 <- data.frame(count(munic_2021 , "IN_PARC_MDS_FAM"))
 
 mds_fam_2021 <- mds_fam_2021%>% replace_na(list(IN_PARC_MDS_FAM = "Sem Dados"))
 
-mds_fam_2021$IN_PARC_MDS_FAM[which(mds_fam_2021$IN_PARC_MDS_FAM=="0")] <- "Sem Dados"
+mds_fam_2021$IN_PARC_MDS_FAM[which(mds_fam_2021$IN_PARC_MDS_FAM=="0")] <- "Sem Código"
 
 mds_fam_2021$IN_PARC_MDS_FAM <- gsub(c("000"), c("Nenhuma"), mds_fam_2021$IN_PARC_MDS_FAM)  
 
