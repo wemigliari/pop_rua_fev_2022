@@ -530,7 +530,7 @@ aracaju_totais_2018_escolaridade$Ano <- "2018"
 
 aracaju_totais_2017_escolaridade <- read_excel("/Users/wemigliari/Documents/R/tabelas/min_cid_observatorio/aracaju/2017.xlsx", 
                                           sheet="Instrução")
-aracaju_totais_2017_escolaridade <- data.frame(aracaju_totais_2018_escolaridade)
+aracaju_totais_2017_escolaridade <- data.frame(aracaju_totais_2017_escolaridade)
 aracaju_totais_2017_escolaridade$...1 <- NULL
 aracaju_totais_2017_escolaridade$Ano <- "2017"
 

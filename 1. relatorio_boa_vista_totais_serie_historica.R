@@ -530,7 +530,7 @@ boa_vista_totais_2018_escolaridade$Ano <- "2018"
 
 boa_vista_totais_2017_escolaridade <- read_excel("/Users/wemigliari/Documents/R/tabelas/min_cid_observatorio/boa_vista/2017.xlsx", 
                                           sheet="Instrução")
-boa_vista_totais_2017_escolaridade <- data.frame(boa_vista_totais_2018_escolaridade)
+boa_vista_totais_2017_escolaridade <- data.frame(boa_vista_totais_2017_escolaridade)
 boa_vista_totais_2017_escolaridade$...1 <- NULL
 boa_vista_totais_2017_escolaridade$Ano <- "2017"
 

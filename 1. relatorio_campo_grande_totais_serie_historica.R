@@ -530,7 +530,7 @@ campo_grande__2018_escolaridade$Ano <- "2018"
 
 campo_grande__2017_escolaridade <- read_excel("/Users/wemigliari/Documents/R/tabelas/min_cid_observatorio/campo_grande/2017.xlsx", 
                                           sheet="Instrução")
-campo_grande__2017_escolaridade <- data.frame(campo_grande__2018_escolaridade)
+campo_grande__2017_escolaridade <- data.frame(campo_grande__2017_escolaridade)
 campo_grande__2017_escolaridade$...1 <- NULL
 campo_grande__2017_escolaridade$Ano <- "2017"
 

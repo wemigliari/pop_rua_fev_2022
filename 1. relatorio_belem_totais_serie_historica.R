@@ -530,7 +530,7 @@ belem_totais_2018_escolaridade$Ano <- "2018"
 
 belem_totais_2017_escolaridade <- read_excel("/Users/wemigliari/Documents/R/tabelas/min_cid_observatorio/belem/2017.xlsx", 
                                           sheet="Instrução")
-belem_totais_2017_escolaridade <- data.frame(belem_totais_2018_escolaridade)
+belem_totais_2017_escolaridade <- data.frame(belem_totais_2017_escolaridade)
 belem_totais_2017_escolaridade$...1 <- NULL
 belem_totais_2017_escolaridade$Ano <- "2017"
 

@@ -530,7 +530,7 @@ bh_totais_2018_escolaridade$Ano <- "2018"
 
 bh_totais_2017_escolaridade <- read_excel("/Users/wemigliari/Documents/R/tabelas/min_cid_observatorio/bh/2017.xlsx", 
                                           sheet="Instrução")
-bh_totais_2017_escolaridade <- data.frame(bh_totais_2018_escolaridade)
+bh_totais_2017_escolaridade <- data.frame(bh_totais_2017_escolaridade)
 bh_totais_2017_escolaridade$...1 <- NULL
 bh_totais_2017_escolaridade$Ano <- "2017"
 
