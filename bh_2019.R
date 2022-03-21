@@ -33,7 +33,11 @@ write.xlsx(pbf_2019, "/Users/wemigliari/Documents/R/tabelas/min_cid_observatorio
 ###3 Seleção de Dados bh FAMÍLIA INDÍGENA
 fam_ind_2019 <- data.frame(count(munic_2019 , "IN_FAMILIA_INDIGENA_FAM"))
 
-fam_ind_2019$IN_FAMILIA_INDIGENA_FAM <- fam_ind_2019$IN_FAMILIA_INDIGENA_FAM[fam_ind_2019$IN_FAMILIA_INDIGENA_FAM==c(2)]<-c("Não")
+fam_ind_2019  <- fam_ind_2019%>% replace_na(list("IN_FAMILIA_INDIGENA_FAM"  = "Sem Dados"))
+
+fam_ind_2019$IN_FAMILIA_INDIGENA_FAM[which(fam_ind_2019$IN_FAMILIA_INDIGENA_FAM=="1")] <- "Sim"
+fam_ind_2019$IN_FAMILIA_INDIGENA_FAM[which(fam_ind_2019$IN_FAMILIA_INDIGENA_FAM=="2")] <- "Não"
+
 
 write.xlsx(fam_ind_2019, "/Users/wemigliari/Documents/R/tabelas/min_cid_observatorio/bh/2019.xlsx",
            sheetName="Indígenas", append=TRUE)
