@@ -5,7 +5,7 @@ library(stringr)
 library(readr)
 library(tidyverse)
 library(writexl)
-
+library(xlsx)
 
 ### Tabela 2018 do Ministério das Cidades
 
@@ -41,7 +41,10 @@ write.xlsx(pbf_2018, "/Users/wemigliari/Documents/R/tabelas/min_cid_observatorio
 ###3 Seleção de Dados rj FAMÍLIA INDÍGENA
 fam_ind_2018 <- data.frame(count(munic_2018 , "IN_FAMILIA_INDIGENA_FAM"))
 
-fam_ind_2018$IN_FAMILIA_INDIGENA_FAM <- fam_ind_2018$IN_FAMILIA_INDIGENA_FAM[fam_ind_2018$IN_FAMILIA_INDIGENA_FAM==c(2)]<-c("Não")
+
+fam_ind_2018 <- fam_ind_2018 %>% replace_na(list(IN_FAMILIA_INDIGENA_FAM = "Sem Dados"))
+fam_ind_2018$IN_FAMILIA_INDIGENA_FAM[which(fam_ind_2018$IN_FAMILIA_INDIGENA_FAM=="1")] <- "Sim"
+fam_ind_2018$IN_FAMILIA_INDIGENA_FAM[which(fam_ind_2018$IN_FAMILIA_INDIGENA_FAM=="2")] <- "Não"
 
 write.xlsx(fam_ind_2018, "/Users/wemigliari/Documents/R/tabelas/min_cid_observatorio/rj/2018.xlsx",
            sheetName="Indígenas", append=TRUE)
@@ -49,7 +52,10 @@ write.xlsx(fam_ind_2018, "/Users/wemigliari/Documents/R/tabelas/min_cid_observat
 ###4 Seleção de Dados rj FAMÍLIA QUILOMBOLA
 quilom_2018 <- data.frame(count(munic_2018 , "IN_FAMILIA_QUILOMBOLA_FAM"))
 
-quilom_2018$IN_FAMILIA_QUILOMBOLA_FAM <- quilom_2018$IN_FAMILIA_QUILOMBOLA_FAM[quilom_2018$IN_FAMILIA_QUILOMBOLA_FAM==c(2)]<-c("Não")
+quilom_2018  <- quilom_2018%>% replace_na(list(IN_FAMILIA_QUILOMBOLA_FAM = "Sem Dados"))
+quilom_2018$IN_FAMILIA_QUILOMBOLA_FAM[which(quilom_2018$IN_FAMILIA_QUILOMBOLA_FAM=="1")] <- "Sim"
+quilom_2018$IN_FAMILIA_QUILOMBOLA_FAM[which(quilom_2018$IN_FAMILIA_QUILOMBOLA_FAM=="2")] <- "Não"
+
 
 write.xlsx(quilom_2018, "/Users/wemigliari/Documents/R/tabelas/min_cid_observatorio/rj/2018.xlsx",
            sheetName="Quilombolas", append=TRUE)
