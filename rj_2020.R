@@ -41,7 +41,9 @@ write.xlsx(pbf_2020, "/Users/wemigliari/Documents/R/tabelas/min_cid_observatorio
 ###3 Seleção de Dados rj FAMÍLIA INDÍGENA
 fam_ind_2020 <- data.frame(count(munic_2020 , "IN_FAMILIA_INDIGENA_FAM"))
 
-fam_ind_2020$IN_FAMILIA_INDIGENA_FAM <- fam_ind_2020$IN_FAMILIA_INDIGENA_FAM[fam_ind_2020$IN_FAMILIA_INDIGENA_FAM==c(2)]<-c("Não")
+fam_ind_2020 <- fam_ind_2020%>% replace_na(list(IN_FAMILIA_INDIGENA_FAM = "Sem Dados"))
+fam_ind_2020$IN_FAMILIA_INDIGENA_FAM[which(fam_ind_2020$IN_FAMILIA_INDIGENA_FAM=="1")] <- "Sim"
+fam_ind_2020$IN_FAMILIA_INDIGENA_FAM[which(fam_ind_2020$IN_FAMILIA_INDIGENA_FAM=="2")] <- "Não"
 
 write.xlsx(fam_ind_2020, "/Users/wemigliari/Documents/R/tabelas/min_cid_observatorio/rj/2020.xlsx",
            sheetName="Indígenas", append=TRUE)
@@ -49,11 +51,13 @@ write.xlsx(fam_ind_2020, "/Users/wemigliari/Documents/R/tabelas/min_cid_observat
 ###4 Seleção de Dados rj FAMÍLIA QUILOMBOLA
 quilom_2020 <- data.frame(count(munic_2020 , "IN_FAMILIA_QUILOMBOLA_FAM"))
 
-quilom_2020$IN_FAMILIA_QUILOMBOLA_FAM <- quilom_2020$IN_FAMILIA_QUILOMBOLA_FAM[quilom_2020$IN_FAMILIA_QUILOMBOLA_FAM==c(2)]<-c("Não")
+quilom_2020 <- quilom_2020 %>% replace_na(list(IN_FAMILIA_QUILOMBOLA_FAM = "Sem Dados"))
+quilom_2020$IN_FAMILIA_QUILOMBOLA_FAM[which(quilom_2020$IN_FAMILIA_QUILOMBOLA_FAM=="1")] <- "Sim"
+quilom_2020$IN_FAMILIA_QUILOMBOLA_FAM[which(quilom_2020$IN_FAMILIA_QUILOMBOLA_FAM=="2")] <- "Não"
+
 
 write.xlsx(quilom_2020, "/Users/wemigliari/Documents/R/tabelas/min_cid_observatorio/rj/2020.xlsx",
            sheetName="Quilombolas", append=TRUE)
-
 ###5 Seleção de Dados rj IN_PARC_MDS_FAM
 mds_fam_2020 <- data.frame(count(munic_2020 , "IN_PARC_MDS_FAM"))
 
