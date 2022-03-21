@@ -5,6 +5,7 @@ library(stringr)
 library(readr)
 library(tidyverse)
 library(writexl)
+library(xlsx)
 
 
 ### Tabela 2015 do Ministério das Cidades
