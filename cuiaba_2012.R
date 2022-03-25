@@ -7,6 +7,7 @@ library(tidyverse)
 library(writexl)
 
 
+
 ### Tabela 2012 do Ministério das Cidades
 
 brasil_munic_2012  <- read_csv("/Users/wemigliari/Documents/R/tabelas/pop_rua_min_cidades/TB_POP_RUA_201212.csv", 
@@ -131,7 +132,8 @@ write.xlsx(esta_cadas_2012, "/Users/wemigliari/Documents/R/tabelas/min_cid_obser
 ###8 Seleção de Dados pa CO_SEXO_PESSOA
 sexo_2012 <- data.frame(count(munic_2012 , "CO_SEXO_PESSOA"))
 
-sexo_2012$CO_SEXO_PESSOA <- sexo_2012$CO_SEXO_PESSOA[sexo_2012$CO_SEXO_PESSOA==c(1, 2)]<-c("Masculino", "Feminino")
+sexo_2012$CO_SEXO_PESSOA[which(sexo_2012$CO_SEXO_PESSOA=="1")] <- "Masculino"
+sexo_2012$CO_SEXO_PESSOA[which(sexo_2012$CO_SEXO_PESSOA=="2")] <- "Feminino"
 
 write.xlsx(sexo_2012, "/Users/wemigliari/Documents/R/tabelas/min_cid_observatorio/cuiaba/2012.xlsx",
            sheetName="Sexo", append=TRUE)
