@@ -71,9 +71,7 @@ mds_fam_2021 <- data.frame(count(munic_2021 , "IN_PARC_MDS_FAM"))
 
 mds_fam_2021 <- mds_fam_2021%>% replace_na(list(IN_PARC_MDS_FAM = "Sem Dados"))
 
-mds_fam_2021$IN_PARC_MDS_FAM[which(mds_fam_2021$IN_PARC_MDS_FAM=="0")] <- "Sem Dados"
-
-mds_fam_2021$IN_PARC_MDS_FAM <- gsub(c("000"), c("Nenhuma"), mds_fam_2021$IN_PARC_MDS_FAM)  
+mds_fam_2021$IN_PARC_MDS_FAM[which(mds_fam_2021$IN_PARC_MDS_FAM=="0")] <- "Nenhuma"
 
 mds_fam_2021$IN_PARC_MDS_FAM <- gsub(c("101"), c("Família Cigana"), mds_fam_2021$IN_PARC_MDS_FAM)  
 
@@ -101,7 +99,7 @@ mds_fam_2021$IN_PARC_MDS_FAM <- gsub(c("306"), c("Família de Catadores de Mater
 
 
 write.xlsx(mds_fam_2021, "/Users/wemigliari/Documents/R/tabelas/min_cid_observatorio/maceio/2021.xlsx",
-           sheetName="Grupos Tradicionais Epaecíficos", append=TRUE)
+           sheetName="Grupos Tradicionais Específicos", append=TRUE)
 
 ###6 Seleção de Dados pa MESES_APOS_ULT_ATUALIZACAO
 ### Já está pronto o quadro, pois não há o que identificar entre as repaostas
