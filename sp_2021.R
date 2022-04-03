@@ -33,13 +33,16 @@ write.xlsx(renda_2021, "/Users/wemigliari/Documents/R/tabelas/min_cid_observator
            sheetName="Renda", append=TRUE)
 
 ###2 Seleção de Dados pa PBF
-pbf_2021 <- data.frame(count(munic_2021 , "MARC_PAB"))
 
-pbf_2021  <- pbf_2021 %>% replace_na(list(MARC_PAB = "Sem Dados"))
-pbf_2021$MARC_PAB[which(pbf_2021$MARC_PAB=="0")] <- "Sem Dados"
+names(munic_2021)[6] <- "MARC_PBF"
 
-pbf_2021$MARC_PAB[which(pbf_2021$MARC_PAB=="1")] <- "Sim"
-pbf_2021$MARC_PAB[which(pbf_2021$MARC_PAB=="2")] <- "Não"
+pbf_2021 <- data.frame(count(munic_2021 , "MARC_PBF"))
+
+pbf_2021  <- pbf_2021 %>% replace_na(list(MARC_PBF = "Sem Dados"))
+pbf_2021$MARC_PBF[which(pbf_2021$MARC_PBF=="0")] <- "Sem Dados"
+
+pbf_2021$MARC_PBF[which(pbf_2021$MARC_PBF=="1")] <- "Sim"
+pbf_2021$MARC_PBF[which(pbf_2021$MARC_PBF=="2")] <- "Não"
 
 write.xlsx(pbf_2021, "/Users/wemigliari/Documents/R/tabelas/min_cid_observatorio/sp/2021.xlsx",
            sheetName="Bolsa Família", append=TRUE)
