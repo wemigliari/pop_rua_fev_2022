@@ -1,10 +1,10 @@
-library(readxl)
 library(dplyr)
 library(plyr)
 library(stringr)
-library(readr)
 library(tidyverse)
-library(writexl)
+library(readxl)
+library(readr)
+library(xlsx) ## to export Excel tables
 
 
 ### Tabela 2020 do Ministério das Cidades
@@ -18,7 +18,7 @@ names(brasil_munic_2020)[1]<- "id"
 
 munic_2020 <- subset(brasil_munic_2020, id %in% c(3550308))
 
-###1 Seleção de Dados pa RENDA
+###1 Seleção de Dados SP RENDA
 renda_2020 <- data.frame(count(munic_2020, "FX_RENDA"))
 
 renda_2020<- renda_2020%>% replace_na(list(FX_RENDA = "Sem Dados"))
@@ -31,19 +31,21 @@ renda_2020$FX_RENDA[which(renda_2020$FX_RENDA=="4")] <- "Acima de 1/2 Salário M
 write.xlsx(renda_2020, "/Users/wemigliari/Documents/R/tabelas/min_cid_observatorio/sp/2020.xlsx",
            sheetName="Renda", append=TRUE)
 
-###2 Seleção de Dados pa PBF
-pbf_2020 <- data.frame(count(munic_2020 , "MARC_PAB"))
+###2 Seleção de Dados SP PBF - carregar plyr for count function
 
-pbf_2020  <- pbf_2020 %>% replace_na(list(MARC_PAB = "Sem Dados"))
-pbf_2020$MARC_PAB[which(pbf_2020$MARC_PAB=="0")] <- "Sem Dados"
+pbf_2020 <- data.frame(count(munic_2020 , "MARC_PBF"))
 
-pbf_2020$MARC_PAB[which(pbf_2020$MARC_PAB=="1")] <- "Sim"
-pbf_2020$MARC_PAB[which(pbf_2020$MARC_PAB=="2")] <- "Não"
+pbf_2020  <- pbf_2020 %>% replace_na(list(MARC_PBF = "Sem Dados"))
+pbf_2020$MARC_PBF[which(pbf_2020$MARC_PBF=="0")] <- "Sem Dados"
+
+pbf_2020$MARC_PBF[which(pbf_2020$MARC_PBF=="1")] <- "Sim"
+pbf_2020$MARC_PBF[which(pbf_2020$MARC_PBF=="2")] <- "Não"
+
 
 write.xlsx(pbf_2020, "/Users/wemigliari/Documents/R/tabelas/min_cid_observatorio/sp/2020.xlsx",
            sheetName="Bolsa Família", append=TRUE)
 
-###3 Seleção de Dados pa FAMÍLIA INDÍGENA
+###3 Seleção de Dados SP FAMÍLIA INDÍGENA
 fam_ind_2020 <- data.frame(count(munic_2020 , "IN_FAMILIA_INDIGENA_FAM"))
 
 fam_ind_2020  <- fam_ind_2020 %>% replace_na(list(IN_FAMILIA_INDIGENA_FAM = "Sem Dados"))
@@ -54,7 +56,7 @@ fam_ind_2020$IN_FAMILIA_INDIGENA_FAM[which(fam_ind_2020$IN_FAMILIA_INDIGENA_FAM=
 write.xlsx(fam_ind_2020, "/Users/wemigliari/Documents/R/tabelas/min_cid_observatorio/sp/2020.xlsx",
            sheetName="Indígenas", append=TRUE)
 
-###4 Seleção de Dados pa FAMÍLIA QUILOMBOLA
+###4 Seleção de Dados SP FAMÍLIA QUILOMBOLA
 quilom_2020 <- data.frame(count(munic_2020 , "IN_FAMILIA_QUILOMBOLA_FAM"))
 
 quilom_2020  <- quilom_2020 %>% replace_na(list(IN_FAMILIA_QUILOMBOLA_FAM = "Sem Dados"))
@@ -66,7 +68,7 @@ quilom_2020$IN_FAMILIA_QUILOMBOLA_FAM[which(quilom_2020$IN_FAMILIA_QUILOMBOLA_FA
 write.xlsx(quilom_2020, "/Users/wemigliari/Documents/R/tabelas/min_cid_observatorio/sp/2020.xlsx",
            sheetName="Quilombolas", append=TRUE)
 
-###5 Seleção de Dados pa IN_PARC_MDS_FAM
+###5 Seleção de Dados SP IN_PARC_MDS_FAM
 mds_fam_2020 <- data.frame(count(munic_2020 , "IN_PARC_MDS_FAM"))
 
 mds_fam_2020 <- mds_fam_2020%>% replace_na(list(IN_PARC_MDS_FAM = "Sem Dados"))
@@ -103,14 +105,14 @@ mds_fam_2020$IN_PARC_MDS_FAM <- gsub(c("306"), c("Família de Catadores de Mater
 write.xlsx(mds_fam_2020, "/Users/wemigliari/Documents/R/tabelas/min_cid_observatorio/sp/2020.xlsx",
            sheetName="Grupos Tradicionais Epaecíficos", append=TRUE)
 
-###6 Seleção de Dados pa MESES_APOS_ULT_ATUALIZACAO
+###6 Seleção de Dados SP MESES_APOS_ULT_ATUALIZACAO
 ### Já está pronto o quadro, pois não há o que identificar entre as repaostas
 ult_atua_2020 <- data.frame(count(munic_2020 , "MESES_APOS_ULT_ATUALIZACAO"))
 
 write.xlsx(ult_atua_2020, "/Users/wemigliari/Documents/R/tabelas/min_cid_observatorio/sp/2020.xlsx",
            sheetName="Atualização", append=TRUE)
 
-###7 Seleção de Dados pa CO_EST_CADASTRAL_MEMB
+###7 Seleção de Dados SP CO_EST_CADASTRAL_MEMB
 esta_cadas_2020 <- data.frame(count(munic_2020 , "CO_EST_CADASTRAL_FAM"))
 
 esta_cadas_2020 <- esta_cadas_2020%>% replace_na(list(CO_EST_CADASTRAL_FAM = "Sem Dados"))
@@ -130,7 +132,7 @@ esta_cadas_2020$CO_EST_CADASTRAL_FAM <- gsub(c("6"), c("Validando NIS"), esta_ca
 write.xlsx(esta_cadas_2020, "/Users/wemigliari/Documents/R/tabelas/min_cid_observatorio/sp/2020.xlsx",
            sheetName="Estado Cadastral", append=TRUE)
 
-###8 Seleção de Dados pa CO_SEXO_PESSOA
+###8 Seleção de Dados SP CO_SEXO_PESSOA
 sexo_2020 <- data.frame(count(munic_2020 , "CO_SEXO_PESSOA"))
 
 sexo_2020$CO_SEXO_PESSOA <- sexo_2020$CO_SEXO_PESSOA[sexo_2020$CO_SEXO_PESSOA==c(1, 2)]<-c("Masculino", "Feminino")
@@ -138,7 +140,7 @@ sexo_2020$CO_SEXO_PESSOA <- sexo_2020$CO_SEXO_PESSOA[sexo_2020$CO_SEXO_PESSOA==c
 write.xlsx(sexo_2020, "/Users/wemigliari/Documents/R/tabelas/min_cid_observatorio/sp/2020.xlsx",
            sheetName="Sexo", append=TRUE)
 
-###9 Seleção de Dados pa CO_RACA_COR_PESSOA
+###9 Seleção de Dados SP CO_RACA_COR_PESSOA
 cor_2020 <- data.frame(count(munic_2020 , "CO_RACA_COR_PESSOA"))
 
 cor_2020 <- cor_2020%>% replace_na(list(CO_RACA_COR_PESSOA = "Sem Dados"))
@@ -152,7 +154,7 @@ cor_2020$CO_RACA_COR_PESSOA[which(cor_2020$CO_RACA_COR_PESSOA=="5")] <- "Indíge
 write.xlsx(cor_2020, "/Users/wemigliari/Documents/R/tabelas/min_cid_observatorio/sp/2020.xlsx",
            sheetName="Cor", append=TRUE)
 
-###10 Seleção de Dados pa FX_ETARIA
+###10 Seleção de Dados SP FX_ETARIA
 idade_2020 <- data.frame(count(munic_2020 , "FX_ETARIA"))
 
 idade_2020<- idade_2020%>% replace_na(list(FX_ETARIA = "Sem Dados"))
@@ -167,7 +169,7 @@ idade_2020$FX_ETARIA[which(idade_2020$FX_ETARIA=="6")] <- "De 60 anos acima"
 write.xlsx(idade_2020, "/Users/wemigliari/Documents/R/tabelas/min_cid_observatorio/sp/2020.xlsx",
            sheetName="Idade", append=TRUE)
 
-###11 Seleção de Dados pa IN_DEF_TRANSTORNO_MENTAL_MEMB
+###11 Seleção de Dados SP IN_DEF_TRANSTORNO_MENTAL_MEMB
 transtorno_2020 <- data.frame(count(munic_2020 , "IN_DEF_TRANSTORNO_MENTAL_MEMB"))
 
 transtorno_2020 <- transtorno_2020%>% replace_na(list(IN_DEF_TRANSTORNO_MENTAL_MEMB = "Sem Dados"))
@@ -181,7 +183,7 @@ write.xlsx(transtorno_2020, "/Users/wemigliari/Documents/R/tabelas/min_cid_obser
            sheetName="Transtorno", append=TRUE)
 
 
-###12 Seleção de Dados pa CO_SABE_LER_ESCREVER_MEMB
+###12 Seleção de Dados SP CO_SABE_LER_ESCREVER_MEMB
 ler_escrever_2020 <- data.frame(count(munic_2020 , "CO_SABE_LER_ESCREVER_MEMB"))
 
 ler_escrever_2020 <- ler_escrever_2020%>% replace_na(list(CO_SABE_LER_ESCREVER_MEMB = "Sem Dados"))
@@ -193,7 +195,7 @@ ler_escrever_2020$CO_SABE_LER_ESCREVER_MEMB  <- gsub(c("2"), c("Não"), ler_escr
 write.xlsx(ler_escrever_2020, "/Users/wemigliari/Documents/R/tabelas/min_cid_observatorio/sp/2020.xlsx",
            sheetName="Ler & Escrever", append=TRUE)
 
-###13 Seleção de Dados pa GRAU_INSTRUCAO
+###13 Seleção de Dados SP GRAU_INSTRUCAO
 instrucao_2020 <- data.frame(count(munic_2020 , "GRAU_INSTRUCAO"))
 
 instrucao_2020 <- instrucao_2020%>% replace_na(list(GRAU_INSTRUCAO = "Sem Dados"))
@@ -210,7 +212,7 @@ instrucao_2020$GRAU_INSTRUCAO[which(instrucao_2020$GRAU_INSTRUCAO=="6")] <- "Sup
 write.xlsx(instrucao_2020, "/Users/wemigliari/Documents/R/tabelas/min_cid_observatorio/sp/2020.xlsx",
            sheetName="Instrução", append=TRUE)
 
-###14 Seleção de Dados pa CO_CURSO_FREQ_PESSOA_MEMB
+###14 Seleção de Dados SP CO_CURSO_FREQ_PESSOA_MEMB
 curso_2020 <- data.frame(count(munic_2020, "CO_CURSO_FREQ_PESSOA_MEMB"))
 
 curso_2020 <- curso_2020%>% replace_na(list(CO_CURSO_FREQ_PESSOA_MEMB = "Sem Dados"))
@@ -252,7 +254,7 @@ write.xlsx(curso_2020, "/Users/wemigliari/Documents/R/tabelas/min_cid_observator
            sheetName="Cursando", append=TRUE)
 
 
-###15 Seleção de Dados pa CO_PRINCIPAL_TRAB_MEMB
+###15 Seleção de Dados SP CO_PRINCIPAL_TRAB_MEMB
 
 principal_trabalho_2020 <- data.frame(count(munic_2020 , "CO_PRINCIPAL_TRAB_MEMB"))
 
@@ -284,7 +286,7 @@ principal_trabalho_2020$CO_PRINCIPAL_TRAB_MEMB <- gsub(c("1"), c("Informal, Aut�
 write.xlsx(principal_trabalho_2020, "/Users/wemigliari/Documents/R/tabelas/min_cid_observatorio/sp/2020.xlsx",
            sheetName="Principal Trabalho", append=TRUE)
 
-###16 Seleção de Dados pa CO_TRABALHO_12_MESES_MEMB
+###16 Seleção de Dados SP CO_TRABALHO_12_MESES_MEMB
 
 trabalho_12_meses_2020 <- data.frame(count(munic_2020 , "CO_TRABALHO_12_MESES_MEMB"))
 
