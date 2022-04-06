@@ -5,6 +5,7 @@ library(stringr)
 library(readr)
 library(tidyverse)
 library(writexl)
+library(xlsx)
 
 
 ### Tabela 2012 do Ministério das Cidades
@@ -190,6 +191,7 @@ instrucao_2012$GRAU_INSTRUCAO[which(instrucao_2012$GRAU_INSTRUCAO=="2")] <- "Fun
 instrucao_2012$GRAU_INSTRUCAO[which(instrucao_2012$GRAU_INSTRUCAO=="3")] <- "Ensino Médio Incompleto"
 instrucao_2012$GRAU_INSTRUCAO[which(instrucao_2012$GRAU_INSTRUCAO=="4")] <- "Ensino Médio Completo"
 instrucao_2012$GRAU_INSTRUCAO[which(instrucao_2012$GRAU_INSTRUCAO=="5")] <- "Superior"
+instrucao_2012$GRAU_INSTRUCAO[which(instrucao_2012$GRAU_INSTRUCAO=="6")] <- "Superior Completo"
 
 write.xlsx(instrucao_2012, "/Users/wemigliari/Documents/R/tabelas/min_cid_observatorio/vit/2012.xlsx",
            sheetName="Instrução", append=TRUE)
