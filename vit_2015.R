@@ -1,3 +1,12 @@
+library(readxl)
+library(dplyr)
+library(plyr)
+library(stringr)
+library(readr)
+library(tidyverse)
+library(writexl)
+library(xlsx)
+
 brasil_munic_2015  <- read_csv("/Users/wemigliari/Documents/R/tabelas/pop_rua_min_cidades/TB_POP_RUA_201512.csv", 
                                col_names = TRUE)
 
@@ -179,6 +188,8 @@ instrucao_2015$GRAU_INSTRUCAO[which(instrucao_2015$GRAU_INSTRUCAO=="2")] <- "Fun
 instrucao_2015$GRAU_INSTRUCAO[which(instrucao_2015$GRAU_INSTRUCAO=="3")] <- "Ensino Médio Incompleto"
 instrucao_2015$GRAU_INSTRUCAO[which(instrucao_2015$GRAU_INSTRUCAO=="4")] <- "Ensino Médio Completo"
 instrucao_2015$GRAU_INSTRUCAO[which(instrucao_2015$GRAU_INSTRUCAO=="5")] <- "Superior"
+instrucao_2015$GRAU_INSTRUCAO[which(instrucao_2015$GRAU_INSTRUCAO=="6")] <- "Superior Completo"
+
 
 write.xlsx(instrucao_2015, "/Users/wemigliari/Documents/R/tabelas/min_cid_observatorio/vit/2015.xlsx",
            sheetName="Instrução", append=TRUE)
