@@ -1,4 +1,6 @@
 library(readxl)
+library(tidyverse)
+library(dplyr)
 library(ggplot2)
 library(dplyr)
 library(hrbrthemes)
@@ -7,8 +9,11 @@ library(RColorBrewer)
 library(ggrepel)
 library(reshape2)
 library(writexl)
+library(xlsx)
 
-totais <- read_excel("/Users/wemigliari/Documents/R/tabelas/min_cid_observatorio/serie_historica_capitais_observatorio.xlsx")
+
+
+totais <- read_xlsx("/Users/wemigliari/Documents/R/tabelas/min_cid_observatorio/serie_historica_capitais_observatorio.xlsx")
 totais <- data.frame(totais)
 
 # Plot
