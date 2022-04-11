@@ -1,4 +1,4 @@
-library(readxl)
+library(xlsx)
 library(ggplot2)
 library(dplyr)
 library(hrbrthemes)
@@ -7,21 +7,21 @@ library(RColorBrewer)
 library(ggrepel)
 library(reshape2)
 library(writexl)
+library(tidyverse)
 
-totais <- read_excel("/Users/wemigliari/Documents/R/tabelas/min_cid_observatorio/serie_historica_capitais_observatorio.xlsx")
+totais <- read.xlsx("/Users/wemigliari/Documents/R/tabelas/min_cid_observatorio/serie_historica_capitais_observatorio.xlsx",
+                    sheetName = "Municípios R")
 totais <- data.frame(totais)
-totais$Ano<-as.Date(totais$Ano)
-totais$Ano <- as.Date(totais$Ano, format = "%m/%d/%Y")
+
+totais$Ano <- as.Date(totais$Ano, format = "%m/%d/%Y", origin = '2012-12-31')
 
 # Plot
-library(hrbrthemes)
-library(ggrepel)
 
-totais %>%
-  ggplot(aes(x=Ano, y=São.Paulo)) +
+
+  ggplot(totais, aes(x=Ano, y=São.Paulo)) +
   geom_line( color="grey") +
   geom_point(shape=21, color="black", fill="#69b3a2", size=3) +
-  theme_ipsum() +
+  theme_bw() +
   ggtitle("População em Situação de Rua no Município de São Paulo, 2012-2021") +
   labs(x ="", y = "Pessoas em Situação de Rua em São Paulo",
        subtitle = "Série Histórica, Ministério da Cidadania",
@@ -31,7 +31,8 @@ totais %>%
                    box.padding   = 0.45, 
                    point.padding = 0.9,
                    size= 3,
-                   segment.color = 'grey50') 
+                   segment.color = 'grey50') +
+    theme(text=element_text(size=12,  family="Helvetica"))
 
 ###### Auxílio Brasil
 
@@ -126,6 +127,7 @@ ggplot(serie_historica_bf, aes(x = Ano, y = freq, fill = MARC_PBF)) +
 
 
 ###### Cor
+library(readxl)
 
 sp_totais_2021_cor <- read_excel("/Users/wemigliari/Documents/R/tabelas/min_cid_observatorio/sp/2021.xlsx", 
                                    sheet="Cor")
