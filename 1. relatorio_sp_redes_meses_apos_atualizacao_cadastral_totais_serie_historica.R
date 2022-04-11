@@ -206,7 +206,7 @@ ggraph(routes_tidy, layout='graphopt') +
   labs(x ="", y = "Meses Após a Útlima Atualização",
        subtitle = "Série Histórica 2012-2021 de Pessoas em Situação de Rua em São Paulo, Atualização Cadastral",
        caption = "Fonte: Ministério da Cidadania. Elaborado por W. Migliari, 2022.") +
-  theme_graph()
+  theme_graph(base_family = "Helvetica")
 
 
 ggraph(routes_igraph, layout = "linear") + 
@@ -214,6 +214,6 @@ ggraph(routes_igraph, layout = "linear") +
   scale_edge_width(range = c(0.2, 2)) +
   geom_node_text(aes(label = label)) +
   labs(edge_width = "Meses Após a Atualização") +
-  theme_graph()
+  theme_graph(base_family = "Helvetica")
 
 
