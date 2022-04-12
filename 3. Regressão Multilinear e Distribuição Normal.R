@@ -68,7 +68,7 @@ mean(serie_historica_capitais$São.Paulo)
 sd(serie_historica_capitais$São.Paulo)
 
 x1 <- seq(0, 55000, by = 1)
-y1 <- dnorm(x1, mean = 26644, sd = 15418)
+y1 <- dnorm(x1, mean = 26854, sd = 15560)
 
 
 #BH
@@ -100,7 +100,13 @@ x5 <- seq(0, 50000, by = 1)
 y5 <- dnorm(x2, mean = 1515, sd = 1365)
 
 
-par(mfrow = c(1,1), family= "Arial", cex = 0.5, oma = c(4, 1, 1, 4))
+library(extrafont)
+library(remotes)
+remotes::install_version("Rttf2pt1", version = "1.3.8")
+
+extrafont::font_import()
+
+par(mfrow = c(1,1), family= "Helvetica", cex = 1, oma = c(4, 1, 1, 4))
 plot(x5, y5, col = "darkgreen", type = "l", lwd = 2.5,
      xlab = "Pessoas em Situação de Rua",
      ylab = "Probabilidades") 
@@ -110,33 +116,37 @@ lines(x2, y2, col = "lightgray", type = "l", lty = 1, lwd = 2.5)
 lines(x1, y1, col = "gold", type = "l", lty = 1, lwd = 2.5)
 
 
-legend(35000, 0.00025, legend=c("São Paulo", "Belo Horizonte", "Rio de Janeiro", "Distrito Federal", "Salvador"),
+legend(32000, 0.00030, legend=c("São Paulo", "Belo Horizonte", "Rio de Janeiro", "Distrito Federal", "Salvador"),
        col=c("gold", "lightgray","yellowgreen", "olivedrab", "darkgreen"), 
-       title = expression("Capitais"),
-       title.adj = 0.4, lty = 1, lwd = 2.5, box.lty = 0)
+       #title = expression("Capitais"),
+       title.adj = 0.4, lty = 1, lwd = 2.5, box.lty = 0, cex = 0.6,
+       y.intersp=0.4,x.intersp=0.1)
 
-legend(35000, 0.00015,  legend = c("26644  15418", "  7007   3473", "  3733   3500", "  2367   2054", "  1515   1365"), 
+legend(32000, 0.00019,  legend = c("26854  15560", "  7007   3473", "  3733   3500", "  2367   2054", "  1515   1365"), 
        col = c("gold", "lightgray","yellowgreen", "olivedrab", "darkgreen"),
        title = expression(paste(mu, "   ", sigma)),
-       title.adj = 0.5, lty = 1, lwd = 2.5, box.lty = 0)
+       title.adj = 0.4, lty = 1, lwd = 2.5, box.lty = 0, cex = 0.6,
+       y.intersp=0.4,x.intersp=0.1)
 
 
 ## Média Sao Paulo
 
-par(mfrow = c(1,1), family= "Arial", cex = 0.5, oma = c(4, 1, 1, 4))
+par(mfrow = c(1,1), family= "Helvetica", cex = 1, oma = c(4, 1, 1, 4))
 plot(x1, y1, col = "darkgreen", type = "l", lwd = 2.5,
      xlab = "Pessoas em Situação de Rua",
      ylab = "Probabilidades") 
 abline(v = mean(serie_historica_capitais$São.Paulo), col="gray", lwd=0.5, lty=2)
-text(x=mean(serie_historica_capitais$São.Paulo), y= 1.5e-05, "Média 26.644", pos = 2, cex=0.65,col="black") 
-text(x=mean(serie_historica_capitais$São.Paulo), y= 1.4e-05, "Desvio-Padrão 15.418", pos = 2, cex=0.65,col="black") 
+text(x=mean(serie_historica_capitais$São.Paulo), y= 1.5e-05, "Média 26.854", pos = 2, cex=0.65,col="black") 
+text(x=mean(serie_historica_capitais$São.Paulo), y= 1.4e-05, "Desvio-Padrão 15.560", pos = 2, cex=0.65,col="black") 
 
 
 ## Distribuicao de Probabilidades
+mean(serie_historica_capitais$São.Paulo)
+sd(serie_historica_capitais$São.Paulo)
 
-prob_distr_sp <- pnorm(x1, mean = 26644, sd = 15418)
+prob_distr_sp <- pnorm(x1, mean = 26854, sd = 15560)
 
-par(mfrow = c(1,1), family= "Arial", cex = 0.5, oma = c(4, 1, 1, 4))
+par(mfrow = c(1,1), family= "Helvetica", cex = 1.0, oma = c(4, 1, 1, 4))
 plot(x1, prob_distr_sp, col = "darkgreen", type="l", lty=1, lwd = 1,
      xlab = "Pessoas em Situação de Rua em São Paulo",
      ylab = "Distribuição de Probabilidades") 
@@ -144,10 +154,10 @@ plot(x1, prob_distr_sp, col = "darkgreen", type="l", lty=1, lwd = 1,
 
 ## Distribuicao Acumulada
 x11 <- seq(0, 1, by = 0.01)
-distrib_acumul <- qnorm(x11, mean = 26644, sd = 15418)
+distrib_acumul <- qnorm(x11, mean = 26854, sd = 15560)
 
 
-par(mfrow = c(1,1), family= "Arial", cex = 0.5, oma = c(4, 1, 1, 4))
+par(mfrow = c(1,1), family= "Helvetica", cex = 1.0, oma = c(4, 1, 1, 4))
 plot(x11, distrib_acumul, col = "olivedrab", type="l", lty=1, lwd = 1,
      xlab = "Distribuição Acumulada/Quantis",
      ylab = "Pessoas em Situação de Rua em São Paulo") 
