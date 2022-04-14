@@ -1,6 +1,10 @@
 library(readxl)
 library(dplyr)
 library(stringr)
+library(table)
+library(readxl)
+library(readr)
+library(plyr) ### This library counts the values separately
 
 ### Tabela 2012 do Ministério das Cidades
 
