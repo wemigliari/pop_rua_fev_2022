@@ -505,7 +505,7 @@ ggplot(serie_historica_idade, aes(x = Ano, y = freq, fill = FX_ETARIA)) +
 
 
 ###### Escolaridade
-
+library(readxl)
 sp_totais_2021_escolaridade <- read_excel("/Users/wemigliari/Documents/R/tabelas/min_cid_observatorio/sp/2021.xlsx", 
                                 sheet="Instrução")
 sp_totais_2021_escolaridade <- data.frame(sp_totais_2021_escolaridade)
