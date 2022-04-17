@@ -202,7 +202,7 @@ instrucao_2017$GRAU_INSTRUCAO[which(instrucao_2017$GRAU_INSTRUCAO=="2")] <- "Fun
 instrucao_2017$GRAU_INSTRUCAO[which(instrucao_2017$GRAU_INSTRUCAO=="3")] <- "Fundamental Completo"
 instrucao_2017$GRAU_INSTRUCAO[which(instrucao_2017$GRAU_INSTRUCAO=="4")] <- "Ensino Médio Incompleto"
 instrucao_2017$GRAU_INSTRUCAO[which(instrucao_2017$GRAU_INSTRUCAO=="5")] <- "Ensino Médio Completo"
-instrucao_2017$GRAU_INSTRUCAO[which(instrucao_2017$GRAU_INSTRUCAO=="6")] <- "Superior"
+instrucao_2017$GRAU_INSTRUCAO[which(instrucao_2017$GRAU_INSTRUCAO=="6")] <- "Superior Incompleto ou Mais"
 
 
 write.xlsx(instrucao_2017, "/Users/wemigliari/Documents/R/tabelas/min_cid_observatorio/belem/2017.xlsx",
