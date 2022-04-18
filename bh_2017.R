@@ -1,6 +1,10 @@
 library(readxl)
 library(dplyr)
+library(plyr)
 library(stringr)
+library(readr)
+library(tidyverse)
+library(writexl)
 
 ### Tabela 2017 do Ministério das Cidades
 
@@ -17,7 +21,7 @@ renda_2017 <- data.frame(count(munic_2017, "FX_RENDA"))
 
 renda_2017$FX_RENDA <- renda_2017$FX_RENDA[renda_2017$FX_RENDA==c(1, 2, 3, 4)]<-c("Até R$ 89,00", "Entre R$ 89,01 e R$ 178,00", "Até 1/2 Salário Mínimo", "Acima de 1/2 Salário Mínimo")
 
-library(writexl)
+
 library(xlsx)
 write.xlsx(renda_2017, "/Users/wemigliari/Documents/R/tabelas/min_cid_observatorio/bh/2017.xlsx",
            sheetName="Renda", append=TRUE)
@@ -30,18 +34,24 @@ pbf_2017$MARC_PBF <- pbf_2017$MARC_PBF[pbf_2017$MARC_PBF==c(0, 1)]<-c("Sem Dados
 write.xlsx(pbf_2017, "/Users/wemigliari/Documents/R/tabelas/min_cid_observatorio/bh/2017.xlsx",
            sheetName="Bolsa Família", append=TRUE)
 
-###3 Seleção de Dados bhFAMÍLIA INDÍGENA
-fam_ind_2017 <- data.frame(count(munic_2017 , "IN_FAMILIA_INDIGENA_FAM"))
+###3 Seleção de Dados rj FAMÍLIA INDÍGENA
+fam_ind_2017 <- data.frame(count(munic_2017, "IN_FAMILIA_INDIGENA_FAM"))
 
-fam_ind_2017$IN_FAMILIA_INDIGENA_FAM <- fam_ind_2017$IN_FAMILIA_INDIGENA_FAM[fam_ind_2017$IN_FAMILIA_INDIGENA_FAM==c(2)]<-c("Não")
+
+fam_ind_2017 <- fam_ind_2017 %>% replace_na(list(IN_FAMILIA_INDIGENA_FAM = "Sem Dados"))
+fam_ind_2017$IN_FAMILIA_INDIGENA_FAM[which(fam_ind_2017$IN_FAMILIA_INDIGENA_FAM=="1")] <- "Sim"
+fam_ind_2017$IN_FAMILIA_INDIGENA_FAM[which(fam_ind_2017$IN_FAMILIA_INDIGENA_FAM=="2")] <- "Não"
 
 write.xlsx(fam_ind_2017, "/Users/wemigliari/Documents/R/tabelas/min_cid_observatorio/bh/2017.xlsx",
            sheetName="Indígenas", append=TRUE)
 
-###4 Seleção de Dados bhFAMÍLIA QUILOMBOLA
+###4 Seleção de Dados rj FAMÍLIA QUILOMBOLA
 quilom_2017 <- data.frame(count(munic_2017 , "IN_FAMILIA_QUILOMBOLA_FAM"))
 
-quilom_2017$IN_FAMILIA_QUILOMBOLA_FAM <- quilom_2017$IN_FAMILIA_QUILOMBOLA_FAM[quilom_2017$IN_FAMILIA_QUILOMBOLA_FAM==c(2)]<-c("Não")
+quilom_2017  <- quilom_2017%>% replace_na(list(IN_FAMILIA_QUILOMBOLA_FAM = "Sem Dados"))
+quilom_2017$IN_FAMILIA_QUILOMBOLA_FAM[which(quilom_2017$IN_FAMILIA_QUILOMBOLA_FAM=="1")] <- "Sim"
+quilom_2017$IN_FAMILIA_QUILOMBOLA_FAM[which(quilom_2017$IN_FAMILIA_QUILOMBOLA_FAM=="2")] <- "Não"
+
 
 write.xlsx(quilom_2017, "/Users/wemigliari/Documents/R/tabelas/min_cid_observatorio/bh/2017.xlsx",
            sheetName="Quilombolas", append=TRUE)
