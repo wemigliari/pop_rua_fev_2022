@@ -1,0 +1,284 @@
+\documentclass[14pt]{extarticle}
+\usepackage[brazil]{babel}
+\usepackage[fixlanguage]{babelbib}
+\selectbiblanguage{brazil}
+\usepackage{csquotes}
+\setlength{\parindent}{0pt}
+\usepackage[utf8]{inputenc}
+\usepackage{csquotes}
+\usepackage{booktabs}
+\usepackage{colortbl}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[normalem]{ulem}
+\usepackage{soul}
+\usepackage{setspace}
+
+%\addto\captionsportuguese{\renewcommand{\figurename}{Gráfico}}
+
+\renewcommand{\figurename}{Gráfico}
+\renewcommand{\tablename}{Tabela}
+
+\usepackage[framemethod=tikz]{mdframed}
+\usepackage{pifont}
+
+\usetikzlibrary{shadows}
+\newmdenv[
+shadow=true]{mynote}
+
+\usepackage{lmodern}
+%\usepackage{libertine}
+%\usepackage{libertinust1math}
+
+%\setmainfont{Arial}
+\newcommand\myfontsize{\fontsize{25pt}{25pt}\selectfont}
+\usepackage[a4paper, tmargin=3cm, rmargin=3cm, bmargin=3cm, lmargin=3cm]{geometry}
+
+
+%\usepackage{fontspec}
+%\setmainfont{Helvetica Neue Light}[ItalicFont=Helvetica Neue Light Italic,]
+%\usepackage[T1]{fontenc} % special characters
+%\usepackage[backend=bibtex, sorting=none]{biblatex}
+%\addbibresource{rbib}
+\usepackage[natbibapa]{apacite} % APA
+%\usepackage{natbib}
+%\usepackage[alf]{abntex2cite}
+%\usepackage{abntex2cite}
+
+
+\usepackage[shortlabels]{enumitem}
+\usepackage{hologo}
+\usepackage{ragged2e}
+\usepackage{nicefrac}
+\usepackage[normalem]{ulem}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage[justification=centering]{caption}
+\usepackage{adjustbox}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{caption}    
+\newcommand\setItemnumber[1]{\setcounter{enumi}{\numexpr#1-1\relax}}
+\usepackage{array}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
+
+
+%\usepackage[usenames,dvipsnames, table]{xcolor}
+
+\renewcommand{\figurename}{Gráfico}
+\renewcommand{\tablename}{Tabela}
+\usepackage{afterpage}
+
+\usepackage{float}
+\usepackage{subfig}
+\usepackage{graphicx}
+\newcommand\sbullet[1][.5]{\mathbin{\vcenter{\hbox{\scalebox{#1}{$\bullet$}}}}}
+
+\usepackage{pdflscape}
+\usepackage{everypage}
+\newcommand{\Lpagenumber}{\ifdim\textwidth=\linewidth\else\bgroup % defining the number at the bottom of a landscapepage
+  \dimendef\margin=0 %use \margin instead of \dimen0
+  \ifodd\value{page}\margin=\oddsidemargin
+  \else\margin=\evensidemargin
+  \fi
+  \raisebox{\dimexpr -\topmargin-\headheight-\headsep-0.5\linewidth}[0pt][0pt]{%
+    \rlap{\hspace{\dimexpr \margin+\textheight+\footskip}%
+    \llap{\rotatebox{90}{\thepage}}}}%
+\egroup\fi}
+\AddEverypageHook{\Lpagenumber}%
+
+
+\usepackage[colorlinks=True]{hyperref}
+\hypersetup{
+allcolors=blue,
+}
+
+
+
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{thmtools}
+\declaretheoremstyle[
+spaceabove=6pt, spacebelow=6pt,
+headfont=\normalfont\bfseries,
+notefont=\mdseries, notebraces={(}{)},
+bodyfont=\normalfont,
+postheadspace=0.6em,
+headpunct=:
+]{mystyle}
+\declaretheorem[style=mystyle, name=Hypothesis, preheadhook={\renewcommand{\thehyp}{H\textsubscript{\arabic{hyp}}}}]{hyp}
+
+\usepackage{cleveref}
+\crefname{hyp}{hypothesis}{hypotheses}
+\Crefname{hyp}{Hypothesis}{Hypotheses}
+%
+
+\usepackage{mwe, tikz}
+\usetikzlibrary{trees}
+\usepackage{incgraph}
+\renewcommand{\contentsname}{SUMÁRIO}
+\renewcommand{\listfigurename}{LISTA DE GRÁFICOS}
+\renewcommand{\listtablename}{LISTA DE TABELAS}
+
+\usepackage{eso-pic, graphicx}
+\usepackage{transparent}
+\usepackage{setspace}
+
+\setlength{\footnotesep}{0.8pc}
+\renewcommand{\footnotesize}{\fontsize{9pt}{11pt}\selectfont}
+
+\begin{document}
+\newgeometry{top=2cm, bottom=1cm} 
+\thispagestyle{empty}
+\AddToShipoutPictureBG*{%
+\includegraphics[width=\paperwidth,height=\paperheight]{gráficos/capa.png}%
+}
+
+\includegraphics[scale=0.21]{gráficos/observatorio_colorido.png}
+%\hfill \break
+%\noindent\makebox[\textwidth]{\includegraphics[width=10cm]{gráficos/polos_logo.png}}
+
+%CAPA
+
+%\begin{minipage}{6.64cm}
+%\hfill
+%\vspace{0.3cm}
+%{\textcolor{RedOrange}{\Large\textbf{polos de cidadania}}}
+%\end{minipage}
+
+\begin{center}
+\vspace{3cm}
+{\textcolor{CadetBlue}{\large\textbf{\uppercase{Para Entender a Nota Técnica}}}}\\
+\vspace{2cm}
+{\textcolor{CadetBlue}{\Large\textbf{O que o CadÚnico pode nos dizer sobre o fenômeno da população em situação de rua no Município de São Paulo?}}}\\
+\vspace{0.1cm}
+{\textcolor{red}{\Large\textsc{}}}\\
+\vspace{0.1cm}
+{\textcolor{red}{\Large\textsc{}}}
+\vspace{0.1cm}
+{\textcolor{red}{\Large\textsc{}}}
+\end{center}
+
+\vspace{6cm}
+
+\hfill%
+\begin{minipage}[t]{14cm}
+\begin{flushright}
+{\textcolor{CadetBlue}{\large\textbf{André Luiz Freitas Dias}}}\\
+\vspace{0.2cm}
+{\textcolor{CadetBlue}{\large\textbf{Wellington Migliari}}}\\
+\vspace{0.8cm}
+\end{flushright}
+\end{minipage}
+
+\vspace{4.5cm}
+\noindent\makebox[\textwidth]{\includegraphics[scale=0.04]{gráficos/polos_logo.png}}
+\restoregeometry
+\newpage
+
+\setcounter{page}{1}
+\begin{center}
+\section*{O QUE O CADÚNICO PODE NOS DIZER SOBRE O FENÔMENO DA POPULAÇÃO EM SITUAÇÃO DE RUA NO MUNICÍPIO DE SÃO PAULO?}
+\end{center}
+\vspace{1cm}
+
+Pontos fundamentais da Nota Técnica do Observatório Brasileiro de Políticas Públicas com a População em Situação de Rua/Polos-UFMG sobre a aplicação do CadÚnico com as pessoas em situação de rua no município de São Paulo:\\
+
+\begin{enumerate}
+  \item O fenômeno social da população em situação de rua apresenta grande complexidade em todo o mundo, mas, no Brasil, possui características muito peculiares, sendo nítida a relação com um passado/presente escravagista e com o Racismo Estrutural, historicamente praticado e perpetuado em nosso país. 
+  \item O fenômeno da população em situação de rua tem cor e uma estreita relação com o Racismo Estrutural no Brasil, sendo imprescindível o reconhecimento das históricas violações de direitos e crimes praticados contra vidas negras atuais e de seus antepassados na elaboração e implantação de qualquer política pública de reparação e de garantia de direitos a essas pessoas, famílias e comunidades em nosso país.
+  \item Uma primeira e urgente medida que deveria ser assegurada à população em situação de rua em todos os Estados e municípios brasileiros é a sua ampla inclusão, não somente nos Censos realizados pelo IBGE, mas nas diversas bases de dados administrativas utilizadas no país, como o CadÚnico, que não possui qualquer pretensão censitária, mas nos possibilita uma visualização e compreensão acerca desse complexo fenômeno social, além de ser um instrumento fundamental para o acesso a benefícios sociais, como o Auxílio Brasil (Bolsa Família), o BPC e outros. A Tabela \ref{tab:nivel_cobertura} indica como o CadÚnico obteve avanços na última década, embora regredido aos patamares de 2017 em 2021.
+ \end{enumerate}
+
+\begin{landscape}
+\pagestyle{empty}
+
+\begin{table}[htbp]
+  \centering
+  \caption{Quantitativo Absoluto e Percentual da Cobertura do CadÚnico nos Municípios Brasileiros}
+      \tabcolsep=0.60cm
+	\renewcommand{\arraystretch}{2.3}
+	\begin{adjustbox}{max width=\linewidth}
+    \begin{tabular}{rrr}
+    \toprule
+    \multicolumn{3}{c}{O Cadastro Único para Programas Sociais do Governo Federal (CadÚnico) com a População em Situação de Rua no Brasil} \\
+    \midrule
+    \rowcolor[rgb]{ .267,  .447,  .769} \multicolumn{1}{c}{\textcolor[rgb]{ 1,  1,  1}{Ano}} & \multicolumn{1}{c}{\textcolor[rgb]{ 1,  1,  1}{Municípios Participantes na Coleta de Dados}} & \multicolumn{1}{c}{\textcolor[rgb]{ 1,  1,  1}{(\%) de Cobertura no País - Total de Municípios Participantes sobre o Total no Brasil (5570)}} \\
+    \midrule
+    \rowcolor[rgb]{ .851,  .851,  .851} \multicolumn{1}{c}{2012} & \multicolumn{1}{c}{607} & \multicolumn{1}{c}{10.90\%} \\
+    \rowcolor[rgb]{ .851,  .851,  .851} \multicolumn{1}{c}{2013} & \multicolumn{1}{c}{916} & \multicolumn{1}{c}{16.45\%} \\
+    \rowcolor[rgb]{ .851,  .851,  .851} \multicolumn{1}{c}{2014} & \multicolumn{1}{c}{1122} & \multicolumn{1}{c}{20.14\%} \\
+    \rowcolor[rgb]{ .851,  .851,  .851} \multicolumn{1}{c}{2015} & \multicolumn{1}{c}{1267} & \multicolumn{1}{c}{22.75\%} \\
+    \rowcolor[rgb]{ .851,  .851,  .851} \multicolumn{1}{c}{2016} & \multicolumn{1}{c}{1426} & \multicolumn{1}{c}{25.60\%} \\
+    \rowcolor[rgb]{ .851,  .851,  .851} \multicolumn{1}{c}{2017} & \multicolumn{1}{c}{2092} & \multicolumn{1}{c}{37.56\%} \\
+    \rowcolor[rgb]{ .851,  .851,  .851} \multicolumn{1}{c}{2018} & \multicolumn{1}{c}{2754} & \multicolumn{1}{c}{49.44\%} \\
+    \rowcolor[rgb]{ .851,  .851,  .851} \multicolumn{1}{c}{2019} & \multicolumn{1}{c}{3208} & \multicolumn{1}{c}{57.59\%} \\
+    \rowcolor[rgb]{ .851,  .851,  .851} \multicolumn{1}{c}{2020} & \multicolumn{1}{c}{3435} & \multicolumn{1}{c}{61.67\%} \\
+    \rowcolor[rgb]{ .851,  .851,  .851} \multicolumn{1}{c}{2021} & \multicolumn{1}{c}{2055} & \multicolumn{1}{c}{36.89\%} \\
+    \midrule
+    \multicolumn{3}{r}{Fonte: Ministério da Cidadania, Série Histórica CadÚnico 2012-2021. Metadados do Observatório Brasileiro de Políticas Públicas com a População em Situação de Rua.} \\
+    \end{tabular}%
+    \end{adjustbox}
+  \label{tab:nivel_cobertura}%
+\end{table}%
+\end{landscape}
+
+
+\begin{enumerate}
+ \item[4.] Em tempos de pandemia, crise sanitária e humanitária em todo o mundo, são inadmissíveis as taxas de subnotificação presentes no CadÚnico na maioria dos municípios brasileiros. Segundo constatado pelo Observatório Brasileiro de Políticas Públicas com a População em Situação de Rua/Polos-UFMG, a subnotificação média nacional de registros com pessoas em situação de rua na base de dados do CadÚnico, em março de 2020, era de 33\% \citep{dias}. 
+  \item[5.] De acordo com Relatório Técnico produzido pelo Ministério da Cidadania - Secretaria Nacional de Renda e Cidadania e Secretaria Nacional do Cadastro Único, A Taxa de Atualização Cadastral (TAC) do CadÚnico no Município de São Paulo é de 52,12\%, enquanto que a média nacional encontra-se em 67,77\%. Como mencionado no referido Relatório: 
+\end{enumerate}
+
+\begin{trivlist}\leftskip=4cm
+\item\small Isso significa que o cadastro no município \textbf{\underline{não} está bem focalizado e atualizado}, o que fará com que o município {\textcolor{red}{não receba}} os recursos federais para gestão do programa (ver item 3, sobre o Índice de Gestão Descentralizada). Isso indica que a gestão necessita identificar onde estão as famílias com renda de até ½ salário mínimo por pessoa e com cadastro desatualizado, a fim de atualizar seus dados no Cadastro Único. Para tanto, indicamos algumas ações que podem ajudar o município nessa tarefa, como: realizar ações itinerantes, mutirões, alertar as famílias sobre a necessidade de manter suas informações atualizadas no Cadastro Único e procurar garantir que essas informações estejam corretas. (Grifos iniciais e destaques em cores presentes no próprio documento do Ministério da Cidadania e gerado em 07/06/2022. O trecho final sublinhado é de responsabilidade da equipe do Observatório Brasileiro de Políticas Públicas com a População em Situação de Rua/Polos-UFMG).
+\end{trivlist}
+
+\begin{enumerate}
+  \item[6.] Segundo o mesmo Relatório Técnico do Ministério da Cidadania:  
+\end{enumerate}
+
+\begin{trivlist}\leftskip=4cm
+\item\small O Índice de Gestão Descentralizada para os municípios (IGD-M) mede mensalmente as Taxas de Atualização Cadastral e de Acompanhamento das Condicionalidades de Educação e Saúde. Importante informar que, devido à pandemia de Covid-19, essas taxas estão congeladas, isto é, para o cálculo do IGD estão sendo utilizados como referência os valores de fevereiro de 2020.\\
+
+Com base nesse Índice, que varia de 0 (zero) a 1 (um), são calculados os repasses financeiros que o Ministério da Cidadania realiza aos municípios para ajudar na gestão do Cadastro Único e do Auxílio Brasil.
+O repasse desses recursos é realizado pelo Fundo Nacional de Assistência Social (FNAS) para o Fundo Municipal de Assistência Social (FMAS) do município. O último repasse foi de \textbf{R\$ 1.937.810,00} com base no índice \textbf{0,78} do IGD-M referente ao mês de \textbf{outubro de 2021}.\\
+
+Se o IGD-M do município alcançasse o máximo, ou seja, fosse igual a 1 (um), o município receberia R\$ 2.512.662,75 mensalmente.
+Os valores financeiros calculados com base no IGD-M e repassados ao município no exercício corrente somam o montante de \textbf{R\$ 16.858.951,08}. Em \text{abril de 2022}, havia em conta corrente do município (BL GBF FNAS) o total de \textbf{R\$ 74.958,77}. (Grifos iniciais e destaques em cores presentes no próprio documento do Ministério da Cidadania e gerado em 07/06/2022)
+\end{trivlist}
+
+\begin{enumerate}
+  \item[7.] A partir dos testes estatísticos realizados pela nossa equipe do Observatório Brasileiro de Políticas Públicas com a População em Situação de Rua/Polos-UFMG, procuramos compreender como os dados registrados com a população em situação de rua se comportavam ou se comportam no CadÚnico, chegando a algumas considerações, tais como: 
+  \begin{enumerate}
+  \item[7.a)] Não há um saturamento do sistema do CadÚnico, sendo possível alimentá-lo e inserir ainda mais dados que os já registrados com as pessoas em situação de rua no município; 
+  \item[7.b)] Mais dados e maior a atualização cadastral tendem a elevar a qualidade das séries históricas do CadÚnico relacionadas à população em situação de rua;
+  \item[7.c).] Os dados do cadastro referentes à cidade de São Paulo são os que apresentam maiores problemas de qualidade em comparação com as outras capitais brasileiras mencionadas na Nota Técnica elaborada pelo Observatório (Belo Horizonte, Rio de Janeiro, Distrito Federal e Salvador); 
+  \item[7.d)] Será mais comum encontrar outras cidades do país com uma população em situação de rua cujas médias se pareçam mais com as do Distrito Federal e Salvador que São Paulo, Belo Horizonte e Rio de Janeiro; 
+  \item[7.e)] Dada a elevada média para a cidade de São Paulo, a probabilidade de que o CadÚnico de outras cidades opere sob algum tipo de esgotamento de recursos é muito pequena; 
+  \item[7.f)]  Os níveis de desatualização cadastral do CadÚnico na cidade de São Paulo para a população em situação de rua são enormes; 
+  \item[7.g)]  A desatualização cadastral do CadÚnico está enviesando os resultados obtidos na série histórica; 
+  \item[7.h)] A inclusão de dados e a expansão do sistema demandam, concomitantemente, o reforço das pesquisas itinerantes e busca ativa a fim de que o CadÚnico seja atualizado de maneira coordenada. 
+\end{enumerate}
+
+  \item[8.] Se somarmos os percentuais relativos à extrema pobreza, pobreza, baixa renda e pessoas com ganhos superiores a 1/2 salário mínimo, embora estas ainda em situação de vulnerabilidade socioeconômica, chegaremos ao percentual de 29,5\% ou ao número de pouco mais de 3.5 milhões de pessoas afetadas por algum nível de pobreza na cidade de São Paulo. 
+  \item[9.] Os dados sobre pobreza centrípeta urbana nos auxiliam na compreensão do fenômeno da população em situação de rua na cidade de São Paulo.
+  \item[10.] Como os níveis de vulnerabilidade socioeconômica aumentam no município de São Paulo, é importante perguntar-se de qual grupo essa demografia da pobreza metropolitana se avizinha. Os estudos sobre a população em situação de rua mostram que o perfil desse segmento social não se define somente pela falta de moradia. Escolaridade, capacidade de ler e escrever e acesso a programas de transferência de renda são alguns dos traços que aproximam os mais pobres daquelas pessoas em situação de rua. 
+  \item[11.] Outro fator associado à vulnerabilidade socioeconômica é a insegurança alimentar tanto de quem está nas ruas quanto daqueles em condição de pobreza.
+  \item[12.] Entendemos que é urgente a inserção de mais cadastros e de atualizações no CadÚnico para o devido acesso da população em situação de rua aos programas sociais brasileiros. Além disso, com o aumento e a atualização dos cadastros do CadÚnico com a população em situação de rua, poderemos (1) definir melhores critérios para a realização de censos e estudos diagnósticos nacionais, regionais e locais; (2) estimular e fortalecer outras bases de dados, como as do Sistema Único de Saúde, e também a interoperabilidade delas. 
+  \item[13.]  A atualização do CadÚnico e sua devida alimentação resultará ainda em mais investimentos na área social, por meio da coleta de dados e sua disponibilização em forma de séries históricas, assim como mais condições para a efetivação de direitos fundamentais da população em situação de rua. Por isso, a liberdade discricionária no poder de decisão das Prefeituras deve estar restringida pelo controle de seus atos de modo que a prática de subnotificação do CadÚnico não se torne um aparato técnico gerador de riscos à vida e propagador de uma política de morte. 
+    \item[14.] Metadados: ao construirmos a nota técnica, especialmente com o intuito de delimitar o perfil da população em situação de rua no Município de São Paulo, utilizamos um \emph{software} chamado R para desagregar os dados fornecidos pelo Ministério da Cidadania. Foram 17 algoritmos desenvolvidos para a decodificação e extração dos dados das 10 tabelas em formato csv que chegaram até ao Observatório Brasileiro de Políticas Públicas com a População em Situação de Rua, Polos-UFMG. A partir da desagregação dessas tabelas, outras 25 tabelas em formato xlsx foram geradas e, a partir delas, gráficos, tabulações e mapas elaborados. 
+    \item[15.] Testes estatísticos: os testes estatísticos buscam avaliar, primeiro, a qualidade dos dados por meio do que chamamos Teste Alpha. Depois, as distribuições normais comparadas cotejam os totais da série histórica 2012-2021 para São Paulo em relação às outras capitais. Lembramos que foram selecionados os cinco maiores CadÚnicos do país, isto é, São Paulo, Belo Horizonte, Rio de Janeiro, Distrito Federal e Salvador. Quanto à Regressão Multilinear, ela foi importante, pois nos revelou se a expansão do CadÚnico em São Paulo possuía alguma correlação com os totais das demais capitais. Vimos que sim, muito embora esse teste estatístico também nos apontou a maior desatualização do cadastro da Cidade de São Paulo em nosso modelo. Quando nos atentamos para o que se denomina \textbf{resíduos do modelo}, por meio de uma representação gráfica de como os totais de São Paulo enviesam os dados fazendo-os se distanciarem de uma linha ajustada, percebemos que a atualização do cadastro é imprescindível para o aumento da qualidade do CadÚnico paulistano. Além disso, como obtivemos um R-Quadrado e um R-Quadrado Ajustado muito próximos de 1, algo muito improvável de ocorrer, os \textbf{resíduos do modelo} nos ajudaram a retornar ao Teste Alpha e calcular a qualidade dos dados retirando e incluindo São Paulo do conjunto da cinco capitais selecionadas para estabelecer, assim, diferentes combinações e poder identificar qual dos municípios tinha menor qualidade de dados em seus totais. São Paulo desponta com qualidade inferior aos demais bancos de dados das outras capitais.
+    \item[16.] Os metadados e os testes estatísticos nos auxiliam não apenas a entender melhor a população em situação de rua no Município de São Paulo, mas ainda nos proporciona identificar qual o perfil do fenômeno e quem são os mais afetados. Podemos saber ainda quem são aqueles que mais sofrem com a desatualização do cadastro por critérios de sexo, cor, renda, escolaridade etc. Como pudemos observar, pretos e pardos são os grupos de maior vulnerabilidade, pois, na falta de atualização do cadastro e não inclusão de novos cadastrados, serão eles os mais expostos ao Racismo Estrutural na forma de uso do poder discricionário da Administração Pública paulistana.
+  \item[17.] Por fim, gostaríamos de salientar o necessário compromisso de reparação histórica que todos os Governos e a sociedade brasileira como um todo deveriam ter com a população em situação de rua em nosso país, sempre respeitando sua centralidade, sua autonomia e seu protagonismo na elaboração e na condução das políticas públicas para a efetivação dos seus direitos. 
+  \item[18.] O nosso desafio ético é trabalhar para que pessoas em situação de rua, majoritariamente negras e historicamente silenciadas, invisibilizadas, patologizadas, criminalizadas, encarceradas e eliminadas nas nossas cidades, possam falar por si próprias e ganhar agência. É preciso, ainda, amplificar e potencializar as vozes dessas pessoas para que cheguem em outros espaços de poder e atuação nas cidades, nos Estados e no país
+\end{enumerate}
+
+%\bibliographystyle{apacite}
+%\bibliographystyle{apalike}
+\begingroup
+\setstretch{1.2}
+\bibliographystyle{apacite}
+\bibliography{rbib.bib} % APA
+\endgroup
+
+\end{document}
