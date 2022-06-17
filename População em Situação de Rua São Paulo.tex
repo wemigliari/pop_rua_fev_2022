@@ -1,0 +1,1977 @@
+\documentclass[14pt]{extarticle}
+\usepackage[brazil]{babel}
+\usepackage[fixlanguage]{babelbib}
+\selectbiblanguage{brazil}
+\usepackage{csquotes}
+\setlength{\parindent}{0pt}
+\usepackage[utf8]{inputenc}
+\usepackage{csquotes}
+\usepackage{booktabs}
+\usepackage{colortbl}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[normalem]{ulem}
+\usepackage{soul}
+\usepackage{setspace}
+\usepackage{titlecaps}
+
+%\addto\captionsportuguese{\renewcommand{\figurename}{Gráfico}}
+
+\renewcommand{\figurename}{Gráfico}
+\renewcommand{\tablename}{Tabela}
+
+\usepackage[framemethod=tikz]{mdframed}
+\usepackage{pifont}
+
+\usetikzlibrary{shadows}
+\newmdenv[
+shadow=true]{mynote}
+
+\usepackage{lmodern}
+%\usepackage{libertine}
+%\usepackage{libertinust1math}
+
+%\setmainfont{Arial}
+\newcommand\myfontsize{\fontsize{25pt}{25pt}\selectfont}
+\usepackage[a4paper, tmargin=3cm, rmargin=3cm, bmargin=3cm, lmargin=3cm]{geometry}
+
+
+%\usepackage{fontspec}
+%\setmainfont{Helvetica Neue Light}[ItalicFont=Helvetica Neue Light Italic,]
+%\usepackage[T1]{fontenc} % special characters
+%\usepackage[backend=bibtex, sorting=none]{biblatex}
+%\addbibresource{rbib}
+\usepackage[natbibapa]{apacite} % APA
+%\usepackage{natbib}
+%\usepackage[alf]{abntex2cite}
+%\usepackage{abntex2cite}
+
+
+\usepackage[shortlabels]{enumitem}
+\usepackage{hologo}
+\usepackage{ragged2e}
+\usepackage{nicefrac}
+\usepackage[normalem]{ulem}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage[justification=centering]{caption}
+\usepackage{adjustbox}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{caption}    
+\newcommand\setItemnumber[1]{\setcounter{enumi}{\numexpr#1-1\relax}}
+\usepackage{array}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
+
+
+%\usepackage[usenames,dvipsnames, table]{xcolor}
+
+\renewcommand{\figurename}{Gráfico}
+\renewcommand{\tablename}{Tabela}
+\usepackage{afterpage}
+
+\usepackage{float}
+\usepackage{subfig}
+\usepackage{graphicx}
+\newcommand\sbullet[1][.5]{\mathbin{\vcenter{\hbox{\scalebox{#1}{$\bullet$}}}}}
+
+\usepackage{pdflscape}
+\usepackage{everypage}
+\newcommand{\Lpagenumber}{\ifdim\textwidth=\linewidth\else\bgroup % defining the number at the bottom of a landscapepage
+  \dimendef\margin=0 %use \margin instead of \dimen0
+  \ifodd\value{page}\margin=\oddsidemargin
+  \else\margin=\evensidemargin
+  \fi
+  \raisebox{\dimexpr -\topmargin-\headheight-\headsep-0.5\linewidth}[0pt][0pt]{%
+    \rlap{\hspace{\dimexpr \margin+\textheight+\footskip}%
+    \llap{\rotatebox{90}{\thepage}}}}%
+\egroup\fi}
+\AddEverypageHook{\Lpagenumber}%
+
+
+\usepackage[colorlinks=True]{hyperref}
+\hypersetup{
+allcolors=blue,
+}
+
+
+
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{thmtools}
+\declaretheoremstyle[
+spaceabove=6pt, spacebelow=6pt,
+headfont=\normalfont\bfseries,
+notefont=\mdseries, notebraces={(}{)},
+bodyfont=\normalfont,
+postheadspace=0.6em,
+headpunct=:
+]{mystyle}
+\declaretheorem[style=mystyle, name=Hypothesis, preheadhook={\renewcommand{\thehyp}{H\textsubscript{\arabic{hyp}}}}]{hyp}
+
+\usepackage{cleveref}
+\crefname{hyp}{hypothesis}{hypotheses}
+\Crefname{hyp}{Hypothesis}{Hypotheses}
+%
+
+\usepackage{mwe, tikz}
+\usetikzlibrary{trees}
+\usepackage{incgraph}
+\renewcommand{\contentsname}{SUMÁRIO}
+\renewcommand{\listfigurename}{LISTA DE GRÁFICOS}
+\renewcommand{\listtablename}{LISTA DE TABELAS}
+
+\usepackage{eso-pic, graphicx}
+\usepackage{transparent}
+\usepackage{setspace}
+
+\setlength{\footnotesep}{0.8pc}
+\renewcommand{\footnotesize}{\fontsize{9pt}{11pt}\selectfont}
+
+\begin{document}
+\newgeometry{top=2cm, bottom=1cm} 
+\thispagestyle{empty}
+\AddToShipoutPictureBG*{%
+\includegraphics[width=\paperwidth,height=\paperheight]{gráficos/capa.png}%
+}
+
+\includegraphics[scale=0.21]{gráficos/observatorio_colorido.png}
+%\hfill \break
+%\noindent\makebox[\textwidth]{\includegraphics[width=10cm]{gráficos/polos_logo.png}}
+
+%CAPA
+
+%\begin{minipage}{6.64cm}
+%\hfill
+%\vspace{0.3cm}
+%{\textcolor{RedOrange}{\Large\textbf{polos de cidadania}}}
+%\end{minipage}
+
+\begin{center}
+\vspace{5cm}
+{\textcolor{red}{\Large\textbf{O que o CadÚnico pode nos dizer sobre o fenômeno da população em situação de rua no Município de São Paulo?}}}\\
+\vspace{0.1cm}
+{\textcolor{red}{\Large\textsc{}}}\\
+\vspace{0.1cm}
+{\textcolor{red}{\Large\textsc{}}}
+\vspace{0.1cm}
+{\textcolor{red}{\Large\textsc{}}}
+\end{center}
+
+\vspace{6cm}
+
+\hfill%
+\begin{minipage}[t]{14cm}
+\begin{flushright}
+{\textcolor{red}{\large\textbf{André Luiz Freitas Dias}}}\\
+\vspace{0.2cm}
+{\textcolor{red}{\large\textbf{Wellington Migliari}}}\\
+\vspace{0.8cm}
+\end{flushright}
+\end{minipage}
+
+\vspace{4.5cm}
+\noindent\makebox[\textwidth]{\includegraphics[scale=0.04]{gráficos/polos_logo.png}}
+\restoregeometry
+\newpage
+
+% Folha de Rosto
+\thispagestyle{empty}
+
+\begin{center}
+\vspace{2cm}
+{\Large\textsc\textbf{O que o CadÚnico pode nos dizer sobre o fenômeno da população em situação de rua no Município de São Paulo?}}\\
+\vspace{0.5cm}
+{\Large\textsc\textbf{}}\\
+\vspace{0.1cm}
+{\Large\textsc\textbf{}}\\
+\vspace{0.1cm}
+{\Large\textsc\textbf{}}\\
+\end{center}
+\hfill
+\begin{minipage}{8cm}
+\vspace{4cm}
+Nota Técnica elaborada pelo Observatório Brasileiro de Políticas Públicas com a População em Situação de Rua, plataforma de conhecimento e comunicação em direitos humanos vinculada ao Programa Transdisciplinar Polos de Cidadania da Universidade Federal de Minas Gerais (UFMG), com análises sobre a aplicação do Cadastro Único para Programas Sociais do Governo Federal (CadÚnico) com a população em situação de rua no Município de São Paulo.
+\end{minipage}
+
+\begin{center}
+\vspace{5cm}
+{\normalsize{Junho}}\\
+{\normalsize{2022}}\\
+\end{center}
+\newpage
+
+% Ficha Catalográfica
+
+\thispagestyle{empty}
+
+
+\begin{table}
+\vspace{1cm}
+
+{\textsc\textbf{Ficha Catalográfica da Nota Técnica}}
+\vspace{1cm}
+
+\small
+\begin{tabular}{|p{2.2cm}@{\hskip 0mm}  p{12cm}@{\hskip 4mm} p{0cm} |}
+	\hline
+         &      &      &  
+	\multirow[t]{2}{*}{D541d} & DIAS, André Luiz Freitas; MIGLIARI, Wellington. &  \\
+	\multirow[t]{2}{*}{R425d} & O que o CadÚnico pode nos dizer sobre o fenômeno da população em situação de rua no Município de São Paulo? Observatório Brasileiro de Políticas Públicas com a População em Situação de Rua. Programa Polos de Cidadania, Faculdade de Direito, Universidade Federal de Minas Gerais. André Luiz Freitas Dias, Wellington Migliari. – Belo Horizonte: Marginália Editora, 2022. p. 107. & \\[0.3cm]
+	\multirow[t]{2}{*}{ISBN:} & 978-65-86750-09-6  &  \\
+	\multirow[t]{2}{*}{Formato:} & Livro Digital  &  \\
+	\multirow[t]{2}{*}{Veiculação:} & Digital  &  \\ 
+	\multirow[t]{2}{*} & I. População em Situação de Rua II. Dados do CadÚnico III. Violação de Direitos IV. Direitos Humanos V. Direito &  \\
+	%\multirow[t]{2}{*} & CDD. XXX.XX & & 
+         &      &      &  
+	\hline
+\end{tabular}%
+\end{table}
+     
+\hfill%
+\begin{minipage}{18cm}
+\vspace{2cm}
+\noindent\textbf{Projeto Gráfico:} W. Migliari \textsc{\hologo{LaTeX}}\\
+\noindent\textbf{Capa:} W. Migliari QGIS\\
+\noindent\textbf{Revisão Textual:} Raquel Araújo Monteiro\\
+\noindent\textbf{Instagram} \href{https://www.instagram.com/polosdecidadania/}{@polosdecidadania}\\
+\noindent\textbf{Documento disponível gratuitamente no site:} \href{https://polos.direito.ufmg.br/}{Polos-UFMG} 
+
+
+\vspace{2cm}
+\end{minipage}
+
+\newpage
+
+% Ficha Técnica
+
+\thispagestyle{empty}
+
+\vspace{1cm}
+%\includegraphics[scale=0.1]{gráficos/observatorio_preto_branco.png}
+\hfill\allowbreak
+\begin{minipage}{\textwidth}
+\vspace{2cm}
+\noindent\textbf{FICHA TÉCNICA}\\
+\vspace{1cm}
+
+\noindent\textbf{Coordenação Geral\\ Programa Transdisciplinar do Programa Polos de Cidadania\\ Universidade Federal de Minas Gerais}\\
+\vspace{0.2cm}
+
+\noindent\textbf{Coordenação Geral}\\
+Prof. Dr. André Luiz Freitas Dias\\
+Prof. Fernando Antônio de Melo (Dramaturgo Fernando Limoeiro)\\
+Profa. Dra. Marcella Furtado de Magalhães Gomes\\
+Profa. Dra. Maria Fernanda Salcedo Repolês\\
+Profa. Dra. Miracy Barbosa de Sousa Gustin\\
+Profa. Dra. Sielen Barreto Caldas de Vilhena\\
+\vspace{1cm}
+
+\noindent\textbf{Observatório Brasileiro de Políticas Públicas\\ com a População em Situação de Rua}\\
+\vspace{0.2cm}
+
+\noindent\textbf{Coordenação Geral e Acadêmica}\\
+Prof. Dr. André Luiz Freitas Dias\\
+Prof. Dra. Maria Fernanda Salcedo Repolês\\
+Profa. Dra. Ludmila Mendonça Lopes Ribeiro
+\vspace{1cm}
+
+\noindent\textbf{Nota Técnica}\\
+\noindent\textbf{Pesquisadores-Extensionistas Responsáveis}\\
+Prof. Dr. André Luiz Freitas Dias\\
+Dr. Wellington Migliari\\
+\end{minipage}
+
+
+% Índice, Lista de Figuras e Tabelas
+
+\newpage
+\thispagestyle{empty}
+\doublespacing
+\tableofcontents
+\newpage
+\listoffigures
+\newpage
+\listoftables
+\singlespacing
+
+\newpage
+
+\setcounter{section}{0}
+\setcounter{page}{1}
+\doublespacing
+
+\begin{center}
+\section*{QUEM SOMOS OU QUAL É O NOSSO LUGAR DE FALA?}
+\end{center}
+\vspace{1cm}
+
+Costumeiramente um documento como este iniciaria o texto a partir de perguntas ou problemas técnicos identificados e/ou formulados, hipóteses, marcos teóricos e outros elementos constitutivos de materiais de divulgação científica. Esse formato tradicional já toma como ponto de partida uma postura, normalmente não explicitada pelas(os) autoras(es), perante a sociedade, a ciência e o conhecimento construído. Fazemos questão de começar esta Nota Técnica de uma maneira diferente da tradicional e mais coerente com a nossa trajetória de 27 anos de atuação no campo dos direitos humanos.\\
+
+O Polos é um programa transdisciplinar de extensão, ensino e pesquisa social aplicada, sediado na Faculdade de Direito da Universidade Federal de Minas Gerais, que dialoga com pessoas, famílias e comunidades com históricos de exclusões e trajetórias de violações de direitos e sofrimentos sociais\footnote{Para mais informações sobre a criação do Polos na Universidade Federal de Minas Gerais (Polos-UFMG), em 1995, à época sob coordenação da Profª. Drª. Miracy Barbosa de Sousa Gustin e do Prof. Dr. Menelick de Carvalho Netto, sugerimos que ouçam o episódio “O Início”, no Spotify, disponível em: \href{https://open.spotify.com/episode/1CVZPpNVsOnJcbsOpXUdMN?si=GNnRz4O6TBeieJzg6B4ISA&utm_source=whatsapp}{Polos Podcast: o podcast da cidadania}.}.\\
+
+Contando com a participação de pesquisadoras(es)-extensionistas das mais diversas áreas do conhecimento, nossos principais objetivos são (1) contribuir com a luta por direitos humanos e fundamentais junto às populações historicamente vulnerabilizadas por diversas violências estruturais, como o Racismo, o Patriarcado e as inúmeras condições de desigualdades sociais vivenciadas no Brasil decorrentes do sistema econômico vigente; e (2) a construção artesanal do conhecimento por meio do diálogo entre diferentes saberes\footnote{De acordo com Boaventura de Sousa Santos, no livro O fim do império cognitivo: a afirmação das epistemologias do Sul, saberes artesanais podem ser concebidos como saberes práticos, empíricos, populares, que não são produzidos de maneira separada, desvinculada de outras práticas sociais \citep{boaventura}.}.\\
+
+Nossas metodologias de atuação são participativas, coletivas, colaborativas e não-extrativistas ou pós-extrativistas\footnote{As metodologias não-extrativistas ou pós-extrativistas são desenvolvidas a partir da intensa cooperação entre sujeitos de saberes, científicos e artesanais, com respeito aos múltiplos modos de existir e resistir no mundo \citep{acosta}}. Elas unem a prática extensionista\footnote{Para mais informações sobre a prática extensionista do Polos-UFMG e seus principais referenciais de trabalho, indicamos a leitura dos livros de Paulo Freire “Extensão ou Comunicação?” \citep{freire1}, “Educação e Mudança” \citep{freire2} e “Pedagogia da Autonomia \citep{freire3}; e de bell hooks, “Ensinando a transgredir” \citep{hooks}. Sugerimos ainda a leitura do artigo da Profª. Drª. Miracy Barbosa de Sousa Gustin, “Efetividade da Governança Social em comunidades periféricas e de exclusão: algumas questões de fundo”, publicado na Revista Brasileira de Estudos Políticos em 2008. Disponível no link: \href{https://periodicos.ufmg.br/index.php/rbep/article/view/18249/15038}{https://periodicos.ufmg.br}}, coração do Programa, com a pesquisa e a proposta de pedagogia engajada, em um intenso entrecruzamento e troca de experiências sentipensantes\footnote{Aprendemos com Orlando Fals Borda, pesquisador, militante e sociólogo colombiano, que é possível e necessária a combinação de mente e coração para o desenvolvimento de um outro processo de ensino-aprendizagem e de atuação no mundo, no qual todas as pessoas e as comunidades sejam profundamente afetadas pelos encontros ocorridos, em contraposição a uma suposta neutralidade e a um distanciamento ideologicamente defendidos por alguns cientistas. Para mais informações sobre a obra de Orlando Fals Borda, indicamos a antologia “Uma sociologia sentipensante para América Latina”, organizada por Victor Manuel Moncayo e disponível na biblioteca virtual do Conselho Latino-americano de Ciências Sociais \citep{borda}. Disponível em: \href{http://bibliotecavirtual.clacso.org.ar/ar/libros/coedicion/fborda/fborda.pdf}{Biblioteca CLACSO}.}, sendo os trabalhos estruturados em cinco plataformas de conhecimento e comunicação em direitos humanos\footnote{Por multiplataformas de conhecimento e comunicação em direitos humanos, compreendemos, no Polos-UFMG, os espaços de intercâmbio, diálogo, conversação, participação, construção coletiva e colaborativa de conhecimento, de valorização de múltiplos modos de existência e resistência, de polifonia de posições e disposições, de polinização de ideias, de coprodução multi-autoral, e, por fim, de fortalecimento de redes de cuidado e atenção em direitos humanos.}. São elas: a Plataforma Áporo, a Trupe A Torto e a Direito, a Escola de Direitos Humanos e Cidadania, a PADHu e o Observatório Brasileiro de Políticas Públicas com a população em situação de rua.\\
+
+A Plataforma Áporo\footnote{A Plataforma Áporo foi nomeada a partir do poema de mesmo nome de Carlos Drummond de Andrade, presente no seu livro \emph{A Rosa do Povo}, escrito no período de 1943 a 1945, \citep{andrade}.} congrega projetos de extensão, ensino e pesquisa social aplicada construídos em diálogo e coletivamente com pessoas, famílias e comunidades vulnerabilizadas por conflitos e desastres urbanos, hídricos, sociais e ambientais em vários territórios e municípios de Minas Gerais. Esses projetos concentram-se mais nos efeitos, nas violações de direitos e nos danos provocados pela intensa e violenta exploração extrativista minerária, que, desde os tempos coloniais, e ainda hoje, é mantida no centro da atividade econômica no Estado, por um complexo processo histórico espetacular integrado\footnote{Tendo por referência o livro de Guy Debord, A Sociedade do Espetáculo e seus comentários \citep{guy}, somente publicado no Brasil em 2017, compreendemos o Espetáculo Integrado como uma inovação tecnológica de controle da sociedade; a qual impõe uma verdade única e abole memórias históricas; busca a superação das tensões entre os poderes espetaculares, sejam concentrados (com a sua ideologia da verdade do Estado Totalitário) e difusos (com predominância na circulação de mercadorias e no consumo de produtos e imagens); e estabelece a fusão econômica e política entre o público e o privado.}, estabelecido por empresas e governos, conhecido como minério-dependência\footnote{No Polos-UFMG, a minério-dependência é entendida como um complexo processo histórico do Espetáculo Integrado, no qual há uma violenta e recorrente tentativa de instauração de história e pensamento únicos e de gestão totalitária das condições de existência e de (re)existência/resistência nos territórios, por parte das Empresas Mineradoras e Governos (e não como uma "condição" dos municípios, Estados e/ou territórios). Procuramos ainda ampliar a análise da minério-dependência para além da questão financeira, mas, ao mesmo tempo, aprofundando o debate necroeconômico.}.\\
+
+Nossos projetos dedicam-se também à compreensão e ao fortalecimento de modos existir e resistir/(re)existir dos corpos-territórios às inúmeras violações de direitos cotidianamente impostas por Empresas e Governos, sempre considerando as centralidades, as autonomias individual, coletiva e política e o protagonismo das pessoas, famílias e comunidades co-partícipes e co-autoras de todos os trabalhos que realizamos.\\ 
+
+Outra Plataforma de Conhecimento e Comunicação em direitos humanos do Polos-UFMG é o grupo teatral dirigido pelo professor e dramaturgo Fernando Limoeiro, a Trupe a Torto e a Direito, em uma parceria de 26 anos entre a Faculdade de Direito e a Escola Técnica de Teatro da UFMG. A Trupe, como carinhosamente é chamada e reconhecida por todas as pessoas e comunidades com as quais dialogamos, desenvolve o seu trabalho a partir de montagens teatrais, utilizando da estética do teatro popular, do teatro de bonecos, como o mamulengo, músicas e cordéis, sempre de maneira lúdica e educativa, abordando várias temáticas no campo dos Direitos Humanos.\\
+
+Os projetos congregados na Escola de Direitos Humanos e Cidadania do Polos-UFMG envolvem desde minicursos de extensão, disciplinas regulares e transversais\footnote{Para mais informações sobre as Formações Transversais oferecidas pela UFMG, acessar o link: \href{https://www.ufmg.br/prograd/formacao-transversal/}{Pró-Reitoria de Graduação Prograd}.}, a propostas de atualização, aperfeiçoamento e especialização, oferecidos a toda sociedade brasileira, presencialmente ou de maneira virtual.\\
+
+A Plataforma Aberta de Atenção em Direitos Humanos (PADHu) reúne projetos compartilhados e construídos coletivamente com pessoas em situação de rua há mais de 25 anos; mulheres, crianças e famílias historicamente vulnerabilizadas e ameaçadas quanto às suas maternagens.\\
+
+Durante a pandemia da Covid-19, um dos projetos desenvolvidos por essa Plataforma, o Incontáveis, analisou e divulgou dados sistemáticos sobre o fenômeno da população em situação de rua em todo o Brasil, e deu uma importante contribuição na correção do Plano Nacional de Operacionalização da Vacinação contra o novo coronavírus com pessoas em situação de rua  e na elaboração de uma Nota Técnica do Ministério da Saúde , em parceria com a Defensoria Pública da União, o Ministério da Saúde do Brasil, o Movimento Nacional da População em situação de rua, a Pastoral Nacional do Povo da Rua e outras instituições e entidades.\\  
+
+Além desse trabalho, o Incontáveis desenvolveu outras ações e elaborou documentos técnicos e científicos para subsidiar a luta pelos direitos das pessoas em situação de rua em Belo Horizonte, outros municípios e Estados brasileiros, servindo como projeto-piloto para a criação de mais uma plataforma de conhecimento e comunicação do Polos-UFMG no final de 2021: o Observatório Brasileiro de Políticas Públicas com a População em Situação de Rua, que surge com o principal objetivo de ampliar as análises e divulgação sistemática de dados e conhecimentos relativos às políticas públicas com a  população em situação de rua em todo o país. 
+
+
+
+\newpage
+
+%%%%% Início
+
+
+\begin{center}
+\section{CONTEXTO E ARGUMENTOS INICIAIS DA NOTA TÉCNICA}
+\end{center}
+\label{contexto_elaboracao}
+\vspace{1cm}
+
+
+
+O Observatório Brasileiro de Políticas Públicas com a População em Situação de Rua, plataforma de conhecimento e comunicação em direitos humanos do Polos-UFMG, de acordo com a história e a trajetória de atuação do Programa, desenvolve seus projetos e ações numa perspectiva dialógica, crítica e “sentipensante”, tendo como principais referências as propostas das redes de cuidado e de atenção em direitos humanos; da pedagogia engajada; e de indissociabilidade da pesquisa, das ações de extensão e das lutas sociais com as pessoas em situação de rua no país.\\
+
+Uma das lutas mais antigas da população em situação de rua no Brasil diz respeito à sua inclusão nos censos realizados pelo Instituto Brasileiro de Geografia e Estatística (IBGE). Nos doze censos já realizados no Brasil, de 1872 a 2010, a população em situação de rua sempre foi desconsiderada e teve a sua existência silenciada e invisibilizada pelo Governo Brasileiro.\\
+
+Somente neste ano de 2022, após grande pressão e cobrança por parte do Movimento Nacional da População em Situação de Rua e seus parceiros e colaboradores\footnote{Vale ressaltar a importante Ação Civil Pública, ajuizada em 21 de fevereiro de 2018, pelos Defensores Públicos Federais, Dr. Thales Arcoverde Treiger e Dr. Renan Vinicius Sotto Mayor (PAJ 2017/016-010873; PROCESSO Nº 0019792- 38.2018.4.02.5101/RJ), para inclusão da população em situação de rua no Censo a ser realizado pelo IBGE em 2022.}, o IBGE passará a considerar alguma parcela das pessoas em situação de rua nos municípios brasileiros.\\
+
+Considerando que estamos diante de um fenômeno social de grande complexidade em todo o mundo, mas que, no Brasil, possui características muito peculiares, é nítida a relação do Racismo Estrutural, historicamente praticado e perpetuado em nosso país, com a população em situação de rua nas cidades.\\
+
+De acordo com o já mencionado Relatório Técnico-Científico elaborado pelo projeto Incontáveis, vinculado à PADHu/Polos-UFMG, em abril de 2021, 68\% da população em situação de rua no Brasil era negra. No Estado de Minas Gerais, a porcentagem de pessoas negras em situação de rua era de 80\% e na Bahia 93\%. Estudos recentes do Observatório Brasileiro de Políticas Públicas com a População em Situação de Rua/Polos-UFMG indicam que as porcentagens permanecem inalteradas em 2022.\\
+
+No livro de Abdias Nascimento, ``O genocídio do negro brasileiro: processo de um racismo mascarado”, reimpresso pela Editora Perspectiva em 2017, o autor destaca a relação entre a população negra, as pessoas em situação de rua no nosso país e as inúmeras violências que continuaram sendo praticadas contra ela após a suposta Abolição da Escravatura em 13 de maio de 1888. Nas palavras dele:
+
+\vspace{-0.5cm}
+\begin{trivlist}\leftskip=4cm
+\begin{singlespace}
+\item\small...aqueles que sobreviveram aos horrores da escravidão e não podiam continuar mantendo satisfatória capacidade produtiva – \textbf{\ul{eram atirados à rua, à própria sorte, qual lixo humano indesejável}}; estes eram chamados de ``africanos livres”. Não passava, a liberdade sob tais condições, de pura e simples forma de legalizado assassínio coletivo. As classes dirigentes e autoridades públicas praticavam a libertação dos escravos idosos, dos inválidos e dos enfermos incuráveis, sem lhes conceder qualquer recurso, apoio, ou meio de subsistência. Em 1888, se repetiria o mesmo ato ``liberador” que a história do Brasil registra com o nome de Abolição ou de Lei Áurea, aquilo que não passou de um \textbf{underline{assassinato em massa, ou seja, a multiplicação do crime}}, em menor escala, dos ``africanos livres”.\  \textbf{\ul{Atirando os africanos e seus descendentes para fora da sociedade, a abolição exonerou de responsabilidades os senhores, o Estado, e a igreja. Tudo cessou, extinguiu-se todo o humanismo, qualquer gesto de solidariedade ou de justiça social: o africano e seus descendentes que sobrevivessem como pudessem}} \citep[p. 79 - grifos nossos]{abdias}.
+\end{singlespace}
+\end{trivlist}
+
+
+Gostaríamos de ressaltar nesta Nota Técnica a nossa compreensão que o fenômeno da população em situação de rua tem cor e uma estreita relação com o Racismo Estrutural no Brasil, sendo imprescindível o reconhecimento das históricas violações de direitos e crimes praticados contra vidas negras atuais e de seus antepassados na elaboração e implantação de qualquer política pública de reparação e de garantia de direitos a essas pessoas, famílias e comunidades em nosso país.\\
+
+Nesse sentido, uma primeira e urgente medida que deveria ser assegurada à população em situação de rua em todos os Estados e municípios brasileiros é a sua ampla inclusão, não somente nos Censos realizados pelo IBGE, mas nas diversas bases de dados administrativas utilizadas no país, como o Cadastro Único para Programas Sociais do Governo Federal (CadÚnico), instrumento fundamental para o acesso a benefícios sociais, como o Auxílio Brasil (Bolsa Família), o BPC e outros. Segundo disposto no Artigo 7º do Decreto nº 7.053, de 23 de dezembro de 2009, dentre os objetivos propostos para a Política Nacional para a População em Situação de Rua, estão:
+
+\vspace{-0.5cm}
+\begin{trivlist}\leftskip=4cm
+\begin{singlespace}
+\item\small III - instituir a contagem oficial da população em situação de rua;
+\item\small IV - produzir, sistematizar e disseminar dados e indicadores sociais, econômicos e culturais sobre a rede existente de cobertura de serviços públicos à população em situação de rua;
+\item\small X – criar meios de articulação entre o Sistema Único de Assistência Social e o Sistema Único de Saúde para qualificar a oferta de serviços.
+\end{singlespace}
+\end{trivlist}
+
+
+Em tempos de pandemia, crise sanitária e humanitária em todo o mundo, são inadmissíveis as taxas de subnotificação presentes no CadÚnico na maioria dos municípios brasileiros. Segundo constatado pelo Observatório Brasileiro de Políticas Públicas com a População em Situação de Rua/POLOS-UFMG, a subnotificação média nacional de registros com pessoas em situação de rua na base de dados do CadÚnico, em março de 2020, era de 33\% \citep{dias}.\\
+ 
+Ciente da experiência e dos trabalhos realizados pelo Programa Transdisciplinar Polos de Cidadania da Universidade Federal de Minas Gerais (UFMG), por meio da sua plataforma de conhecimento e comunicação em direitos humanos –  Observatório Brasileiro de Políticas Públicas com a População em Situação de Rua, no monitoramento e acompanhamento da aplicação do CadÚnico em municípios brasileiros, o  Ministério Público do Estado de São Paulo - Promotoria de Justiça de Direitos Humanos, Área da Inclusão Social, formulou uma solicitação, nos autos do Procedimento Administrativo de Acompanhamento de Políticas Públicas instaurado e destinado a acompanhar a atualização do CadÚnico no município de São Paulo e garantir o fortalecimento da sua gestão descentralizada, PAA 62.725.272-22\footnote{Tal procedimento também vem sendo acompanhado pela Defensoria Pública do Estado de São Paulo, em uma parceria com o Ministério Público do Estado de São Paulo e com o Observatório Brasileiro de Políticas Públicas com a População em Situação de Rua/Polos-UFMG \citep{defensoria}.}.\\
+
+A partir do recebimento da referida solicitação, o Programa Polos de Cidadania da Universidade Federal de Minas Gerais, por meio da sua plataforma de direitos humanos Observatório Brasileiro de Políticas Públicas com a População em Situação de Rua, elaborou a presente Nota Técnica, com análises sobre a aplicação do Cadastro Único (CadÚnico) para programas sociais do Governo Federal com a população em situação de rua no Município de São Paulo.\\
+
+\textbf{Nosso argumento inicial é que, considerando a complexidade e dinamicidade do fenômeno da população em situação de rua e histórico Racismo Estrutural que profundamente produziu (e ainda produz) marcas em vidas negras em nosso país, mesmo que essas pessoas sejam incluídas nos Censos realizados pelo IBGE, assim como em estudos diagnósticos regionais e locais realizados pelas prefeituras, faz-se imprescindível o fortalecimento das bases de dados do Cadastro Único para Programas Sociais do Governo Federal (CadÚnico) a partir da sua alimentação constante e estabilidade quanto às informações fidedignas relativas às pessoas em situação de rua nos municípios brasileiros, como São Paulo}.\\
+
+\textbf{É imprescindível que a base de dados do CadÚnico esteja devidamente atualizada e registrada de maneira regular, consistente e transparente para que, em diálogo e com respeito à centralidade, à autonomia e ao protagonismo da população em situação de rua, critérios sejam estabelecidos e construídos coletivamente e com ampla participação popular antes da realização de estudos diagnósticos e censitários locais, como no município de São Paulo}.\\
+
+
+\newpage
+
+
+%%%%%%%% Análise de Dados
+
+\begin{center}
+\section{TESTES ESTATÍSTICOS SOBRE O CADÚNICO NA CIDADE DE\\ SÃO PAULO}
+\end{center}
+\label{parte_2}
+\vspace{1cm}
+
+Nessa seção, propomos alguns testes estatísticos sobre os quantitativos relacionados à população em situação de rua na Cidade de São Paulo. Os dados foram disponibilizados pelo Ministério da Cidadania no formato série histórica e compreendem os anos de 2012-2021. Esses números são os mesmos encontrados no sistema do CECAD, Cadastro Único (CadÚnico), porém, diferente do que apresentamos em nosso estudo, de forma tabulada com apenas o registro de totais para o mês anterior ao da realização da consulta. Isso quer dizer que, ao acessar o CECAD, não é possível encontrar uma série histórica ano a ano, mês a mês, com todos os cadastros de pessoas em situação de rua. Lembramos que, no sistema CECAD, o que há são séries históricas ou quantitativos mais completos sobre famílias em situação de rua.\\ 
+
+O levantamento feito pelo Observatório Brasileiro de Políticas Públicas com a População em Situação de Rua/Polos-UFMG, formula algumas hipóteses relevantes para o exame da série histórica 2012-2021. Nessa seção, um dos objetivos é observar estatisticamente como os dados sobre a população em situação de rua no Município de São Paulo se comportam em comparação a outros quatro municípios. A análise proposta coteja os quantitativos da cidade paulistana com os de Belo Horizonte, Rio de Janeiro, Distrito Federal e Salvador. Esses últimos quatro totais registrados foram selecionados e organizados respeitando ordem de grandeza do segundo maior para o menor valor.\\ 
+
+O ano de referência é o de 2021, já que ele é o recorte temporal mais atualizado do banco de dados, embora quantitativos de outros anos serão incluídos paulatinamente na análise. Para facilitar a compreensão e a linguagem da presente seção, optamos por apresentar, primeiramente, como os dados se distribuem ao longo da série histórica e, posteriormente, responder a algumas perguntas. Entre elas se a base de dados do CECAD para o Município de São Paulo acompanha as dinâmicas sobre os cadastros da população em situação de rua de Belo Horizonte, Rio de Janeiro, Distrito Federal e Salvador. Outra questão é se existe alguma forma de aperfeiçoamento do cadastro na cidade paulistana que poderia ser aproveitada por outras cidades. É importante ressaltar que a escolha por São Paulo diz respeito ao fato de ser ela a maior cidade brasileira em termos demográficos e de população em situação de vulnerabilidade socioeconômica.\\
+
+Assim, com a finalidade de compreender mais apropriadamente o caso de São Paulo, propomos, na subseção \ref{distribuicao_dados}, uma abordagem descritiva sobre a distribuição dos dados entre as cinco capitais para evidenciar se as tendências existentes na cidade paulistana ocorrem também nos outros quatro municípios selecionados. Na sequência, subseção \ref{testes_estatisticos}, partiremos de evidências quanto à qualidade da série histórica utilizada. Nas seguintes subseções, saber quais as semelhanças e diferenças entre os totais relacionados ao fenômeno da população em situação de rua para São Paulo, em todos os anos da série histórica, com as outras quatro cidades.\\ 
+
+Outro questionamento importante, quanto ao exame da série histórica sobre a população em situação de rua em São Paulo, é apontar se a metodologia empregada pelo CadÚnico para a coleta de dados demonstra ou não sinais de esgotamento. Em outras palavras, se há algum indício numérico ou estatístico de que o cadastro do município brasileiro mais populoso tenha colapsado. Caso isso se confirme, é pertinente o reforço de pesquisas amostrais ou censitárias sobre a população em situação de rua na cidade. Do contrário, sendo a hipótese de saturação rejeitada, buscamos entender se há uma explicação que nos esclareça os possíveis problemas no cadastro da cidade. A ideia é reforçar o uso, manutenção e expansão do cadastro, uma vez que, conforme já identificado em outro momento, a subnotificação nas prefeituras e o subuso do CadÚnico por elas impedem análises mais exatas sobre o fato de haver ou não saturação do sistema CadÚnico\footnote{Ver a nota técnica sobre o caso de Belo Horizonte \href{https://polos.direito.ufmg.br/wp-content/uploads/2021/09/Nota-Tecnica-inedita-elaborada-pelo-Programa-Polos-de-Cidadania-da-UFMG-sobre-o-CadUnico-em-Belo-Horizonte.pdf}{População em Situação de Rua: Violações de Direitos e (de) Dados Relacionados à Aplicação do CadÚnico em Belo Horizonte, Minas Gerais}.}.\\
+
+
+\subsection{Distribuição dos Dados}
+\label{distribuicao_dados}
+
+A Figura \ref{fig:serie_historica_sp} mostra os totais ano a ano para a cidade paulistana. Vemos que de 2018 a 2020, respectivamente, 38.887, 44.372 e 48.134 cadastros com uma queda significativa de 35.105 para 2021. Já a Figura \ref{fig:grafico_pop_rua_totais1} revela que essa tendência sobre os cadastros relativos à população em situação de rua vista em São Paulo também se verifica em Belo Horizonte, Rio de Janeiro, Distrito Federal e Salvador. Portanto, é possível afirmar que o sistema de coleta de dados do CadÚnico possui padrão de funcionamento e aplicação mesmo em capitais com diferentes perfis demográficos.\\ 
+
+Sendo assim, destacamos que a escolha dessas cidades nos auxilia a dimensionar os níveis quantitativos do cadastro sobre o fenômeno com uma classificação e distribuição dos dados em três categorias, isto é, municípios com totais elevados, médios e menores sobre pessoas em situação de rua. Nos extremos, estariam São Paulo e Salvador, cujas somas indicam os pontos máximo e mínimo entre as capitais selecionadas. Belo Horizonte, Rio de Janeiro e Distrito Federal estão situadas no ponto médio da escala aqui sugerida.\\
+
+A Figura \ref{fig:grafico_pop_rua_totais2} mostra por outro ângulo a evolução da série histórica para as cinco capitais em questão. Com essa imagem, é possível observar que as proporções de crescimento seguem um padrão  no cadastro para três perfis quantitativos diferentes, ou seja, cidades com altíssimas demografias de pessoas em situação de rua, como São Paulo; cidades intermediárias, com altas ou médias demografias; e as com menores cadastros em relação aos casos anteriores.\\
+
+%
+%\begin{landscape}
+%\pagestyle{empty}
+\begin{figure}[hb!]
+\centering
+	\caption{Série Histórica}
+	\includegraphics[height=11cm, width=14cm]{gráficos/totais_sp_serie_historica.pdf}
+	\label{fig:serie_historica_sp}
+\end{figure}
+%\end{landscape}
+
+\begin{figure}[hb!]
+\centering
+	\caption{População em Situação de Rua, Série Histórica, Cinco Maiores Totais}
+	\includegraphics[height=17cm, width=14cm]{gráficos/totais_cinco_capitais_mais_populosas1.pdf}
+	\label{fig:grafico_pop_rua_totais1}
+\end{figure}
+
+A Figura \ref{fig:grafico_pop_rua_totais2} mostra por outro ângulo a evolução da série histórica para as cinco capitais em questão. Com essa imagem, é possível observar que as proporções de crescimento seguem um padrão  no cadastro para três perfis quantitativos diferentes, ou seja, cidades com altíssimas demografias de pessoas em situação de rua, como São Paulo; cidades intermediárias, com altas ou médias demografias; e as com menores cadastros em relação aos casos anteriores.\\
+
+\begin{figure}[H]
+\centering
+	\caption{População em Situação de Rua, Série Histórica, Cinco Maiores Totais}
+	\includegraphics[height=12cm, width=16.5cm]{gráficos/totais_cinco_capitais_mais_populosas2.pdf}
+	\label{fig:grafico_pop_rua_totais2}
+\end{figure}
+
+Ao longo da série histórica 2012-2021 sobre a população em situação de rua, São Paulo sempre ocupou a primeira posição e Belo Horizonte a segunda. Em 2021, Rio de Janeiro, Distrito Federal e Salvador estão, respectivamente, na terceira, quarta e quinta posições, mas, para essas capitais, essa classificação pode se alterar ao longo da série histórica conforme a Tabela \ref{tab:tab_capitais_totais}.\\
+
+% Table generated by Excel2LaTeX from sheet 'Municípios Crescente'
+\begin{table}[htbp]
+  \centering
+  \caption{Série Histórica 2012-2021, Capitais Brasileiras, População em Situação de Rua}
+    \tabcolsep=0.60cm
+	\renewcommand{\arraystretch}{2.3}
+	\begin{adjustbox}{max width=\linewidth}
+    \begin{tabular}{rcccccccccc}
+    \hline
+    \rowcolor[rgb]{ .651,  .651,  .651} \multicolumn{1}{c}{\textcolor[rgb]{ 1,  1,  1}{Capital}} & 2012 & 2013 & 2014 & 2015 & 2016 & 2017 & 2018 & 2019 & 2020 & 2021 \\
+    São Paulo & 3842 & 7883 & 13185 & 18608 & 25095 & 31336 & 38887 & 44372 & 48134 & 37200 \\
+    Belo Horizonte & 2324 & 3034 & 3839 & 4753 & 6347 & 8035 & 9700 & 11578 & 11858 & 8609 \\
+    Rio de Janeiro & 125  & 265  & 476  & 994  & 1839 & 3460 & 5659 & 7667 & 8728 & 8126 \\
+    Distrito Federal & 88   & 150  & 433  & 755  & 1651 & 2445 & 3327 & 4602 & 5280 & 4942 \\
+    Salvador & 105  & 274  & 358  & 491  & 918  & 1262 & 1840 & 2680 & 3328 & 3902 \\
+    Fortaleza & 548  & 713  & 1015 & 1278 & 1772 & 2265 & 2976 & 3941 & 4478 & 3707 \\
+    Curitiba & 373  & 792  & 1068 & 1338 & 1634 & 1892 & 2492 & 3227 & 3683 & 2490 \\
+    Porto Alegre & 775  & 1125 & 1610 & 1781 & 1979 & 2128 & 2440 & 3029 & 3208 & 1862 \\
+    Boa Vista & 5    & 7    & 7    & 6    & 4    & 25   & 1029 & 1695 & 2484 & 1795 \\
+    Florianópolis & 0    & 48   & 203  & 493  & 756  & 952  & 1131 & 1561 & 1720 & 1233 \\
+    Recife & 36   & 54   & 116  & 202  & 283  & 449  & 628  & 859  & 1003 & 977 \\
+    Goiânia & 46   & 61   & 148  & 301  & 518  & 857  & 1160 & 1367 & 1430 & 930 \\
+    Manaus & 30   & 58   & 86   & 117  & 152  & 276  & 448  & 899  & 959  & 727 \\
+    Natal & 128  & 151  & 192  & 279  & 438  & 595  & 750  & 855  & 898  & 671 \\
+    São Luís & 0    & 43   & 111  & 169  & 207  & 327  & 626  & 911  & 1066 & 656 \\
+    Cuiabá & 4    & 62   & 260  & 318  & 383  & 460  & 632  & 722  & 814  & 631 \\
+    Aracaju & 83   & 129  & 217  & 243  & 296  & 414  & 591  & 744  & 785  & 558 \\
+    Teresina & 0    & 35   & 61   & 113  & 173  & 258  & 355  & 501  & 529  & 471 \\
+    Vitória & 113  & 160  & 213  & 268  & 331  & 383  & 512  & 626  & 681  & 464 \\
+    Campo Grande & 10   & 33   & 54   & 112  & 209  & 309  & 503  & 603  & 655  & 424 \\
+    Maceió & 356  & 366  & 372  & 401  & 555  & 694  & 821  & 913  & 958  & 396 \\
+    Belém & 4    & 33   & 71   & 97   & 141  & 220  & 296  & 416  & 458  & 376 \\
+    Rio Branco & 31   & 37   & 47   & 53   & 56   & 114  & 176  & 213  & 215  & 119 \\
+    João Pessoa & 12   & 30   & 44   & 52   & 59   & 93   & 125  & 178  & 203  & 118 \\
+    Porto Velho & 1    & 3    & 3    & 4    & 11   & 22   & 48   & 109  & 134  & 90 \\
+    Palmas & 0    & 3    & 8    & 5    & 5    & 46   & 82   & 123  & 133  & 83 \\
+    Macapá & 0    & 0    & 86   & 4    & 13   & 20   & 29   & 36   & 47   & 34 \\
+    \hline
+    \multicolumn{11}{r}{Fonte: CadÚnico, Ministério da Cidadania. Série Histórica sobre População em Situação de Rua nas Capitais Brasileiras 2012-2021.} \\
+    \end{tabular}%
+\end{adjustbox}
+  \label{tab:tab_capitais_totais}%
+\end{table}%
+
+
+Com base nos números da série histórica 2012-2021, Figuras \ref{fig:grafico_pop_rua_totais1} e \ref{fig:grafico_pop_rua_totais2}, podemos responder à primeira questão sobre o fato de a Cidade de São Paulo acompanhar ou não as tendências de aumento, estabilidade ou queda na coleta de dados sobre a população em situação de rua com as de outras capitais. \textbf{A primeira conclusão é que sim, mas devemos olhar outros aspectos na série histórica} tal como propomos para a subseção \ref{testes_estatisticos}.\\ 
+
+Outro elemento importante a ser salientado é quanto ao saturamento do sistema CadÚnico. Se houvesse uma queda na coleta de dados apenas para o município de São Paulo, tendo as demais cidades diferentes dinâmicas no cadastro, poderíamos nos perguntar se, depois de registrar 48.134 pessoas em situação de rua em 2020, a cidade talvez tivesse esgotado seus meios de uso, manutenção ou expansão do cadastro. \textbf{Definitivamente, não é esse um cenário hipotético relevante, uma vez que os cadastros diminuíram também nas outras quatro capitais. Essa hipótese, portanto, já pode ser descartada}.\\
+
+\subsection{Testes Estatísticos}
+\label{testes_estatisticos}
+
+Os testes estatísticos propostos buscam saber: i) se a qualidade dos dados nos permite realizar outros testes estatísticos sobre a série histórica 2012-2021 do CadÚnico, ii) como a distribuição dos totais ano a ano se comporta em torno das médias encontradas para cada uma das cinco cidades elencadas no presente estudo; iii) se é factível dirimir dúvidas quanto à média encontrada para o total de pessoas em situação de rua em cada cidade analisada; iv) onde se localizam as maiores frequências; v) como se comporta a distribuição da probabilidade acumulada em relação aos totais das pessoas em situação de rua; vi) quais as correlações existentes entre os totais para a população em situação de rua nas cinco capitais selecionadas.\\
+
+De forma sistemática, a seguinte lista contém a ordem de cada um dos testes \textbf{que foram} realizados e \textbf{terão os resultados expostos} nessa subseção:
+
+\begin{enumerate}
+
+\begin{itemize}
+\item[2.2.1]{Teste Alpha}
+\item[2.2.2]{Distribuições Normais Comparadas}
+\item[2.2.3]{Distribuição de Frequência}
+\item[2.2.4]{Distribuição de Probabilidade}
+\item[2.2.5]{Regressão Multilinear \textit{Total de Pessoas em Situação de Rua}}
+\item[2.2.6]{R-Quadrado e R-Quadrado Ajustado}
+\item[2.2.7]{Resíduos do Modelo e Atualização Cadastral}
+\item[2.2.8]{Meses após Atualização Cadastral}
+\end{itemize}
+
+\end{enumerate}
+
+
+\subsubsection{Teste Alpha}
+\label{teste_alpha}
+
+O Teste Alpha é recomendável como primeira testagem para qualquer conjunto de dados que queira ser analisado. Ele nos ajuda a identificar de que maneira os números trabalhados se relacionam entre si e, por conseguinte, se análises estatísticas posteriores poderão ser aplicadas tendo como base o conjunto de dados examinado. Em linhas gerais, o alpha a ser estudado variará numa escala de 0 a 1 e acompanhará um intervalo de confiança de 95\%, isto é, mesmo se adicionarmos mais tabelas para além do intervalo 2012-2021, com 95\% de chance o valor a ser encontrado provavelmente se situará entre dois limites. No caso de o alpha ser maior que 0.75, podemos classificá-lo como significante. Um resultado menor indica a necessidade de se fazer ajustes na série histórica como, por exemplo, sua expansão, \textbf{atualização} ou mesmo a exclusão de dados não significantes \emph{outliers}. Outra observação a ser feita sobre o Teste Alpha é que ele evidencia de que forma os dados se comportam caso alguma variável, por exemplo, Cidade de São Paulo em nosso modelo, seja excluída do teste.\\ 
+
+A Tabela \ref{tab:raw_alpha} mostra o resultado do Teste Alpha com um nível de significância de 0.73. Isso aponta que a série histórica 2012-2021 para as capitais de São Paulo, Belo Horizonte, Rio de Janeiro, Distrito Federal e Salvador tem significância aceitável, embora nos indique a necessidade de inclusão de mais dados ou, para o nosso problema, a maior atualização do cadastro sobre a população em situação de rua. O \textbf{raw\_alpha} está posicionado num intervalo cujo limite menor é de 0.680 e maior de 0.79. Desse modo, com 95\% de confiança, se repetirmos o teste com até mil outras amostras com o mesmo nível de atualização cadastral encontrado, nosso banco de dados não passará de um nível de significância aceitável. O que fazer nesse caso? Conforme veremos na subseção \ref{atualizacao_cadastral}, esta é a única variável capaz de elevar a qualidade de futuras séries históricas e, por conseguinte, situar a qualidade de dados em um patamar mais apropriado tanto para o desenho das políticas públicas quanto \textbf{para a maior compreensão do fenômeno da população em situação de rua}.\\
+
+Com base na significância encontrada, também suscitamos a hipótese de que a metodologia empregada para a coleta de dados tenha sido inadequada, isto é, ela parece se distanciar efetivamente da busca ativa ou da pesquisa itinerante recomendada pelo CadÚnico para o fenômeno da população em situação de rua. Pelo que vemos, há razões suficientes para considerar esse fato, uma vez que \textbf{mais dados e maior atualização cadastral tendem a elevar a qualidade das séries históricas}. E como sabemos disso? Ao excluirmos os dados sobre a população em situação de rua no Município de São Paulo do Teste Alpha, temos um \textbf{raw\_alpha} de 0.94, isto é, mais alto e de maior qualidade.
+
+% Table generated by Excel2LaTeX from sheet 'Sheet1'
+\begin{landscape}
+\pagestyle{empty}
+
+% Table generated by Excel2LaTeX from sheet 'Sheet1'
+\begin{table}[htbp]
+  \centering
+\caption{Teste Alpha, Totais sobre População de Rua em Situação de Rua, Capitais, 2012-2021\\ São Paulo, Belo Horizonte, Rio de Janeiro, Distrito Federal e Salvador}
+    \tabcolsep=0.60cm
+	\renewcommand{\arraystretch}{1.5}
+	\begin{adjustbox}{max width=\linewidth}
+        \begin{tabular}{rrrrrrrrrrr}
+    \toprule
+    \multicolumn{11}{c}{Call: alpha(x = alpha\_test\_pop\_rua} \\
+    \midrule
+    \multicolumn{11}{c}{} \\
+    \midrule
+    \rowcolor[rgb]{ .851,  .851,  .851} \multicolumn{3}{r}{\textbf{  raw\_alpha    }} & \multicolumn{1}{c}{\cellcolor[rgb]{ 1,  1,  1}std.alpha } & \multicolumn{1}{c}{\cellcolor[rgb]{ 1,  1,  1}G6(smc) } & \multicolumn{1}{c}{\cellcolor[rgb]{ 1,  1,  1}average\_r } & \multicolumn{1}{c}{\cellcolor[rgb]{ 1,  1,  1}S/N   } & \multicolumn{1}{c}{\cellcolor[rgb]{ 1,  1,  1}ase } & \multicolumn{1}{c}{\cellcolor[rgb]{ 1,  1,  1}mean } & \multicolumn{1}{c}{\cellcolor[rgb]{ 1,  1,  1}sd} & \multicolumn{1}{c}{\cellcolor[rgb]{ 1,  1,  1}median\_r} \\
+    \midrule
+    \rowcolor[rgb]{ .851,  .851,  .851} \multicolumn{3}{r}{0.73          } & \multicolumn{1}{c}{\cellcolor[rgb]{ 1,  1,  1} 0.99} & \multicolumn{1}{c}{\cellcolor[rgb]{ 1,  1,  1} 0.99} & \multicolumn{1}{c}{\cellcolor[rgb]{ 1,  1,  1}  0.95} & \multicolumn{1}{c}{\cellcolor[rgb]{ 1,  1,  1}86} & \multicolumn{1}{c}{\cellcolor[rgb]{ 1,  1,  1}0.024} & \multicolumn{1}{c}{\cellcolor[rgb]{ 1,  1,  1}8296} & \multicolumn{1}{c}{\cellcolor[rgb]{ 1,  1,  1}5116} & \multicolumn{1}{c}{\cellcolor[rgb]{ 1,  1,  1}0.95} \\
+    \multicolumn{11}{c}{} \\
+    \midrule
+    \multicolumn{3}{r}{} &      &      & \multicolumn{1}{c}{lower} & \multicolumn{1}{c}{alpha} & \multicolumn{4}{l}{  upper} \\
+    \midrule
+    \multicolumn{3}{r}{} &      &      & \multicolumn{1}{c}{0.68} & \multicolumn{1}{c}{0.73} & \multicolumn{4}{l}{0.78} \\
+    \multicolumn{11}{c}{\multirow{3}[1]{*}{}} \\
+    \midrule
+    \multicolumn{11}{c}{95\% confidence boundaries based on 1000 samples} \\
+    \midrule
+         &      &      &      &      &      &      &      &      &      &  \\
+    \rowcolor[rgb]{ .851,  .851,  .851} \multicolumn{6}{r}{2.5\%}               & \multicolumn{5}{l}{97.5\%} \\
+    \rowcolor[rgb]{ .851,  .851,  .851} \multicolumn{6}{r}{0.680}               & \multicolumn{5}{l}{0.787} \\
+         &      &      &      &      &      &      &      &      &      &  \\
+    \midrule
+    \multicolumn{11}{r}{Fonte: CadÚnico, Ministério da Cidadania. Série Histórica sobre População em Situação de Rua nas Capitais Brasileiras 2012-2021.} \\
+    \bottomrule
+    \end{tabular}%
+\end{adjustbox}
+  \label{tab:raw_alpha}%
+\end{table}%
+\end{landscape}
+\vspace{0.5cm}
+ E se retirarmos Belo Horizonte ou Rio de Janeiro, mas com São Paulo ainda no teste? O mesmo \textbf{raw\_alpha} para os dois casos, ou, 0.63. Imaginemos, agora, insistir em deixar São Paulo no teste e excluir o Distrito Federal, o \textbf{raw\_alpha} é de 0.69. No caso de retirar Salvador do nosso modelo, 0.72. \textbf{Sendo assim, podemos observar que, a partir do Teste Alpha realizado, os dados do cadastro referentes à Cidade de São Paulo são os que apresentam maiores problemas de qualidade em comparação com as outras capitais brasileiras. Por isso, indica-se a continuidade e o fortalecimento do CadÚnico, com maior atualização de dados por meio da busca ativa e pesquisa itinerante, como veremos adiante na subseção} \ref{atualizacao_cadastral}, \textbf{pois a estrutura do cadastro paulistano parece não ter atingido ainda seu nível de saturação}.
+
+
+\subsubsection{Distribuições Normais Comparadas}
+\label{distribuicoes_normais}
+
+A Figura \ref{fig:pop_rua_dist_normal} aponta que a média encontrada para São Paulo sobre a população em situação de rua, considerando a série histórica 2012-2021, foi de 26.854 pessoas. Essa média é seguida pela de Belo Horizonte e Rio de Janeiro, respectivamente, 7.007 e 3.733, como se vê na Figura \ref{fig:pop_rua_dist_normal2}. As posições subsequentes, Distrito Federal e Salvador, com 2.367 e 1.515, perfazem, assim, as cinco maiores médias sobre população em situação de rua para as capitais brasileiras.\\ 
+
+\begin{figure}[H]
+\centering
+	\caption{Distribuição Normal na Série Histórica, Capital São Paulo}
+	\includegraphics[height=20cm, width=14cm]{gráficos/media_sao_paulo.pdf}
+	\label{fig:pop_rua_dist_normal}
+\end{figure}
+
+As distribuições normais comparadas permitem que analisemos não apenas a média para cada uma das capitais com os maiores quantitativos sobre a população em situação de rua no Brasil, mas também nos apontam a distância entre a média encontrada para a Cidade de São Paulo e as das demais capitais.\\
+
+E por que isso é importante? Uma vez que a demografia da cidade paulistana é maior do que a de outros municípios do país, com processos de urbanização extremamente complexos e níveis abismais de pobreza, podemos inferir que se o CadÚnico for operado mais apropriadamente em São Paulo outras capitais serão beneficiadas com os ganhos qualitativos de gestão de infraestrutura e aplicação metodológica exigida para a coleta de dados.\\
+
+Notamos ainda que, quanto maior a média, maior a visualização do quanto um cadastro pode ser expandido. No caso da Cidade de São Paulo, conforme vimos na subseção \ref{distribuicao_dados}, o número de pessoas em situação de rua chegou a 48.134 ou quase duas vezes o valor de sua média para a série histórica 2012-2021. Dessa forma, é factível tanto a expansão quanto a atualização do cadastro nas outras capitais, pois, como o sistema CadÚnico comporta maior coleta de dados em São Paulo, não será diferente para Belo Horizonte, Rio de Janeiro, Brasília e Salvador.\\
+
+Outro motivo para insistir no aperfeiçoamento da coleta de dados com base nas médias observadas, é o fato de as cinco capitais selecionadas estabelecerem ao menos três níveis de complexidade para o sistema do CadÚnico sobre a população em situação de rua. A Cidade de São Paulo representaria o patamar mais alto; Belo Horizonte e Rio de Janeiro, estágio intermediário; e Distrito Federal e Salvador, os casos de menor intensidade.\\ 
+
+\begin{figure}[H]
+\centering
+	\caption{Distribuição Normal na Série Histórica, Comparação entre as Capitais com Maiores Cadastros}
+	\includegraphics[height=11cm, width=15.5cm]{gráficos/distribuicoes_normais.pdf}
+	\label{fig:pop_rua_dist_normal2}
+\end{figure}
+
+Com esses três diferentes perfis, o sistema tem se mostrado apto a atender demandas de registro, sobretudo, no que diz respeito a pessoas socioeconomicamente vulneráveis. Conforme veremos mais adiante na subseção \ref{indice_gestao_desc}, a alimentação e expansão do CadÚnico têm obtido repasses vultosos do Ministério da Cidadania como contrapartida ao trabalho da coleta de dados em nível local.\\
+
+Na subseção \ref{regressao_multilinear}, como veremos mais adiante, a variável \textit{totais} para São Paulo pode ser explicada pelo comportamento das demais variáveis, isto é, Belo Horizonte, Rio de Janeiro, Distrito Federal e Salvador. Na prática, isso acaba se tornando um indício de que a inclusão de dados e a expansão do CadÚnico nos municípios têm consolidado uma metodologia que está preparada para lidar com demografias metropolitanas de alta complexidade.\\
+
+Quanto à probabilidade de haver médias parecidas com a do Município de São Paulo em outras capitais, notamos que ela é infinitamente pequena. Na Figura \ref{fig:pop_rua_dist_normal2}, no eixo "Probabilidades", observamos que as médias de Belo Horizonte e Rio de Janeiro, ou os pontos mais altos das curvas normais, intersectam probabilidades superiores à de São Paulo. Já para o Distrito Federal e Salvador, encontramos probabilidades ainda maiores que as de Belo Horizonte e Rio de Janeiro.\\ 
+
+\textbf{Essas constatações são importantes por duas razões. A primeira é que será mais comum encontrar outras cidades do país com uma população em situação de rua cujas médias se pareçam mais com as do Distrito Federal e Salvador que São Paulo, Belo Horizonte e Rio de Janeiro. A segunda é que, dada a elevada média para a Cidade de São Paulo, a probabilidade de que os CadÚnicos de outras cidades operem sob algum tipo de esgotamento de recursos é muito pequena}. Isso reforça a prerrogativa de que as prefeituras têm condições estruturais à disposição para coletar dados, preparar suas equipes e dignificar o trabalho dos agentes que mais têm contato com pessoas em extrema condição de vulnerabilidade econômica.\\   
+
+
+\subsubsection{Frequência Acumulada}  
+\label{frequência_acumulada}
+
+A frequência acumulada nos indica como os dados da série histórica sobre os totais da população em situação de rua se dispõem. Por exemplo, na Figura \ref{fig:pop_rua_freq_acum}, notamos que a frequência dos totais é bem menor entre 10.000 e 20.000 pessoas em situação de rua. O que faz sentido, pois, se a média da série histórica para a Cidade de São Paulo, tal como vimos na subseção \ref{distribuicoes_normais}, é de 26.854, ao incluirmos mais anos a partir de 2012 é muito provável que os totais mais frequentes se aproximem da média até 2015 e, a partir de então, superem a média. Esse estudo de frequência acumulada nos indica que, quanto à gestão do CadÚnico, a expansão da rede de atendimento e o registro de pessoas em situação de rua de São Paulo funcionaram de maneira mais adequada entre os anos de 2016 e 2020. \\  
+
+\begin{figure}[H]
+\centering
+	\caption{Distribuição de Frequência na Série Histórica, Capital São Paulo}
+	\includegraphics[scale=0.6]{gráficos/distribuicao_probabilidades_sp.pdf}
+	\label{fig:pop_rua_freq_acum}
+\end{figure}
+
+
+É muito provável que, por razão da pandemia causada pelo novo coronavírus (SARS-CoV-2), a coleta de dados do CadÚnico se viu afetada em todas os municípios do país incluindo a cidade paulistana. Entretanto, colocamos ênfase no fato de o sistema do CadÚnico depender enormemente da coordenação de políticas públicas, como um plano nacional de vacinação, além de fatores estruturais como a utilização dos recursos do Governo Federal transferidos conforme o Índice de Gestão Descentralizada dos Municípios (IGD-M)\footnote{Sobre a importância de um plano nacional de vacinação para os profissionais da saúde e do CadÚnico como um todo, ver \href{https://ufmg.br/comunicacao/noticias/ufmg-participa-de-correcao-do-plano-nacional-de-vacinacao-para-populacao-de-rua}{Relatório do Programa Polos ajuda a corrigir plano de imunização da população de rua}.}.    
+
+
+\subsubsection{Distribuição de Probabilidade}
+\label{distribuicao_probabilidade}  
+
+A Figura \ref{fig:pop_rua_dist_prob} apresenta uma função que varia entre 0 e 1. Podemos observar que, com uma probabilidade acumulada de 0.2, o total de pessoas em situação de rua não seria menor que 12.000. Se nos movermos ao longo do eixo das probabilidades, vemos que 0.4 superaria as 20.000 pessoas em situação de rua na Cidade de São Paulo, 0.6 mais de 30.000 e assim sucessivamente. Entre as probabilidades 0.8 e 1.0, podemos verificar que os totais correspondentes no eixo vertical do gráfico estão bem mais próximos dos anos de 2019 e 2020. Como estamos trabalhando com uma variável aleatória discreta, ou seja, um número que podemos identificar no eixo dos totais sobre a população em situação de rua em São Paulo, qualquer dado que aponte um número menor ao patamar dos 40.000 implicaria necessariamente uma menor probabilidade.\\
+
+\begin{figure}[bp!]
+\centering
+	\caption{Distribuição de Probabilidades na Série Histórica, Capital São Paulo}
+	\includegraphics[scale=0.6]{gráficos/distribuicao_acumulada_sp.pdf}
+	\label{fig:pop_rua_dist_prob}
+\end{figure}
+
+Ainda de acordo com a Figura \ref{fig:pop_rua_dist_prob}, sobre a série histórica 2012-2021, notamos que, na Cidade de São Paulo, totais acima de 40.000 pessoas em situação de rua podem ocorrer com mais de 80\% de chance. Em relação ao ano de 2021, é muito provável que tenha existido subnotificação por fatores estruturais tal como apontamos na subseção \ref{frequência_acumulada}. Por outro lado, essa distribuição nos alerta quanto a futuros totais no município. Tendo em vista os dados sobre a vacinação contra a Covid-19 na capital, espera-se que o funcionamento do CadÚnico retome os níveis de trabalho de 2020 em 2022. Essa previsão de retorno à normalidade da administração pública nos prepara também para um provável total superior a 40 mil pessoas em situação de rua em dezembro de 2022. A menos que haja mudanças estruturais, como aumento de emprego e renda com objetivo de combate à extrema vulnerabilidade socioeconômica, a estimativa é de que o fenômeno se agrave em termos quantitativos\footnote{Ver dados do Programa Vacina Sampa \href{https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/saude/vacinometro_30_03_22.pdf}{aqui}.}.
+
+
+\subsubsection{Regressão Multilinear}
+\label{regressao_multilinear}
+
+Até agora, mostramos que os totais de pessoas em situação de rua foram os mais altos na Cidade de São Paulo durante toda a série histórica 2012-2021 conforme a Tabela \ref{tab:tab_capitais_totais}. Também identificamos que a média para esse período é a mais alta se comparada com Belo Horizonte, Rio de Janeiro, Distrito Federal e Salvador segundo a Figura \ref{fig:pop_rua_dist_normal2}. Entretanto, qual é a relação entre o CadÚnico paulistano e o CadÚnico das outras capitais? É possível explicar o comportamento dos dados na maior cidade brasileira considerando outras totais? Qual a importância de verificar se os totais de São Paulo possuem uma dinâmica que reflete a das outras quatro cidades de nosso modelo.\\
+
+Para isso, elaboramos um teste que busca mostrar se os totais da população em situação de rua nos municípios menores podem nos ajudar a interpretar de alguma forma os totais da Cidade de São Paulo em todos os anos da série histórica. Esse tipo de estudo é conhecido como regressão multilinear, pois a variável a ser explicada ou \emph{variável dependente}, no caso os totais sobre a população em situação de rua no município paulistano, poder ser compreendida pelas outras quatro variáveis selecionadas ou \emph{variáveis independentes}. Em síntese, queremos saber se os totais de uma única cidade têm alguma correlação com os de Belo Horizonte, Rio de Janeiro, Brasília e Salvador.\\ 
+
+\subsubsection{R-Quadrado e R-Quadrado Ajustado}
+\label{r_quadrado_r_ajustado}
+
+O resultado de qualquer R em um modelo varia entre 0 e 1, sendo que quanto mais próximo o R-Quadrado estiver de 1, maior o ajuste do modelo ou proximidade dos pontos em relação à linha ajustada; por outro lado, tanto mais encostado no valor 0, maior a distância dos pontos ou dos totais sobre a população em situação de rua em relação à linha ajustada. A Tabela \ref{tab:regressao_multilinear_tabela} sistematiza os resultados da regressão multilinear para a Cidade de São Paulo.
+
+\begin{landscape}
+\pagestyle{empty}
+
+
+% Table generated by Excel2LaTeX from sheet 'Regressão Multilinear'
+\begin{table}[htbp]
+  \centering
+  \caption{Regressão Multilinear, Totais da Série Histórica 2012-2021, São Paulo e Outras Capitais}
+   \tabcolsep=0.60cm
+	\renewcommand{\arraystretch}{1.2}
+	\begin{adjustbox}{max width=\linewidth}
+    \begin{tabular}{lllllllllll}
+    \toprule
+    \multicolumn{11}{c}{\textbf{call: lm(formula = São Paulo $\sim$ Belo Horizonte + Rio de Janeiro + Distrito Federal + Salvador)}} \\
+    \midrule
+    \multicolumn{11}{c}{} \\
+    \midrule
+    \multicolumn{11}{l}{\textbf{Residuals:}} \\
+         & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{2} & \multicolumn{1}{c}{3} & \multicolumn{1}{c}{4} & \multicolumn{1}{c}{5} & \multicolumn{1}{c}{6} & \multicolumn{1}{c}{7} & \multicolumn{1}{c}{8} & \multicolumn{1}{c}{9} & \multicolumn{1}{c}{10} \\
+         & \multicolumn{1}{c}{235.65} & \multicolumn{1}{c}{-1409.94} & \multicolumn{1}{c}{-147.94} & \multicolumn{1}{c}{1090.85} & \multicolumn{1}{c}{-245.54} & \multicolumn{1}{c}{161.85} & \multicolumn{1}{c}{1641.59} & \multicolumn{1}{c}{-1647.40} & \multicolumn{1}{c}{-74.18} & \multicolumn{1}{c}{395.04} \\
+    \midrule
+    \multicolumn{10}{c}{}                                               &  \\
+    \midrule
+    \multicolumn{11}{l}{\textbf{Coefficients:}} \\
+         & \multicolumn{2}{c}{\textbf{Estimate}} & \multicolumn{2}{c}{\textbf{Std. Error}} & \multicolumn{2}{c}{\textbf{t value}} & \multicolumn{4}{c}{\textbf{Pr(>|t|)   }} \\
+    (Intercept) & \multicolumn{2}{c}{-11757.755} & \multicolumn{2}{c}{4311.505} & \multicolumn{2}{c}{-2.727} & \multicolumn{4}{c}{0.04142 *} \\
+    Belo Horizonte & \multicolumn{2}{c}{6.478} & \multicolumn{2}{c}{1.350} & \multicolumn{2}{c}{4.797} & \multicolumn{4}{c}{0.00489 **} \\
+    Rio de Janeiro & \multicolumn{2}{c}{-2.883} & \multicolumn{2}{c}{1.446} & \multicolumn{2}{c}{-1.994} & \multicolumn{4}{c}{0.10277} \\
+    Distrito Federal & \multicolumn{2}{c}{-5.184} & \multicolumn{2}{c}{5.849} & \multicolumn{2}{c}{-0.886} & \multicolumn{4}{c}{0.41601} \\
+    Salvador & \multicolumn{2}{c}{10.724} & \multicolumn{2}{c}{4.870} & \multicolumn{2}{c}{2.202} & \multicolumn{4}{c}{0.07887} \\
+    \midrule
+    \multicolumn{11}{c}{} \\
+    \midrule
+    \multicolumn{11}{l}{Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1} \\
+    \midrule
+    \multicolumn{11}{c}{} \\
+    \midrule
+    \multicolumn{11}{c}{} \\
+    \multicolumn{11}{l}{Residual standard error: 1335 on 5 degrees of freedom} \\
+    \multicolumn{11}{l}{Multiple R-squared: 0.9959, Adjusted R-squared: 0.9926} \\
+    \multicolumn{11}{l}{F-statistic: 304.4 on 4 and 5 DF,  p-value: 3.733e-06} \\
+    \multicolumn{11}{l}{} \\
+    \bottomrule
+    \end{tabular}%
+    \end{adjustbox}
+  \label{tab:regressao_multilinear_tabela}%
+\end{table}%
+
+\end{landscape}
+
+Como o R-Quadrado é uma medida estatística que aponta para o nível de atração entre diferentes variáveis, no caso entre os totais de São Paulo e os das outras capitais, ou entre a variável dependente e as variáveis independentes, podemos dizer com algum nível de significância se essa relação existe ou não.\\
+
+O R-Quadrado de nosso teste é 0.9959 e o R-Quadrado ajustado de 0.9926. Considerando o \emph{p-valor} menor que 0.05 para o modelo ter um nível de significância aceitável, encontramos um \emph{p-valor} infinitamente mais baixo, ou seja, de 3.733e-06. Na regressão, a primeira suspeita é que os totais ano a ano para São Paulo podem ser explicados pelos totais das outras cidades. Tanto o R-Quadrado quanto o R-Quadrado ajustado possuem valores muito próximos de 1 ou ajuste perfeito. Isso nos aponta algum problema com a série histórica, pois é muito pouco comum esse nível de significância tão próximo de 1.\\
+
+Tal como se observa na Figura \ref{fig:residuos}, tanto os valores negativos quanto positivos previstos se distanciam muito da linha ajustada no ponto zero. Embora o R-Quadrado e o R-Quadrado ajustado estejam próximos de 1, o que nos levaria a crer que os totais sobre a população de rua para a capital paulistana poderiam ser explicados pelos totais das outras cidades, os valores previstos na Figura \ref{fig:residuos} indicam que a alta correlação na regressão multilinear deve ser revista.\\
+
+\textbf{A nossa hipótese é que a desatualização cadastral esteja enviesando os resultados, pois, como vimos no Teste Alpha na subseção} \ref{teste_alpha}, \textbf{é a série histórica da Cidade de São Paulo que derruba o raw\_alpha, isto é, diminui a qualidade dos dados em relação às outras quatro capitais selecionadas. Assim, por razão de a atualização cadastral ser a parte mais sensível do CadÚnico, a inclusão de dados e a expansão do sistema demandam, concomitantemente, o reforço das pesquisas itinerantes e da busca ativa a fim de que o CadÚnico se atualize de forma coordenada}.
+
+
+\subsubsection{Resíduos do Modelo e Atualização Cadastral}
+
+Contudo, como sabemos que há algum tipo de ajuste a ser feito em nosso modelo e, assim, na coleta de dados sobre a população em situação de rua em São Paulo? A resposta é pela maneira como os resíduos da regressão multilinear se dispersam como vemos na Tabela \ref{fig:residuos}.\\
+
+\subsubsection{Meses após Atualização Cadastral}
+\label{atualizacao_cadastral}
+
+
+\textbf{Os níveis de desatualização cadastral na Cidade de São Paulo para a população em situação de rua são enormes}. Conforme a Figura \ref{fig:meses_atualiza_cadastro1}, à medida que o cadastro aumenta, agrava-se a desatualização em número de meses.\\
+
+
+\begin{figure}[H]
+\centering
+	\caption{Dispersão dos Resíduos na Série Histórica 2012-2021 $n = 10$}
+	\includegraphics[height=10.5cm, width=15.5cm]{gráficos/residuos.pdf}
+	 \label{fig:residuos}%
+\end{figure}
+
+
+\textbf{Em 2012, ela estava próxima a 1 ano e em 2013 praticamente dobrou esse lapso. Depois de 2014, a tendência foi de 12 meses para cada ano, ou seja, de 2014 para 2015, a falta de desatualização passa de 36 para 48 meses. De 2015 para 2016, o mesmo ocorre com o aumento do atraso de 48 para 60 meses até chegar ao ponto máximo de 102 meses em 2020}. As Figuras \ref{fig:meses_atualiza_cadastro2} e \ref{fig:meses_atualiza_cadastro3} relacionam os meses de desatualização com o número de pessoas em situação de rua. A Figura \ref{fig:meses_atualiza_cadastro4} perfaz uma rede cadastral tendo em seu centro os principais quantitativos desatualizados. 
+
+%
+\begin{landscape}
+\pagestyle{empty}
+\begin{figure}[H]
+\centering
+	\caption{Meses após Atualização Cadastral (a)}
+	\includegraphics[height=13.5cm, width=21cm]{gráficos/totais_sp_meses_apos_cadastro_serie_historica.pdf}
+	\label{fig:meses_atualiza_cadastro1}
+\end{figure}
+\end{landscape}
+
+%%%
+
+%
+\begin{landscape}
+\pagestyle{empty}
+\begin{figure}[H]
+\centering
+	\caption{Meses após Atualização Cadastral (b)}
+	\includegraphics[height=13.5cm, width=21cm]{gráficos/totais_sp_meses_apos_cadastro2_serie_historica.pdf}
+	\label{fig:meses_atualiza_cadastro2}
+\end{figure}
+\end{landscape}
+
+%%%
+
+%
+\begin{landscape}
+\pagestyle{empty}
+\begin{figure}[H]
+\centering
+	\caption{Meses após Atualização Cadastral (c)}
+	\includegraphics[height=13.5cm, width=21cm]{gráficos/totais_sp_meses_apos_cadastro3_serie_historica.pdf}
+	\label{fig:meses_atualiza_cadastro3}
+\end{figure}
+\end{landscape}
+
+%%%
+
+%
+\begin{landscape}
+\pagestyle{empty}
+\begin{figure}[H]
+\centering
+	\caption{Rede dos Meses após Atualização Cadastral (d)}
+	\includegraphics[height=13.5cm, width=19cm]{gráficos/total_sp_meses_apos_cadastro_redes_serie_historica.pdf}
+	\label{fig:meses_atualiza_cadastro4}
+\end{figure}
+\end{landscape}
+
+
+%%%
+
+\subsection{Pobreza Centrípeta Urbana e Região Metropolitana de São Paulo}
+\label{pobreza_centripeta}
+
+Segundo dados do Instituto Brasileiro de Geografia e Estatística (IBGE) sobre o ano de 2020, se consideradas apenas pessoas em extrema pobreza no Brasil com renda per capita de até US\$ 1,90, limite sugerido pelo Banco Mundial, 49,4\% delas se encontravam na Região Nordeste; 26,7\%, Sudeste; 12,9\%, Norte; 7,1\%, Sul; e 3,9\% no Centro-Oeste\footnote{Ver \href{https://biblioteca.ibge.gov.br/visualizacao/livros/liv101892.pdf}{\citep[p. 63]{ibge1}}.}. Quanto à porção de pessoas em extrema vulnerabilidade socioeconômica em comparação com outras faixas de renda referente ao ano de 2018, 13.6\% viviam em condição de extrema pobreza na Região Nordeste; já no Norte 11\% enquanto que na Região Sudeste, Centro-Oeste e Sul, respectivamente, 3,2\%, 2,9\% e 2,1\%.  A Tabela \ref{tab:ibge_tabela} sistematiza os dados de uma série histórica sobre pobreza nas grandes regiões brasileiras. Podemos verificar ainda que no período 2014-2018, encontram-se os maiores percentuais de pessoas com rendimentos de até US\$ 1,90 por dia ou R\$ 145 mensais, com base nos valores de 2019, em contraste com menores quantitativos para os anos anteriores.\\
+
+Contudo, os dados sobre as cinco grandes regiões brasileiras expressam médias que nem sempre refletem de forma precisa o alto grau de pobreza urbana nas capitais brasileiras. Com informações sobre renda e pobreza extraídas do sistema CadÚnico sobre os municípios da Região Metropolitana de São Paulo, referente ao mês de janeiro de 2022, verificamos que 1.513.003 pessoas no Município de São Paulo se encontravam em condição de extrema pobreza. Isso representa cerca de 12\% de uma população que já superou os 12 milhões de habitantes na maior cidade do país. Essa dinâmica de renda e extrema pobreza não se restringe apenas a São Paulo. A Figura \ref{fig:mapa_extrema_pobreza} apresenta um mapa com todas as cidades da Região Metropolitana de São Paulo. Nela identificamos ainda que a extrema pobreza aumenta dos municípios menores para os maiores.\\
+
+Ao elaborarmos um relatório técnico sobre a Cidade de Belo Horizonte, verificamos que essa dinâmica de extrema pobreza era exatamente a mesma\footnote{Ver p. 38-41 do relatório \href{https://polos.direito.ufmg.br/wp-content/uploads/2021/09/Nota-Tecnica-inedita-elaborada-pelo-Programa-Polos-de-Cidadania-da-UFMG-sobre-o-CadUnico-em-Belo-Horizonte.pdf}{População em Situação de Rua: Violações de Direitos e (de) Dados Relacionados à Aplicação do CadÚnico em Belo Horizonte, Minas Gerais} \citep{polos1}.}. Na Figura \ref{fig:mapa_extrema_pobreza}, notamos que as cidades de Jandira, Itaquaquecetuba e Poá possuem menos cadastros de pessoas que se declaram em extrema pobreza que na capital. O mesmo ocorre para aqueles indivíduos em condição de pobreza entre Osasco, Suzano e São Paulo, por exemplo, conforme a Figura \ref{fig:mapa_pobreza}. Sendo assim, como os níveis mais elevados de miséria se concentram nas capitais e os menores nas cidades do entorno em contexto metropolitano, denominamos essa tendência de pobreza centrípeta urbana.\\ 
+
+Na Figura \ref{fig:mapa_pobreza}, é possível constatar o dado de que 421.643 pessoas vivem em situação de pobreza na Cidade de São Paulo. Como os estratos sobre a condição de vulnerabilidade socioeconômica refletem a situação de pessoas com baixa renda e ganhos mensais maiores que 1/2 salário mínimo, mas ainda em condição de pobreza, coletamos dados que confirmam a mesma dinâmica de pobreza centrípeta para pessoas em extrema pobreza. As Figuras \ref{fig:mapa_baixa_renda} e \ref{fig:mapa_meio_salario} georreferenciam os quantitativos de pessoas com baixa renda e acima de 1/2 salário representando, percentualmente, 8,3\% e 5,7\% da população paulistana.\\
+
+Se somarmos os percentuais relativos à extrema pobreza, pobreza, baixa renda e pessoas com ganhos superiores a 1/2 salário mínimo, embora estas ainda em situação de vulnerabilidade socioeconômica, chegaremos ao percentual de 29,5\% ou ao número de pouco mais de 3.5 milhões de pessoas afetadas por algum nível de pobreza na Cidade de São Paulo. Os dados sobre pobreza centrípeta urbana nos auxiliam na compreensão do fenômeno da população em situação de rua na Cidade de São Paulo. Outro fator associado à vulnerabilidade socioeconômica é a insegurança alimentar tanto de quem está nas ruas quanto daqueles em condição de pobreza. Dados do IBGE apontam que ``Dos 68,9 milhões de domicílios no Brasil, 36,7\% estavam com algum grau de insegurança alimentar, atingindo 84,9 milhões de pessoas'' e  que ``A prevalência nacional de segurança alimentar caiu para 63,3\%, em 2017-2018, alcançando seu patamar mais baixo''\footnote{Ver esses dados  em \href{https://agenciadenoticias.ibge.gov.br/agencia-noticias/2012-agencia-de-noticias/noticias/28903-10-3-milhoes-de-pessoas-moram-em-domicilios-com-inseguranca-alimentar-grave}{10,3 milhões de pessoas moram em domicílios com insegurança alimentar grave}.}.
+
+
+
+\begin{landscape}
+\pagestyle{empty}
+% Table generated by Excel2LaTeX from sheet 'Pobreza US$ 1,90'
+\begin{table}[htbp]
+ \centering
+\caption{Distribuição percentual de pessoas residentes em domicílios particulares, com indicação de variação, segundo classes de rendimento real domiciliar per capita e as Grandes Regiões - 2012-2018}
+    \tabcolsep=0.60cm
+	\renewcommand{\arraystretch}{3}
+	\begin{adjustbox}{max width=\linewidth}
+    \begin{tabular}{ccccccccccc}
+    \toprule
+    \multicolumn{11}{|c|}{\textbf{Menos de US\$ 1,9 PPC 2011 (2)}} \\
+    \midrule
+    \textbf{Grandes Regiões} & \multicolumn{7}{c}{\textbf{Distribuição percentual de pessoas residentes em domicílios particulares (\%)}} & \multicolumn{3}{c}{\textbf{Diferença (p. p.)}} \\
+         & 2012 & 2013 & 2014 & 2015 & 2016 & 2017 & 2018 & \multicolumn{1}{p{7em}}{2012/2014 (\%)} & \multicolumn{1}{p{7em}}{2014/2018 (\%)} & \multicolumn{1}{p{7em}}{2017-2018 (\%)} \\
+    \multicolumn{1}{p{14.5em}}{Norte} & 9.7  & 8.3  & 7.5  & 9    & 9.7  & 10.1 & 11   & \multicolumn{1}{p{7em}}{(negativa) 2,1} & 3.5  & 0.9 \\
+    \multicolumn{1}{p{14.5em}}{Nordeste } & 12.4 & 11.1 & 9.4  & 10.3 & 12   & 13.5 & 13.6 & \multicolumn{1}{p{7em}}{(negativa) 3,0} & 4.1  & 0 \\
+    \multicolumn{1}{p{14.5em}}{Sudeste } & 2.6  & 2.4  & 2.2  & 2.2  & 3    & 3.2  & 3.2  & \multicolumn{1}{p{7em}}{(negativa) 0,4} & 1    & 0 \\
+    \multicolumn{1}{p{14.5em}}{Sul } & 1.8  & 1.4  & 1.4  & 1.5  & 1.9  & 2.2  & 2.1  & \multicolumn{1}{p{7em}}{(negativa) 0,4} & 0.7  & \multicolumn{1}{p{7em}}{ (negativa) 0,1} \\
+    \multicolumn{1}{p{14.5em}}{Centro-Oeste } & 1.9  & 1.8  & 1.8  & 2    & 2.6  & 2.9  & 2.9  & \multicolumn{1}{p{7em}}{(negativa) 0,2} & 1.1  & 0 \\
+    \multicolumn{11}{c}{} \\
+    \multicolumn{11}{l}{(1) Tabela adaptada e com seleção de dados históricos sobre extrema pobreza ou pessoas abaixo da linha da pobreza.} \\
+    \multicolumn{11}{l}{(2) Taxa de conversão da paridade de poder de compra - PPC para consumo privado, R\$ 1,66 para US\$ 1,00 PPC 2011, inflacionado pelo IPCA para anos recentes.} \\
+    \multicolumn{11}{l}{Ver \href{https://biblioteca.ibge.gov.br/visualizacao/livros/liv101678.pdf}{Síntese de Indicadores Sociais: uma Análise das Condições de Vida da População Brasileira, 2019, p. 59.}} \\
+    \end{tabular}%
+    \end{adjustbox}
+  \label{tab:ibge_tabela}%
+\end{table}%
+\end{landscape}
+
+
+%
+\begin{landscape}
+\pagestyle{empty}
+\begin{figure}[p]
+ \vspace*{-1.2cm}
+\centering
+	\caption{Renda e Pobreza na Região Metropolitana de São Paulo}
+	\includegraphics[height=15.5cm, width=23cm]{gráficos/mapa1_extrema_pobreza_abso_metro_sp1.pdf}
+	\label{fig:mapa_extrema_pobreza}
+\end{figure}
+\end{landscape}
+
+%%%
+
+%
+\begin{landscape}
+\pagestyle{empty}
+\begin{figure}[p]
+ \vspace*{-1.2cm}
+\centering
+	\caption{Renda e Pobreza na Região Metropolitana de São Paulo}
+	\includegraphics[height=15.5cm, width=23cm]{gráficos/mapa2_pobreza_abso_metro_sp1.pdf}
+	\label{fig:mapa_pobreza}
+\end{figure}
+\end{landscape}
+
+%%%
+
+%
+\begin{landscape}
+\pagestyle{empty}
+\begin{figure}[p]
+ \vspace*{-1.2cm}
+\centering
+	\caption{Renda e Pobreza na Região Metropolitana de São Paulo}
+	\includegraphics[height=15.5cm, width=23cm]{gráficos/mapa3_baixa_renda_abso_metro_sp1.pdf}
+	\label{fig:mapa_baixa_renda}
+\end{figure}
+\end{landscape}
+
+%%%
+
+%
+\begin{landscape}
+\pagestyle{empty}
+\begin{figure}[p]
+ \vspace*{-1.2cm}
+\centering
+	\caption{Renda e Pobreza na Região Metropolitana de São Paulo}
+	\includegraphics[width=23cm\textwidth,height=15.5\textheight,keepaspectratio]{gráficos/mapa4_meio_salario_abso_metro_sp1.pdf}
+	\label{fig:mapa_meio_salario}
+\end{figure}
+\end{landscape}
+
+Como os níveis de vulnerabilidade socioeconômica aumentam no Município de São Paulo, é importante perguntar-se de qual grupo essa demografia da pobreza metropolitana se avizinha. Os estudos sobre a população em situação de rua mostram que o perfil desse segmento social não se define somente pela falta de moradia. Escolaridade, capacidade de ler e escrever e acesso a programas de transferência de renda são alguns dos traços que aproximam os mais pobres daquelas pessoas em situação de rua.\\ 
+
+%%%
+
+Ainda sobre as similitudes entre algumas das demandas da população em situação de rua e dos estratos mais pobres da população, fatores como a pobreza estrutural e a moradia devem ser destacados: ``A desigualdade também aparece nos indicadores de moradia. O estudo mostra que 45,2 milhões de pessoas residiam em 14,2 milhões de domicílios com pelo menos uma de cinco inadequações - ausência de banheiro de uso exclusivo, paredes externas com materiais não duráveis, adensamento excessivo de moradores, ônus excessivo com aluguel e ausência de documento de propriedade. Dessas pessoas, 13,5 milhões eram de cor ou raça branca e 31,3 milhões pretos ou pardos.'', conforme aponta o IBGE\footnote{Ver em \href{https://agenciadenoticias.ibge.gov.br/agencia-noticias/2012-agencia-de-noticias/noticias/29433-trabalho-renda-e-moradia-desigualdades-entre-brancos-e-pretos-ou-pardos-persistem-no-pais}{Trabalho, renda e moradia: desigualdades entre brancos e pretos ou pardos persistem no país}.}. 
+
+\newpage
+
+
+%%%%%%% Perfil da Série Histórica
+
+\begin{center}
+\section{PERFIL DA POPULAÇÃO EM SITUAÇÃO DE RUA}
+\end{center}
+\label{parte_3}
+\vspace{1cm}
+
+O fenômeno da população em situação de rua no município de São Paulo, assim como na média nacional, é majoritariamente negro, sendo consequência direta do Racismo Estrutural historicamente perpetrado em nosso país. Conforme bem nos lembram Sueli Carneiro \citep{carneiro}, Beatriz Nascimento \citep{beatriz}, Lélia Gonzalez \citep{lelia}, Carolina Maria de Jesus \citep{carolina_jesus}, Silvio Almeida \citep{silvio_almeida} e Abdias Nascimento \citep{abdias} e tantas(os) outras(os) autoras(es) são vidas negras cotidianamente silenciadas, invisibilizadas, vulnerabilizadas, patologizadas, criminalizadas, encarceradas e eliminadas em nosso país, seja pela ação ou pela omissão dos Governos e da sociedade brasileira.\\
+
+\subsection{Cor}
+\label{cor}
+
+Por população negra, consideramos conjuntamente a quantidade de pretos e pardos em comparação ao número de brancos, índios e amarelos conforme as nomenclaturas aplicadas pelo IBGE nos censos ou pesquisas amostrais. \textbf{É importante sublinhar que esse não é um recorte apenas aplicável à população em situação de rua, mas também aos estratos de pobreza no Brasil. De acordo com os dados da série histórica 2012-2021 para o Município de São Paulo, Figura} \ref{fig:cor} bem como Tabelas \ref{tab:tab_cor1} e \ref{tab:tab_cor2}, \textbf{visualizamos quase 65\% da população em situação de rua na cidade ou 23.982 pessoas pretas ou pardas}.\\
+
+%%%
+\begin{figure}[H]
+\centering
+	\caption{Cor}
+	\includegraphics[height=12cm, width=15cm]{gráficos/totais_sp_cor_serie_historica.pdf}
+	\label{fig:cor}
+\end{figure}
+%%%
+
+
+% Table generated by Excel2LaTeX from sheet 'Cor'
+\begin{table}[htbp]
+  \centering
+  \caption{Dados Tabulados Cor, Percentuais}
+  \tabcolsep=0.15cm
+	\renewcommand{\arraystretch}{1.0}
+	\begin{adjustbox}{max width=\linewidth}
+    \begin{tabular}{clccclc}
+    \toprule
+    \multicolumn{7}{c}{Série Histórica População em Situação de Rua, São Paulo 2012-2021} \\
+    \midrule
+         &      &      &      &      &      &  \\
+\cmidrule{1-3}\cmidrule{5-7}    \rowcolor[rgb]{ .906,  .902,  .902} \textbf{Ano} & \multicolumn{1}{l}{\textbf{Cor}} & \textbf{Percentual} & \cellcolor[rgb]{ 1,  1,  1} & \textbf{Ano} & \multicolumn{1}{l}{\textbf{Cor}} & \textbf{Percentual} \\
+\cmidrule{1-3}\cmidrule{5-7}    \multirow{6}[2]{*}{2021} & Branca & 35.01\% &      & \multirow{6}[2]{*}{2016} & Branca & 34.10\% \\
+         & Preta & 16.84\% &      &      & Preta & 17.23\% \\
+         & Amarela & 0.37\% &      &      & Amarela & 0.50\% \\
+         & Parda & 47.63\% &      &      & Parda & 46.32\% \\
+         & Indígena & 0.10\% &      &      & Indígena & 0.13\% \\
+         & Sem Dados & 0.05\% &      &      & Sem Dados & 1.73\% \\
+\cmidrule{1-3}\cmidrule{5-7}    \multirow{6}[2]{*}{2020} & Branca & 34.71\% &      & \multirow{6}[2]{*}{2015} & Branca & 33.23\% \\
+         & Preta & 17.03\% &      &      & Preta & 16.27\% \\
+         & Amarela & 0.39\% &      &      & Amarela & 0.63\% \\
+         & Parda & 47.28\% &      &      & Parda & 46.15\% \\
+         & Indígena & 0.10\% &      &      & Indígena & 0.12\% \\
+         & Sem Dados & 0.48\% &      &      & Sem Dados & 3.60\% \\
+\cmidrule{1-3}\cmidrule{5-7}    \multirow{6}[2]{*}{2019} & Branca & 34.86\% &      & \multirow{6}[2]{*}{2014} & Branca & 32.08\% \\
+         & Preta & 16.99\% &      &      & Preta & 15.12\% \\
+         & Amarela & 0.37\% &      &      & Amarela & 0.52\% \\
+         & Parda & 47.13\% &      &      & Parda & 44.95\% \\
+         & Indígena & 0.10\% &      &      & Indígena & 0.16\% \\
+         & Sem Dados & 0.55\% &      &      & Sem Dados & 7.18\% \\
+\cmidrule{1-3}\cmidrule{5-7}    \multirow{6}[2]{*}{2018} & Branca & 34.66\% &      & \multirow{6}[2]{*}{2013} & Branca & 29.13\% \\
+         & Preta & 17.02\% &      &      & Preta & 12.36\% \\
+         & Amarela & 0.40\% &      &      & Amarela & 0.66\% \\
+         & Parda & 47.16\% &      &      & Parda & 43.24\% \\
+         & Indígena & 0.10\% &      &      & Indígena & 0.20\% \\
+         & Sem Dados & 0.66\% &      &      & Sem Dados & 14.41\% \\
+\cmidrule{1-3}\cmidrule{5-7}    \multirow{6}[2]{*}{2017} & Branca & 34.17\% &      & \multirow{6}[2]{*}{2012} & Branca & 33.45\% \\
+         & Preta & 17.27\% &      &      & Preta & 13.69\% \\
+         & Amarela & 0.44\% &      &      & Amarela & 1.02\% \\
+         & Parda & 47.03\% &      &      & Parda & 51.28\% \\
+         & Indígena & 0.12\% &      &      & Indígena & 0.36\% \\
+         & Sem Dados & 0.98\% &      &      & Sem Dados & 0.21\% \\
+\cmidrule{1-3}\cmidrule{5-7}    
+\end{tabular}%
+\end{adjustbox}
+  \label{tab:tab_cor1}%
+\end{table}%
+
+
+
+% Table generated by Excel2LaTeX from sheet 'Cor'
+\begin{table}[htbp]
+  \centering
+  \caption{Dados Tabulados Cor, Números Absolutos}
+  \tabcolsep=0.15cm
+	\renewcommand{\arraystretch}{1.0}
+	\begin{adjustbox}{max width=\linewidth}
+    \begin{tabular}{clccclc}
+    \toprule
+    \multicolumn{7}{c}{Série Histórica População em Situação de Rua, São Paulo 2012-2021} \\
+    \midrule
+         &      &      &      &      &      &  \\
+\cmidrule{1-3}\cmidrule{5-7}    \rowcolor[rgb]{ .906,  .902,  .902} \textbf{Ano} & \multicolumn{1}{l}{\textbf{Cor}} & \textbf{Total} & \cellcolor[rgb]{ 1,  1,  1} & \textbf{Ano} & \multicolumn{1}{l}{\textbf{Cor}} & \textbf{Total} \\
+\cmidrule{1-3}\cmidrule{5-7}    \multirow{6}[2]{*}{2021} & Branca & 13022 &      & \multirow{6}[2]{*}{2016} & Branca & 8557 \\
+         & Preta & 6264 &      &      & Preta & 4323 \\
+         & Amarela & 138  &      &      & Amarela & 125 \\
+         & Parda & 17718 &      &      & Parda & 11625 \\
+         & Indígena & 39   &      &      & Indígena & 32 \\
+         & Sem Dados & 19   &      &      & Sem Dados & 433 \\
+\cmidrule{1-3}\cmidrule{5-7}    \multirow{6}[2]{*}{2020} & Branca & 16709 &      & \multirow{6}[2]{*}{2015} & Branca & 6183 \\
+         & Preta & 8196 &      &      & Preta & 3027 \\
+         & Amarela & 190  &      &      & Amarela & 117 \\
+         & Parda & 22760 &      &      & Parda & 8588 \\
+         & Indígena & 46   &      &      & Indígena & 23 \\
+         & Sem Dados & 233  &      &      & Sem Dados & 670 \\
+\cmidrule{1-3}\cmidrule{5-7}    \multirow{6}[2]{*}{2019} & Branca & 15470 &      & \multirow{6}[2]{*}{2014} & Branca & 4230 \\
+         & Preta & 7537 &      &      & Preta & 1993 \\
+         & Amarela & 163  &      &      & Amarela & 68 \\
+         & Parda & 20913 &      &      & Parda & 5926 \\
+         & Indígena & 45   &      &      & Indígena & 21 \\
+         & Sem Dados & 244  &      &      & Sem Dados & 947 \\
+\cmidrule{1-3}\cmidrule{5-7}    \multirow{6}[2]{*}{2018} & Branca & 13478 &      & \multirow{6}[2]{*}{2013} & Branca & 2296 \\
+         & Preta & 6617 &      &      & Preta & 974 \\
+         & Amarela & 154  &      &      & Amarela & 52 \\
+         & Parda & 18341 &      &      & Parda & 3409 \\
+         & Indígena & 39   &      &      & Indígena & 16 \\
+         & Sem Dados & 258  &      &      & Sem Dados & 1136 \\
+\cmidrule{1-3}\cmidrule{5-7}    \multirow{6}[2]{*}{2017} & Branca & 10707 &      & \multirow{6}[2]{*}{2012} & Branca & 1285 \\
+         & Preta & 5411 &      &      & Preta & 526 \\
+         & Amarela & 137  &      &      & Amarela & 39 \\
+         & Parda & 14736 &      &      & Parda & 1970 \\
+         & Indígena & 39   &      &      & Indígena & 14 \\
+         & Sem Dados & 306  &      &      & Sem Dados & 8 \\
+\cmidrule{1-3}\cmidrule{5-7}    
+\end{tabular}%
+\end{adjustbox}
+  \label{tab:tab_cor2}%
+\end{table}%
+
+
+
+
+\subsection{Sexo}
+\label{sexo}
+
+Na Figura \ref{fig:sexo}, percebe-se que a maior parte das pessoas em situação de rua em São Paulo é do sexo masculino, acompanhando a tendência brasileira, como destacado no Relatório Técnico-Científico também elaborado pelo Programa Polos de Cidadania da UFMG e publicado em abril de 2021\footnote{O \textbf{Relatório Técnico-Científico: Dados Referentes ao Fenômeno da População em Situação de Rua no Brasil} pode ser acessado no link \href{https://polos.direito.ufmg.br/wp-content/uploads/2021/07/Relatorio-Incontaveis-2021.pdf}{Programa Polos de Cidadania}.}.\\
+
+%%%
+\begin{figure}[H]
+\centering
+	\caption{Sexo}
+	\includegraphics[height=12cm, width=16cm]{gráficos/totais_sp_sexo_serie_historica.pdf}
+	\label{fig:sexo}
+\end{figure}
+%%%
+
+%%%
+
+
+% Table generated by Excel2LaTeX from sheet 'Sexo'
+\begin{table}[htbp]
+ \centering
+  \caption{Dados Tabulados Sexo, Percentuais}
+  \tabcolsep=0.15cm
+	\renewcommand{\arraystretch}{1.0}
+	\begin{adjustbox}{max width=\linewidth}
+      \begin{tabular}{ccc}
+    \toprule
+    \multicolumn{3}{c}{Série Histórica População em Situação de Rua, São Paulo 2012-2021} \\
+    \midrule
+    \multicolumn{3}{c}{} \\
+    \midrule
+    \rowcolor[rgb]{ .906,  .902,  .902} \textbf{Ano} & \textbf{Sexo} & \textbf{Percentual} \\
+    \midrule
+    \multirow{2}[2]{*}{2021} & Masculino & 86.74\% \\
+          & Feminino & 13.26\% \\
+    \midrule
+    \multirow{2}[2]{*}{2020} & Masculino & 86.75\% \\
+          & Feminino & 13.25\% \\
+    \midrule
+    \multirow{2}[2]{*}{2019} & Masculino & 87.07\% \\
+          & Feminino & 12.93\% \\
+    \midrule
+    \multirow{2}[2]{*}{2018} & Masculino & 87.61\% \\
+          & Feminino & 12.39\% \\
+    \midrule
+    \multirow{2}[2]{*}{2017} & Masculino & 87.96\% \\
+          & Feminino & 12.04\% \\
+    \midrule
+    \multirow{2}[2]{*}{2016} & Masculino & 87.89\% \\
+          & Feminino & 12.11\% \\
+    \midrule
+    \multirow{2}[2]{*}{2015} & Masculino & 87.73\% \\
+          & Feminino & 12.27\% \\
+    \midrule
+    \multirow{2}[2]{*}{2014} & Masculino & 87.02\% \\
+          & Feminino & 12.98\% \\
+    \midrule
+    \multirow{2}[2]{*}{2013} & Masculino & 87.29\% \\
+          & Feminino & 12.71\% \\
+    \midrule
+    \multirow{2}[2]{*}{2012} & Masculino & 87.51\% \\
+          & Feminino & 12.49\% \\
+    \bottomrule
+    \end{tabular}%
+ \end{adjustbox}
+  \label{tab:sexo_percentual}%
+\end{table}%
+
+
+% Table generated by Excel2LaTeX from sheet 'Sexo'
+\begin{table}[htbp]
+ \centering
+  \caption{Dados Tabulados Sexo, Números Absolutos}
+  \tabcolsep=0.15cm
+	\renewcommand{\arraystretch}{1.0}
+	\begin{adjustbox}{max width=\linewidth}
+    \begin{tabular}{ccc}
+    \toprule
+    \multicolumn{3}{c}{Série Histórica População em Situação de Rua, São Paulo 2012-2021} \\
+    \midrule
+    \multicolumn{3}{c}{} \\
+    \midrule
+    \rowcolor[rgb]{ .906,  .902,  .902} \textbf{Ano} & \textbf{Sexo} & \textbf{Total} \\
+    \midrule
+    \multirow{2}[2]{*}{2021} & Masculino & 32266 \\
+          & Feminino & 4934 \\
+    \midrule
+    \multirow{2}[2]{*}{2020} & Masculino & 41756 \\
+          & Feminino & 6378 \\
+    \midrule
+    \multirow{2}[2]{*}{2019} & Masculino & 38636 \\
+          & Feminino & 5736 \\
+    \midrule
+    \multirow{2}[2]{*}{2018} & Masculino & 34070 \\
+          & Feminino & 4817 \\
+    \midrule
+    \multirow{2}[2]{*}{2017} & Masculino & 27564 \\
+          & Feminino & 3772 \\
+    \midrule
+    \multirow{2}[2]{*}{2016} & Masculino & 22057 \\
+          & Feminino & 3038 \\
+    \midrule
+    \multirow{2}[2]{*}{2015} & Masculino & 16325 \\
+          & Feminino & 2283 \\
+    \midrule
+    \multirow{2}[2]{*}{2014} & Masculino & 11474 \\
+          & Feminino & 1711 \\
+    \midrule
+    \multirow{2}[2]{*}{2013} & Masculino & 6881 \\
+          & Feminino & 1002 \\
+    \midrule
+    \multirow{2}[2]{*}{2012} & Masculino & 3362 \\
+          & Feminino & 480 \\
+    \bottomrule
+    \end{tabular}%
+ \end{adjustbox}
+  \label{tab:sexo_percentual}%
+\end{table}%
+
+
+
+\subsection{Faixa Etária}
+
+
+As Tabelas \ref{tab:tab_faixa_etaria_perc} e \ref{tab:tab_faixa_etaria_num_abso} indicam uma predominância histórica de pessoas em situação de rua na faixa etária entre 30 a 59 anos, seguido por idosos, acima de 60 anos. Entre os anos de 2015 a 2018, houve um crescimento das pessoas em situação de rua na faixa etária entre 22 e 29 anos. Nos últimos 10 anos, permaneceu constante a porcentagem de crianças em situação de rua com idade até 11 anos no município de São Paulo, havendo, contudo, um aumento considerável de adolescentes entre 12 e 17 anos nessa população. Na média da série histórica, 83\% da população em situação de rua na capital paulista encontram-se na faixa etária de 18 a 59 anos.\\
+
+%
+\begin{figure}[H]
+\centering
+	\caption{Faixa Etária}
+	\includegraphics[scale=0.65]{gráficos/totais_sp_idade_serie_historica.pdf}
+	\label{fig:faixa_estaria}
+\end{figure}
+%
+
+Percentualmente, houve uma variação de crianças em situação de rua com até 11 anos registradas no CadÚnico de São Paulo. Em 2017, eram 2,77\% e, em 2021, 3,15\%. Isso em números absolutos resulta em um aumento de 869 para 1173 crianças nas ruas da cidade. Entre os idosos, para esse mesmo período compreendido na série histórica, de 3570 para 4772 pessoas ou uma variação de 11,39\% para 12,83\%.\\
+
+% Table generated by Excel2LaTeX from sheet 'Idade'
+\begin{table}[htbp]
+  \centering
+  \caption{Dados Tabulados Faixa Etária, Percentuais}
+   \tabcolsep=0.15cm
+	\renewcommand{\arraystretch}{1.0}
+	\begin{adjustbox}{max width=\linewidth}
+    \begin{tabular}{clcrclc}
+    \toprule
+    \multicolumn{7}{c}{Série Histórica População em Situação de Rua, São Paulo 2012-2021} \\
+    \midrule
+         &      &      &      &      &      &  \\
+\cmidrule{1-3}\cmidrule{5-7}    \rowcolor[rgb]{ .906,  .902,  .902} \textbf{Ano} & \textbf{Idade} & \textbf{Percentual} & \cellcolor[rgb]{ .906,  .902,  .902} & \textbf{Ano} & \textbf{Idade} & \textbf{Percentual} \\
+\cmidrule{1-3}\cmidrule{5-7}    \multirow{6}[2]{*}{2021} & Até 11 anos & 3.15\% &      & \multirow{6}[2]{*}{2016} & Até 11 anos & 3.00\% \\
+         & De 12 a 17 anos & 1.05\% &      &      & De 12 a 17 anos & 0.50\% \\
+         & De 18 a 21 anos & 1.45\% &      &      & De 18 a 21 anos & 1.94\% \\
+         & De 22 a 29 anos & 10.65\% &      &      & De 22 a 29 anos & 13.15\% \\
+         & De 30 a 59 anos & 70.88\% &      &      & De 30 a 59 anos & 70.58\% \\
+         & De 60 anos acima & 12.83\% &      &      & De 60 anos acima & 10.82\% \\
+\cmidrule{1-3}\cmidrule{5-7}    \multirow{6}[2]{*}{2020} & Até 11 anos & 3.05\% &      & \multirow{6}[2]{*}{2015} & Até 11 anos & 3.29\% \\
+         & De 12 a 17 anos & 0.92\% &      &      & De 12 a 17 anos & 0.49\% \\
+         & De 18 a 21 anos & 1.46\% &      &      & De 18 a 21 anos & 1.85\% \\
+         & De 22 a 29 anos & 10.61\% &      &      & De 22 a 29 anos & 12.77\% \\
+         & De 30 a 59 anos & 70.33\% &      &      & De 30 a 59 anos & 70.29\% \\
+         & De 60 anos acima & 13.62\% &      &      & De 60 anos acima & 11.30\% \\
+\cmidrule{1-3}\cmidrule{5-7}    \multirow{6}[2]{*}{2019} & Até 11 anos & 3.06\% &      & \multirow{6}[2]{*}{2014} & Até 11 anos & 3.7\% \\
+         & De 12 a 17 anos & 0.86\% &      &      & De 12 a 17 anos & 0.5\% \\
+         & De 18 a 21 anos & 1.71\% &      &      & De 18 a 21 anos & 1.8\% \\
+         & De 22 a 29 anos & 11.74\% &      &      & De 22 a 29 anos & 11.8\% \\
+         & De 30 a 59 anos & 70.13\% &      &      & De 30 a 59 anos & 69.9\% \\
+         & De 60 anos acima & 12.49\% &      &      & De 60 anos acima & 12.3\% \\
+\cmidrule{1-3}\cmidrule{5-7}    \multirow{6}[2]{*}{2018} & Até 11 anos & 2.90\% &      & \multirow{6}[2]{*}{2013} & Até 11 anos & 3.36\% \\
+         & De 12 a 17 anos & 0.71\% &      &      & De 12 a 17 anos & 0.56\% \\
+         & De 18 a 21 anos & 1.95\% &      &      & De 18 a 21 anos & 1.60\% \\
+         & De 22 a 29 anos & 12.61\% &      &      & De 22 a 29 anos & 10.11\% \\
+         & De 30 a 59 anos & 70.24\% &      &      & De 30 a 59 anos & 70.04\% \\
+         & De 60 anos acima & 11.60\% &      &      & De 60 anos acima & 14.33\% \\
+\cmidrule{1-3}\cmidrule{5-7}    \multirow{6}[2]{*}{2017} & Até 11 anos & 2.77\% &      & \multirow{6}[2]{*}{2012} & Até 11 anos & 3.44\% \\
+         & De 12 a 17 anos & 0.58\% &      &      & De 12 a 17 anos & 0.70\% \\
+         & De 18 a 21 anos & 1.92\% &      &      & De 18 a 21 anos & 1.67\% \\
+         & De 22 a 29 anos & 12.88\% &      &      & De 22 a 29 anos & 8.88\% \\
+         & De 30 a 59 anos & 70.45\% &      &      & De 30 a 59 anos & 67.23\% \\
+         & De 60 anos acima & 11.39\% &      &      & De 60 anos acima & 18.09\% \\
+\cmidrule{1-3}\cmidrule{5-7}    
+\end{tabular}%
+\end{adustbox}
+  \label{tab:tab_faixa_etaria_perc}%
+\end{table}%
+
+% Table generated by Excel2LaTeX from sheet 'Idade'
+\begin{table}[htbp]
+  \centering
+  \caption{Dados Tabulados Faixa Etária, Números Absolutos}
+   \tabcolsep=0.15cm
+	\renewcommand{\arraystretch}{1.0}
+	\begin{adjustbox}{max width=\linewidth}
+    \begin{tabular}{clcrclc}
+    \toprule
+    \multicolumn{7}{c}{Série Histórica População em Situação de Rua, São Paulo 2012-2021} \\
+    \midrule
+         &      &      &      &      &      &  \\
+\cmidrule{1-3}\cmidrule{5-7}    \rowcolor[rgb]{ .906,  .902,  .902} \textbf{Ano} & \textbf{Idade} & \textbf{Total} & \cellcolor[rgb]{ 1,  1,  1} & \textbf{Ano} & \textbf{Idade} & \textbf{Total} \\
+\cmidrule{1-3}\cmidrule{5-7}    \multirow{6}[2]{*}{2021} & Até 11 anos & 1173  &      & \multirow{6}[2]{*}{2016} & Até 11 anos & 752 \\
+         & De 12 a 17 anos & 389  &      &      & De 12 a 17 anos & 126 \\
+         & De 18 a 21 anos & 538  &      &      & De 18 a 21 anos & 488 \\
+         & De 22 a 29 anos & 3960 &      &      & De 22 a 29 anos & 3301 \\
+         & De 30 a 59 anos & 26368 &      &      & De 30 a 59 anos & 17713 \\
+         & De 60 anos acima & 4772 &      &      & De 60 anos acima & 2715 \\
+\cmidrule{1-3}\cmidrule{5-7}    \multirow{6}[2]{*}{2020} & Até 11 anos & 1467 &      & \multirow{6}[2]{*}{2015} & Até 11 anos & 613 \\
+         & De 12 a 17 anos & 444  &      &      & De 12 a 17 anos & 91 \\
+         & De 18 a 21 anos & 703  &      &      & De 18 a 21 anos & 345 \\
+         & De 22 a 29 anos & 5107 &      &      & De 22 a 29 anos & 2377 \\
+         & De 30 a 59 anos & 33855 &      &      & De 30 a 59 anos & 13080 \\
+         & De 60 anos acima & 6558 &      &      & De 60 anos acima & 2102 \\
+\cmidrule{1-3}\cmidrule{5-7}    \multirow{6}[2]{*}{2019} & Até 11 anos & 1357 &      & \multirow{6}[2]{*}{2014} & Até 11 anos & 489 \\
+         & De 12 a 17 anos & 381  &      &      & De 12 a 17 anos & 67 \\
+         & De 18 a 21 anos & 760  &      &      & De 18 a 21 anos & 236 \\
+         & De 22 a 29 anos & 5211 &      &      & De 22 a 29 anos & 1554 \\
+         & De 30 a 59 anos & 31119 &      &      & De 30 a 59 anos & 9220 \\
+         & De 60 anos acima & 5544 &      &      & De 60 anos acima & 1619 \\
+\cmidrule{1-3}\cmidrule{5-7}    \multirow{6}[2]{*}{2018} & Até 11 anos & 1127 &      & \multirow{6}[2]{*}{2013} & Até 11 anos & 265 \\
+         & De 12 a 17 anos & 276  &      &      & De 12 a 17 anos & 44 \\
+         & De 18 a 21 anos & 759  &      &      & De 18 a 21 anos & 126 \\
+         & De 22 a 29 anos & 4903 &      &      & De 22 a 29 anos & 797 \\
+         & De 30 a 59 anos & 27313 &      &      & De 30 a 59 anos & 5521 \\
+         & De 60 anos acima & 4509 &      &      & De 60 anos acima & 1130 \\
+\cmidrule{1-3}\cmidrule{5-7}    \multirow{6}[2]{*}{2017} & Até 11 anos & 869  &      & \multirow{6}[2]{*}{2012} & Até 11 anos & 132 \\
+         & De 12 a 17 anos & 182  &      &      & De 12 a 17 anos & 27 \\
+         & De 18 a 21 anos & 602  &      &      & De 18 a 21 anos & 64 \\
+         & De 22 a 29 anos & 4036 &      &      & De 22 a 29 anos & 341 \\
+         & De 30 a 59 anos & 22077 &      &      & De 30 a 59 anos & 2583 \\
+         & De 60 anos acima & 3570 &      &      & De 60 anos acima & 695 \\
+\cmidrule{1-3}\cmidrule{5-7}    
+\end{tabular}%
+\end{adjustbox}
+  \label{tab:tab_faixa_etaria_num_abso}%
+\end{table}%
+
+
+\subsection{Renda}
+\label{sub_renda}
+
+
+%Renda
+Ao analisarmos os dados apresentados na Figura \ref{fig:renda2}, bem como nas Tabelas \ref{tab:tabela_renda1} e \ref{tab:tabela_renda2}, as condições de vulnerabilização das pessoas em situação de rua em São Paulo agravaram-se significativamente nos últimos 10 anos, chegando a registrar, no ano de 2021, 92,05\% de pessoas em situação de rua com renda de até R\$ 89,00 ou em situação de extrema pobreza no município\footnote{O limite que definia extrema pobreza foi alterado para R\$ 100,00 conforme o \href{https://www.in.gov.br/en/web/dou/-/decreto-n-10.851-de-5-de-novembro-de-2021-357327251}{Decreto No. 10.851 de 5 de novembro de 2021}.}.\\ 
+
+Essa tendência está intimamente relacionada com a faixa etária 30 a 59 anos como vimos na Figura \ref{fig:faixa_estaria} e Tabelas \ref{tab:tab_faixa_etaria_perc} e \ref{tab:tab_faixa_etaria_num_abso} assim como os quantitativos de pretos e pardos na Figura \ref{fig:cor} e Tabelas \ref{tab:tab_cor1} e \ref{tab:tab_cor2}. Por isso, salientamos a necessidade de se olhar para o fenômeno da população em situação de rua a partir de uma perspectiva racial, ou seja, do racismo estrutural que ainda determina a condição de vulnerabilidade socioeconômica no país de acordo com o que apontamos no contexto e argumentos iniciais desta nota técnica na seção \ref{contexto_elaboracao}.  
+
+\begin{figure}[H]
+\centering
+	\caption{Renda}
+	\includegraphics[height=12cm, width=16cm]{gráficos/totais_sp_renda_serie_historica.pdf}
+	\label{fig:renda2}
+\end{figure}
+%
+
+
+% Table generated by Excel2LaTeX from sheet 'Renda'
+\begin{table}[htbp]
+  \centering
+  \caption{Dados Tabulados Renda, Percentuais}
+  \tabcolsep=0.15cm
+	\renewcommand{\arraystretch}{1.8}
+	\begin{adjustbox}{max width=\linewidth}
+    \begin{tabular}{clrrclr}
+    \toprule
+    \multicolumn{7}{c}{Série Histórica População em Situação de Rua, São Paulo 2012-2021} \\
+    \midrule
+         &      &      &      &      &      &  \\
+\cmidrule{1-3}\cmidrule{5-7}    \rowcolor[rgb]{ .906,  .902,  .902} \textbf{Ano} & \multicolumn{1}{c}{\textbf{Renda}} & \multicolumn{1}{c}{\textbf{Percentual}} & \cellcolor[rgb]{ 1,  1,  1} & \textbf{Ano} & \multicolumn{1}{c}{\textbf{Renda}} & \multicolumn{1}{c}{\textbf{Percentual}} \\
+\cmidrule{1-3}\cmidrule{5-7}    \multirow{4}[2]{*}{2021} & Até R\$ 89,00 & 92.05\% &      & \multirow{4}[2]{*}{2016} & Até R\$ 89,00 & 92.14\% \\
+         & Entre R\$ 89,01 e R\$ 178,00 & 1.06\% &      &      & Entre R\$ 89,01 e R\$ 178,00 & 1.60\% \\
+         & Até 1/2 Salário Mínimo & 1.24\% &      &      & Até 1/2 Salário Mínimo & 1.55\% \\
+         & Acima de 1/2 Salário Mínimo & 5.65\% &      &      & Acima de 1/2 Salário Mínimo & 4.71\% \\
+\cmidrule{1-3}\cmidrule{5-7}    \multirow{4}[2]{*}{2020} & Até R\$ 89,00 & 89.12\% &      & \multirow{4}[2]{*}{2015} & Até R\$ 89,00 & 91.04\% \\
+         & Entre R\$ 89,01 e R\$ 178,00 & 1.70\% &      &      & Entre R\$ 89,01 e R\$ 178,00 & 1.93\% \\
+         & Até 1/2 Salário Mínimo & 2.51\% &      &      & Até 1/2 Salário Mínimo & 1.82\% \\
+         & Acima de 1/2 Salário Mínimo & 6.67\% &      &      & Acima de 1/2 Salário Mínimo & 5.21\% \\
+\cmidrule{1-3}\cmidrule{5-7}    \multirow{4}[2]{*}{2019} & Até R\$ 89,00 & 89.13\% &      & \multirow{4}[2]{*}{2014} & Até R\$ 89,00 & 89.05\% \\
+         & Entre R\$ 89,01 e R\$ 178,00 & 1.64\% &      &      & Entre R\$ 89,01 e R\$ 178,00 & 2.53\% \\
+         & Até 1/2 Salário Mínimo & 2.35\% &      &      & Até 1/2 Salário Mínimo & 2.43\% \\
+         & Acima de 1/2 Salário Mínimo & 6.88\% &      &      & Acima de 1/2 Salário Mínimo & 5.99\% \\
+\cmidrule{1-3}\cmidrule{5-7}    \multirow{4}[2]{*}{2018} & Até R\$ 89,00 & 90.70\% &      & \multirow{4}[2]{*}{2013} & Até R\$ 89,00 & 85.26\% \\
+         & Entre R\$ 89,01 e R\$ 178,00 & 1.38\% &      &      & Entre R\$ 89,01 e R\$ 178,00 & 3.36\% \\
+         & Até 1/2 Salário Mínimo & 1.74\% &      &      & Até 1/2 Salário Mínimo & 3.50\% \\
+         & Acima de 1/2 Salário Mínimo & 6.18\% &      &      & Acima de 1/2 Salário Mínimo & 7.88\% \\
+\cmidrule{1-3}\cmidrule{5-7}    \multirow{4}[2]{*}{2017} & Até R\$ 89,00 & 91.84\% &      & \multirow{4}[2]{*}{2012} & Até R\$ 89,00 & 80.09\% \\
+         & Entre R\$ 89,01 e R\$ 178,00 & 1.26\% &      &      & Entre R\$ 89,01 e R\$ 178,00 & 4.37\% \\
+         & Até 1/2 Salário Mínimo & 1.60\% &      &      & Até 1/2 Salário Mínimo & 3.88\% \\
+         & Acima de 1/2 Salário Mínimo & 5.30\% &      &      & Acima de 1/2 Salário Mínimo & 11.66\% \\
+\cmidrule{1-3}\cmidrule{5-7}    
+\end{tabular}%
+\end{adjustbox}
+  \label{tab:tabela_renda1}%
+\end{table}%
+
+% Table generated by Excel2LaTeX from sheet 'Sheet1'
+\begin{table}[htbp]
+  \centering
+  \caption{Dados Tabulados Renda, Números Absolutos}
+  \tabcolsep=0.15cm
+	\renewcommand{\arraystretch}{1.8}
+	\begin{adjustbox}{max width=\linewidth}
+    \begin{tabular}{clccclc}
+    \toprule
+    \multicolumn{7}{c}{Série Histórica População em Situação de Rua, São Paulo 2012-2021} \\
+    \midrule
+         &      &      &      &      &      &  \\
+\cmidrule{1-3}\cmidrule{5-7}    \rowcolor[rgb]{ .906,  .902,  .902} \textbf{Ano} & \multicolumn{1}{c}{\textbf{Renda}} & \multicolumn{1}{c}{\textbf{Total}} & \cellcolor[rgb]{ 1,  1,  1} & \textbf{Ano} & \multicolumn{1}{c}{\textbf{Renda}} & \multicolumn{1}{c}{\textbf{Total}} \\
+\cmidrule{1-3}\cmidrule{5-7}    \multirow{4}[2]{*}{2021} & Até R\$ 89,00 & 34241 &      & \multirow{4}[2]{*}{2016} & Até R\$ 89,00 & 23123 \\
+         & Entre R\$ 89,01 e R\$ 178,00 & 393  &      &      & Entre R\$ 89,01 e R\$ 178,00 & 402 \\
+         & Até 1/2 Salário Mínimo & 463  &      &      & Até 1/2 Salário Mínimo & 389 \\
+         & Acima de 1/2 Salário Mínimo & 2103 &      &      & Acima de 1/2 Salário Mínimo & 1181 \\
+\cmidrule{1-3}\cmidrule{5-7}    \multirow{4}[2]{*}{2020} & Até R\$ 89,00 & 42898 &      & \multirow{4}[2]{*}{2015} & Até R\$ 89,00 & 16941 \\
+         & Entre R\$ 89,01 e R\$ 178,00 & 817  &      &      & Entre R\$ 89,01 e R\$ 178,00 & 359 \\
+         & Até 1/2 Salário Mínimo & 1210 &      &      & Até 1/2 Salário Mínimo & 339 \\
+         & Acima de 1/2 Salário Mínimo & 3209 &      &      & Acima de 1/2 Salário Mínimo & 969 \\
+\cmidrule{1-3}\cmidrule{5-7}    \multirow{4}[2]{*}{2019} & Até R\$ 89,00 & 39548 &      & \multirow{4}[2]{*}{2014} & Até R\$ 89,00 & 11741 \\
+         & Entre R\$ 89,01 e R\$ 178,00 & 729  &      &      & Entre R\$ 89,01 e R\$ 178,00 & 333 \\
+         & Até 1/2 Salário Mínimo & 1042 &      &      & Até 1/2 Salário Mínimo & 321 \\
+         & Acima de 1/2 Salário Mínimo & 3053 &      &      & Acima de 1/2 Salário Mínimo & 790 \\
+\cmidrule{1-3}\cmidrule{5-7}    \multirow{4}[2]{*}{2018} & Até R\$ 89,00 & 35272 &      & \multirow{4}[2]{*}{2013} & Até R\$ 89,00 & 6721 \\
+         & Entre R\$ 89,01 e R\$ 178,00 & 536  &      &      & Entre R\$ 89,01 e R\$ 178,00 & 265 \\
+         & Até 1/2 Salário Mínimo & 677  &      &      & Até 1/2 Salário Mínimo & 276 \\
+         & Acima de 1/2 Salário Mínimo & 2402 &      &      & Acima de 1/2 Salário Mínimo & 621 \\
+\cmidrule{1-3}\cmidrule{5-7}    \multirow{4}[2]{*}{2017} & Até R\$ 89,00 & 28779 &      & \multirow{4}[2]{*}{2012} & Até R\$ 89,00 & 3077 \\
+         & Entre R\$ 89,01 e R\$ 178,00 & 395  &      &      & Entre R\$ 89,01 e R\$ 178,00 & 168 \\
+         & Até 1/2 Salário Mínimo & 500  &      &      & Até 1/2 Salário Mínimo & 149 \\
+         & Acima de 1/2 Salário Mínimo & 1662 &      &      & Acima de 1/2 Salário Mínimo & 448 \\
+\cmidrule{1-3}\cmidrule{5-7}    
+\end{tabular}%
+   \end{adjustbox}
+  \label{tab:tabela_renda2}%
+\end{table}%
+
+
+\subsection{Escolaridade}
+\label{escolaridade}
+
+%Escolaridade
+O dado sobre pessoas em situação de rua com Ensino Fundamental incompleto, tal como se observa na Figura \ref{fig:bolsa_familia} e nas Tabelas \ref{tab:tab_bolsa_familia1} e \ref{tab:tab_bolsa_familia2}, seguido do nível de escolaridade Ensino Médio completo no CadÚnico para São Paulo, permaneceu sem alteração percentual significativa entre 2012 e 2021. Notamos ainda que, nesse período, houve uma pequena diminuição da população em situação de rua sem instrução, assim como um leve aumento no percentual de pessoas com formação superior incompleta ou mais.\\
+
+
+\begin{figure}[H]
+\centering
+	\caption{Escolaridade}
+	\includegraphics[height=11cm, width=15cm]{gráficos/totais_sp_escolaridade_serie_historica.pdf}
+	\label{fig:escolaridade}
+\end{figure}
+
+% Table generated by Excel2LaTeX from sheet 'Escolaridade'
+\begin{table}[htbp]
+  \centering
+  \caption{Dados Tabulados Escolaridade, Percentuais}
+  \tabcolsep=0.15cm
+	\renewcommand{\arraystretch}{1.3}
+	\begin{adjustbox}{max width=\linewidth}
+    \begin{tabular}{clccclc}
+    \toprule
+    \multicolumn{7}{c}{Série Histórica População em Situação de Rua, São Paulo 2012-2021} \\
+    \midrule
+         &      &      &      &      &      &  \\
+\cmidrule{1-3}\cmidrule{5-7}    \rowcolor[rgb]{ .906,  .902,  .902} \textbf{Ano} & \textbf{Escolaridade} & \textbf{Percentual} & \cellcolor[rgb]{ 1,  1,  1} & \textbf{Ano} & \textbf{Escolaridade} & \textbf{Percentual} \\
+\cmidrule{1-3}\cmidrule{5-7}    \multirow{7}[2]{*}{2021} & Sem Dados & 0.47\% &      & \multirow{7}[2]{*}{2016} & Sem Dados & 0.22\% \\
+         & Sem Instrução & 14.69\% &      &      & Sem Instrução & 15.16\% \\
+         & Fundamental Incompleto & 34.77\% &      &      & Fundamental Incompleto & 39.35\% \\
+         & Fundamental Completo & 16.24\% &      &      & Fundamental Completo & 15.31\% \\
+         & Ensino Médio Incompleto & 10.12\% &      &      & Ensino Médio Incompleto & 9.79\% \\
+         & Ensino Médio Completo & 21.74\% &      &      & Ensino Médio Completo & 18.60\% \\
+         & Superior Incompleto ou Mais & 1.99\% &      &      & Superior Incompleto ou Mais & 1.98\% \\
+\cmidrule{1-3}\cmidrule{5-7}    \multirow{7}[2]{*}{2020} & Sem Dados & 0.48\% &      & \multirow{7}[2]{*}{2015} & Sem Dados & 0.28\% \\
+         & Sem Instrução & 15.04\% &      &      & Sem Instrução & 15.31\% \\
+         & Fundamental Incompleto & 35.31\% &      &      & Fundamental Incompleto & 40.43\% \\
+         & Fundamental Completo & 15.69\% &      &      & Fundamental Completo & 15.53\% \\
+         & Ensino Médio Incompleto & 10.33\% &      &      & Ensino Médio Incompleto & 9.27\% \\
+         & Ensino Médio Completo & 21.09\% &      &      & Ensino Médio Completo & 17.48\% \\
+         & Superior Incompleto ou Mais & 2.07\% &      &      & Superior Incompleto ou Mais & 1.69\% \\
+\cmidrule{1-3}\cmidrule{5-7}    \multirow{7}[2]{*}{2019} & Sem Dados & 0.51\% &      & \multirow{7}[2]{*}{2014} & Sem Dados & 0.39\% \\
+         & Sem Instrução & 15.17\% &      &      & Sem Instrução & 16.03\% \\
+         & Fundamental Incompleto & 35.64\% &      &      & Fundamental Incompleto & 40.80\% \\
+         & Fundamental Completo & 15.46\% &      &      & Fundamental Completo & 15.62\% \\
+         & Ensino Médio Incompleto & 10.48\% &      &      & Ensino Médio Incompleto & 8.56\% \\
+         & Ensino Médio Completo & 20.68\% &      &      & Ensino Médio Completo & 16.97\% \\
+         & Superior Incompleto ou Mais & 2.06\% &      &      & Superior Incompleto ou Mais & 1.62\% \\
+\cmidrule{1-3}\cmidrule{5-7}    \multirow{7}[2]{*}{2018} & Sem Dados & 0.33\% &      & \multirow{7}[2]{*}{2013} & Sem Dados & 0.30\% \\
+         & Sem Instrução & 15.02\% &      &      & Sem Instrução & 16.85\% \\
+         & Fundamental Incompleto & 36.47\% &      &      & Fundamental Incompleto & 42.01\% \\
+         & Fundamental Completo & 15.44\% &      &      & Fundamental Completo & 16.00\% \\
+         & Ensino Médio Incompleto & 10.55\% &      &      & Ensino Médio Incompleto & 7.80\% \\
+         & Ensino Médio Completo & 20.29\% &      &      & Ensino Médio Completo & 15.69\% \\
+         & Superior Incompleto ou Mais & 1.90\% &      &      & Superior Incompleto ou Mais & 1.34\% \\
+\cmidrule{1-3}\cmidrule{5-7}    \multirow{7}[2]{*}{2017} & Sem Dados & 0.41\% &      & \multirow{7}[2]{*}{2012} & Sem Dados & 0.23\% \\
+         & Sem Instrução & 18.63\% &      &      & Sem Instrução & 17.75\% \\
+         & Fundamental Incompleto & 45.26\% &      &      & Fundamental Incompleto & 41.44\% \\
+         & Fundamental Completo & 19.16\% &      &      & Fundamental Completo & 16.45\% \\
+         & Ensino Médio Incompleto & 13.09\% &      &      & Ensino Médio Incompleto & 7.13\% \\
+         & Ensino Médio Completo & 25.18\% &      &      & Ensino Médio Completo & 15.67\% \\
+         & Superior Incompleto ou Mais & 2.36\% &      &      & Superior Incompleto ou Mais & 1.33\% \\
+\cmidrule{1-3}\cmidrule{5-7}    
+\end{tabular}%
+\end{adjustbox}
+  \label{tab:tab_escolaridade1}%
+\end{table}%
+
+% Table generated by Excel2LaTeX from sheet 'Sheet1'
+\begin{table}[htbp]
+  \centering
+  \caption{Dados Tabulados Escolaridade, Números Absolutos}
+  \tabcolsep=0.15cm
+	\renewcommand{\arraystretch}{1.2}
+	\begin{adjustbox}{max width=\linewidth}
+    \begin{tabular}{clccclc}
+    \toprule
+    \multicolumn{7}{c}{Série Histórica População em Situação de Rua, São Paulo 2012-2021} \\
+    \midrule
+         &      &      &      &      &      &  \\
+\cmidrule{1-3}\cmidrule{5-7}    \rowcolor[rgb]{ .906,  .902,  .902} \textbf{Ano} & \textbf{Escolaridade} & \textbf{Total} & \cellcolor[rgb]{ 1,  1,  1} & \textbf{Ano} & \textbf{Escolaridade} & \textbf{Total} \\
+\cmidrule{1-3}\cmidrule{5-7}    \multirow{7}[2]{*}{2021} & Sem Dados & 174  &      & \multirow{7}[2]{*}{2016} & Sem Dados & 55 \\
+         & Sem Instrução & 5464 &      &      & Sem Instrução & 3804 \\
+         & Fundamental Incompleto & 12936 &      &      & Fundamental Incompleto & 9875 \\
+         & Fundamental Completo & 6040 &      &      & Fundamental Completo & 3841 \\
+         & Ensino Médio Incompleto & 3764 &      &      & Ensino Médio Incompleto & 2457 \\
+         & Ensino Médio Completo & 8086 &      &      & Ensino Médio Completo & 4668 \\
+         & Superior Incompleto ou Mais & 736  &      &      & Superior Incompleto ou Mais & 736 \\
+\cmidrule{1-3}\cmidrule{5-7}    \multirow{7}[2]{*}{2020} & Sem Dados & 231  &      & \multirow{7}[2]{*}{2015} & Sem Dados & 52 \\
+         & Sem Instrução & 7239 &      &      & Sem Instrução & 2849 \\
+         & Fundamental Incompleto & 16995 &      &      & Fundamental Incompleto & 7524 \\
+         & Fundamental Completo & 7550 &      &      & Fundamental Completo & 2890 \\
+         & Ensino Médio Incompleto & 4973 &      &      & Ensino Médio Incompleto & 1725 \\
+         & Ensino Médio Completo & 10150 &      &      & Ensino Médio Completo & 3253 \\
+         & Superior Incompleto ou Mais & 996  &      &      & Superior Incompleto ou Mais & 315 \\
+\cmidrule{1-3}\cmidrule{5-7}    \multirow{7}[2]{*}{2019} & Sem Dados & 225  &      & \multirow{7}[2]{*}{2014} & Sem Dados & 52 \\
+         & Sem Instrução & 6732 &      &      & Sem Instrução & 2113 \\
+         & Fundamental Incompleto & 15812 &      &      & Fundamental Incompleto & 5380 \\
+         & Fundamental Completo & 6862 &      &      & Fundamental Completo & 2059 \\
+         & Ensino Médio Incompleto & 4650 &      &      & Ensino Médio Incompleto & 1129 \\
+         & Ensino Médio Completo & 9176 &      &      & Ensino Médio Completo & 2238 \\
+         & Superior Incompleto ou Mais & 915  &      &      & Superior Incompleto ou Mais & 214 \\
+\cmidrule{1-3}\cmidrule{5-7}    \multirow{7}[2]{*}{2018} & Sem Dados & 129  &      & \multirow{7}[2]{*}{2013} & Sem Dados & 24 \\
+         & Sem Instrução & 5839 &      &      & Sem Instrução & 1328 \\
+         & Fundamental Incompleto & 14184 &      &      & Fundamental Incompleto & 3312 \\
+         & Fundamental Completo & 6004 &      &      & Fundamental Completo & 1261 \\
+         & Ensino Médio Incompleto & 4103 &      &      & Ensino Médio Incompleto & 615 \\
+         & Ensino Médio Completo & 7889 &      &      & Ensino Médio Completo & 1237 \\
+         & Superior Incompleto ou Mais & 739  &      &      & Superior Incompleto ou Mais & 106 \\
+\cmidrule{1-3}\cmidrule{5-7}    \multirow{7}[2]{*}{2017} & Sem Dados & 129  &      & \multirow{7}[2]{*}{2012} & Sem Dados & 9 \\
+         & Sem Instrução & 5839 &      &      & Sem Instrução & 682 \\
+         & Fundamental Incompleto & 14184 &      &      & Fundamental Incompleto & 1592 \\
+         & Fundamental Completo & 6004 &      &      & Fundamental Completo & 632 \\
+         & Ensino Médio Incompleto & 4103 &      &      & Ensino Médio Incompleto & 274 \\
+         & Ensino Médio Completo & 7889 &      &      & Ensino Médio Completo & 602 \\
+         & Superior Incompleto ou Mais & 739  &      &      & Superior Incompleto ou Mais & 51 \\
+\cmidrule{1-3}\cmidrule{5-7}    
+\end{tabular}%
+   \end{adjustbox}
+  \label{tab:tab_escolaridade2}%
+\end{table}%
+
+
+%%%%%%
+\subsection{Bolsa Família e Auxílio Brasil}
+
+%Bolsa Familia
+Somente 82,42\% das pessoas em situação de rua registradas no CadÚnico na capital paulista, como vemos na Figura \ref{fig:bolsa_familia} e nas Tabelas \ref{tab:tab_bolsa_familia1} e \ref{tab:tab_bolsa_familia2}, receberam o Auxílio Brasil ou Bolsa Família no ano de 2021, alcançando porcentagens muito baixas para uma população tão vulnerabilizada entre os anos de 2019 e 2020, respectivamente, com 46,20\% e 52,97\%. \\
+
+
+%
+\begin{figure}[H]
+\centering
+	\caption{Bolsa Família e Auxílio Brasil}
+	\includegraphics[height=14.5cm, width=16cm]{gráficos/totais_sp_bolsa_familia_serie_historica.pdf}
+	\label{fig:bolsa_familia}
+\end{figure}
+
+%%%
+
+
+% Table generated by Excel2LaTeX from sheet 'Bolsa Família'
+\begin{table}[htbp]
+  \centering
+   \caption{Dados Tabulados Auxílio Brasil ou Bolsa Família, Percentuais}
+  \tabcolsep=0.15cm
+	\renewcommand{\arraystretch}{1.0}
+	\begin{adjustbox}{max width=\linewidth}
+    \begin{tabular}{ccc}
+    \toprule
+    \multicolumn{3}{c}{Série Histórica População em Situação de Rua, São Paulo 2012-2021} \\
+    \midrule
+         &      &  \\
+    \midrule
+    \rowcolor[rgb]{ .906,  .902,  .902} \textbf{Ano} & \textbf{Auxílio Brasil/Bolsa Família} & \textbf{Percentual} \\
+    \midrule
+    \multirow{2}[2]{*}{2021} & Sem Dados & 17.58\% \\
+         & Sim  & 82.42\% \\
+    \midrule
+    \multirow{2}[2]{*}{2020} & Sem Dados & 47.03\% \\
+         & Sim  & 52.97\% \\
+    \midrule
+    \multirow{2}[2]{*}{2019} & Sem Dados & 53.80\% \\
+         & Sim  & 46.20\% \\
+    \midrule
+    \multirow{2}[2]{*}{2018} & Sem Dados & 39.03\% \\
+         & Sim  & 60.97\% \\
+    \midrule
+    \multirow{2}[2]{*}{2017} & Sem Dados & 30.07\% \\
+         & Sim  & 69.93\% \\
+    \midrule
+    \multirow{2}[2]{*}{2016} & Sem Dados & 27.79\% \\
+         & Sim  & 72.21\% \\
+    \midrule
+    \multirow{2}[2]{*}{2015} & Sem Dados & 15.41\% \\
+         & Sim  & 84.59\% \\
+    \midrule
+    \multirow{2}[2]{*}{2014} & Sem Dados & 22.94\% \\
+         & Sim  & 77.06\% \\
+    \midrule
+    2013 & Sem Dados & 100\% \\
+    \midrule
+    2012 & Sem Dados & 48.74\% \\
+    \bottomrule
+    \end{tabular}%
+    \end{adjustbox}
+  \label{tab:tab_bolsa_familia1}%
+\end{table}%
+
+
+% Table generated by Excel2LaTeX from sheet 'Bolsa Família'
+\begin{table}[htbp]
+  \centering
+  \caption{Dados Tabulados Auxílio Brasil ou Bolsa Família, Números Absolutos}
+  \tabcolsep=0.15cm
+	\renewcommand{\arraystretch}{1.0}
+	\begin{adjustbox}{max width=\linewidth}
+    \begin{tabular}{ccc}
+    \toprule
+    \multicolumn{3}{c}{Série Histórica População em Situação de Rua, São Paulo 2012-2021} \\
+    \midrule
+         &      &  \\
+    \midrule
+    \rowcolor[rgb]{ .906,  .902,  .902} \textbf{Ano} & \textbf{Auxílio Brasil/Bolsa Família} & \textbf{Total} \\
+    \midrule
+    \multirow{2}[2]{*}{2021} & Sem Dados & 6541 \\
+         & Sim  & 30659 \\
+    \midrule
+    \multirow{2}[2]{*}{2020} & Sem Dados & 22637 \\
+         & Sim  & 25497 \\
+    \midrule
+    \multirow{2}[2]{*}{2019} & Sem Dados & 23871 \\
+         & Sim  & 20501 \\
+    \midrule
+    \multirow{2}[2]{*}{2018} & Sem Dados & 15178 \\
+         & Sim  & 23709 \\
+    \midrule
+    \multirow{2}[2]{*}{2017} & Sem Dados & 9423 \\
+         & Sim  & 21913 \\
+    \midrule
+    \multirow{2}[2]{*}{2016} & Sem Dados & 6975 \\
+         & Sim  & 18120 \\
+    \midrule
+    \multirow{2}[2]{*}{2015} & Sem Dados & 2867 \\
+         & Sim  & 15741 \\
+    \midrule
+    \multirow{2}[2]{*}{2014} & Sem Dados & 3024 \\
+         & Sim  & 10161 \\
+    \midrule
+    2013 & Sem Dados & 7883 \\
+    \midrule
+    2012 & Sem Dados & 3842 \\
+    \bottomrule
+    \end{tabular}%
+    \end{adjustbox}
+  \label{tab:tab_bolsa_familia2}%
+\end{table}%
+
+
+\subsection{Saber Ler e Escrever}
+
+A Figura \ref{fig:ler_escrever} e as Tabelas \ref{tab:saber_ler_escrever1} e \ref{tab:saber_ler_escrever2} corroboram as informações já apresentadas referentes às condições de vulnerabilização das pessoas em situação de rua no município de São Paulo. Nos últimos 10 anos, 8,5\% na média da população em situação de rua indicaram não saber ler e/ou escrever na capital paulista, havendo pouca alteração do quadro no período.\\
+
+\begin{figure}[H]
+\centering
+	\caption{Saber Ler e Escrever}
+	\includegraphics[height=14.5cm, width=16cm]{gráficos/totais_sp_ler_escrever_serie_historica.pdf}
+	\label{fig:ler_escrever}
+\end{figure}
+
+%%%
+
+% Table generated by Excel2LaTeX from sheet 'Ler & Escrever'
+\begin{table}[htbp]
+  \centering
+  \caption{Dados Tabulados Saber Ler e Escrever, Percentuais}
+   \tabcolsep=0.15cm
+	\renewcommand{\arraystretch}{1.0}
+	\begin{adjustbox}{max width=\linewidth}
+    \begin{tabular}{ccc}
+    \toprule
+    \multicolumn{3}{c}{Série Histórica População em Situação de Rua, São Paulo 2012-2021} \\
+    \midrule
+         &      &  \\
+    \midrule
+    \rowcolor[rgb]{ .906,  .902,  .902} \textbf{Ano} & \textbf{Saber Ler e Escrever} & \textbf{Percentual} \\
+    \midrule
+    \multirow{3}[2]{*}{2021} & Sim  & 92.35\% \\
+         & Não  & 7.65\% \\
+         & Sem Dados & 0.00\% \\
+    \midrule
+    \multirow{3}[2]{*}{2020} & Sim  & 92.04\% \\
+         & Não  & 7.95\% \\
+         & Sem Dados & 0.01\% \\
+    \midrule
+    \multirow{3}[2]{*}{2019} & Sim  & 92.01\% \\
+         & Não  & 7.98\% \\
+         & Sem Dados & 0.01\% \\
+    \midrule
+    \multirow{3}[2]{*}{2018} & Sim  & 92.17\% \\
+         & Não  & 7.81\% \\
+         & Sem Dados & 0.02\% \\
+    \midrule
+    \multirow{3}[2]{*}{2017} & Sim  & 92.08\% \\
+         & Não  & 7.89\% \\
+         & Sem Dados & 0.03\% \\
+    \midrule
+    \multirow{3}[2]{*}{2016} & Sim  & 92.0\% \\
+         & Não  & 7.9\% \\
+         & Sem Dados & 0.0\% \\
+    \midrule
+    \multirow{3}[2]{*}{2015} & Sim  & 91.93\% \\
+         & Não  & 7.99\% \\
+         & Sem Dados & 0.08\% \\
+    \midrule
+    \multirow{3}[2]{*}{2014} & Sim  & 91.08\% \\
+         & Não  & 8.71\% \\
+         & Sem Dados & 0.21\% \\
+    \midrule
+    \multirow{3}[2]{*}{2013} & Sim  & 90.18\% \\
+         & Não  & 9.68\% \\
+         & Sem Dados & 0.14\% \\
+    \midrule
+    \multirow{3}[2]{*}{2012} & Sim  & 88.70\% \\
+         & Não  & 11.30\% \\
+         & Sem Dados & 0.00\% \\
+    \bottomrule
+    \end{tabular}%
+\end{adjustbox}
+  \label{tab:saber_ler_escrever1}%
+\end{table}%
+
+
+% Table generated by Excel2LaTeX from sheet 'Ler & Escrever'
+\begin{table}[htbp]
+  \centering
+  \caption{Dados Tabulados Saber Ler e Escrever, Números Absolutos}
+   \tabcolsep=0.15cm
+	\renewcommand{\arraystretch}{0.9}
+	\begin{adjustbox}{max width=\linewidth}
+    \begin{tabular}{ccc}
+    \toprule
+    \multicolumn{3}{c}{Série Histórica População em Situação de Rua, São Paulo 2012-2021} \\
+    \midrule
+         &      &  \\
+    \midrule
+    \rowcolor[rgb]{ .906,  .902,  .902} \textbf{Ano} & \textbf{Saber Ler e Escrever} & \textbf{Total} \\
+    \midrule
+    \multirow{3}[2]{*}{2021} & Sim  & 34356 \\
+         & Não  & 2844 \\
+         & Sem Dados & 0 \\
+    \midrule
+    \multirow{3}[2]{*}{2020} & Sim  & 44301 \\
+         & Não  & 3827 \\
+         & Sem Dados & 6 \\
+    \midrule
+    \multirow{3}[2]{*}{2019} & Sim  & 40827 \\
+         & Não  & 3539 \\
+         & Sem Dados & 6 \\
+    \midrule
+    \multirow{3}[2]{*}{2018} & Sim  & 35844 \\
+         & Não  & 3037 \\
+         & Sem Dados & 6 \\
+    \midrule
+    \multirow{3}[2]{*}{2017} & Sim  & 28855 \\
+         & Não  & 2473 \\
+         & Sem Dados & 8 \\
+    \midrule
+    \multirow{3}[2]{*}{2016} & Sim  & 23095 \\
+         & Não  & 1989 \\
+         & Sem Dados & 11 \\
+    \midrule
+    \multirow{3}[2]{*}{2015} & Sim  & 17106 \\
+         & Não  & 1487 \\
+         & Sem Dados & 15 \\
+    \midrule
+    \multirow{3}[2]{*}{2014} & Sim  & 12009 \\
+         & Não  & 1148 \\
+         & Sem Dados & 28 \\
+    \midrule
+    \multirow{3}[2]{*}{2013} & Sim  & 7109 \\
+         & Não  & 763 \\
+         & Sem Dados & 11 \\
+    \midrule
+    \multirow{3}[2]{*}{2012} & Sim  & 3408 \\
+         & Não  & 434 \\
+         & Sem Dados & 0 \\
+    \bottomrule
+    \end{tabular}%
+    \end{adjustbox}
+  \label{tab:saber_ler_escrever2}%
+\end{table}%
+
+
+\subsection{Grupos Tradicionais e Específicos}
+
+%
+
+Os dados dos grupos tradicionais e específicos podem estar subestimados e, por isso, precisam ser urgentemente atualizados no grave momento de pandemia da Covid-19 e crise humanitária vivenciada em todo o país. É importantíssimo que políticas públicas estruturantes também sejam elaboradas e implantadas, de modo intersetorial cujo foco seja emprego e renda, para garantir os direitos desses grupos populacionais específicos e historicamente em situação de trabalho precário.\\ 
+
+\begin{figure}[H]
+\centering
+	\caption{Grupos Tradicionais e Específicos}
+	\includegraphics[scale=0.6]{gráficos/totais_sp_gte_serie_historica.pdf}
+	\label{fig:grupos_tradicionais_especificos}
+\end{figure}
+
+%%%
+
+% Table generated by Excel2LaTeX from sheet 'GTE'
+\begin{table}[htbp]
+  \centering
+  \caption{Dados Tabulados Grupos Tradicionais e Específicos, Percentuais}
+  \tabcolsep=0.20cm
+	\renewcommand{\arraystretch}{1.5}
+	\begin{adjustbox}{max width=\linewidth}
+    \begin{tabular}{clcrclc}
+    \toprule
+    \multicolumn{7}{c}{Série Histórica População em Situação de Rua, São Paulo 2012-2021} \\
+    \midrule
+         &      &      &      &      &      &  \\
+\cmidrule{1-3}\cmidrule{5-7}    \rowcolor[rgb]{ .906,  .902,  .902} \textbf{Ano} & \textbf{Grupos Tradicionais e Específicos} & \textbf{Percentual} & \cellcolor[rgb]{ 1,  1,  1} & \textbf{Ano} & \textbf{Grupos Tradicionais e Específicos} & \textbf{Percentual} \\
+\cmidrule{1-3}\cmidrule{5-7}    \multirow{9}[2]{*}{2021} & Nenhuma & 93.73\% &      & \multirow{9}[2]{*}{2020} & Nenhuma & 91.62\% \\
+         & Família Cigana & 0.01\% &      &      & Família Cigana & 0.00\% \\
+         & Família de Agricultores Familiares & 0.01\% &      &      & Família de Agricultores Familiares & 0.01\% \\
+         & Família Assentada da Reforma Agrária & 0.01\% &      &      & Família Assentada da Reforma Agrária & 0.01\% \\
+         & Família Acampada & 0.01\% &      &      & Família Acampada & 0.02\% \\
+         & Família Atingida por Empreendimentos de Infraestrutura & 0.01\% &      &      & Família Atingida por Empreendimentos de Infraestrutura & 0.01\% \\
+         & Família de Preso do Sistema Carcerário & 0.03\% &      &      & Família de Preso do Sistema Carcerário & 0.04\% \\
+         & Família de Catadores de Material Reciclável & 6.14\% &      &      & Família de Catadores de Material Reciclável & 4.92\% \\
+         & Sem Dados & 0.06\% &      &      & Sem Dados & 3.37\% \\
+\cmidrule{1-3}\cmidrule{5-7}    \multirow{9}[2]{*}{2019} & Nenhuma & 91.47\% &      & \multirow{9}[2]{*}{2018} & Nenhuma & 91.32\% \\
+         & Família Cigana & 0.00\% &      &      & Família Extrativista & 0.00\% \\
+         & Família de Agricultores Familiares & 0.01\% &      &      & Família de Agricultores Familiares & 0.01\% \\
+         & Família Assentada da Reforma Agrária & 0.01\% &      &      & Família Assentada da Reforma Agrária & 0.01\% \\
+         & Família Acampada & 0.02\% &      &      & Família Acampada & 0.02\% \\
+         & Família Atingida por Empreendimentos de Infraestrutura & 0.01\% &      &      & Família Atingida por Empreendimentos de Infraestrutura & 0.01\% \\
+         & Família de Preso do Sistema Carcerário & 0.04\% &      &      & Família de Preso do Sistema Carcerário & 0.04\% \\
+         & Família de Catadores de Material Reciclável & 4.76\% &      &      & Família de Catadores de Material Reciclável & 4.18\% \\
+         & Sem Dados & 3.68\% &      &      & Sem Dados & 4.41\% \\
+\cmidrule{1-3}\cmidrule{5-7}    \multirow{9}[2]{*}{2017} & Nenhuma & 89.60\% &      & \multirow{9}[2]{*}{2016} & Nenhuma & 85.97\% \\
+         & Família de Pescadores Artesanais & 0.00\% &      &      & Família Cigana & 0.01\% \\
+         & Família de Agricultores Familiares & 0.02\% &      &      & Família de Pescadores Artesanais & 0.00\% \\
+         & Família Acampada & 0.01\% &      &      & Família de Agricultores Familiares & 0.02\% \\
+         & Família Assentada da Reforma Agrária & 0.01\% &      &      & Família Acampada & 0.02\% \\
+         & Família Atingida por Empreendimentos de Infraestrutura & 0.01\% &      &      & Família Atingida por Empreendimentos de Infraestrutura & 0.01\% \\
+         & Família de Preso do Sistema Carcerário & 0.02\% &      &      & Família de Preso do Sistema Carcerário & 0.02\% \\
+         & Família de Catadores de Material Reciclável & 4.00\% &      &      & Família de Catadores de Material Reciclável & 3.42\% \\
+         & Sem Dados & 6.33\% &      &      & Sem Dados & 10.53\% \\
+\cmidrule{1-3}\cmidrule{5-7}    \multirow{9}[2]{*}{2015} & Nenhuma & 78.28\% &      & \multirow{9}[2]{*}{2014} & Nenhuma & 68.94\% \\
+         & Família Cigana & 0.01\% &      &      & Família Cigana & 0.02\% \\
+         & Família de Pescadores Artesanais & 0.01\% &      &      & Família de Pescadores Artesanais & 0.00\% \\
+         & Família de Agricultores Familiares & 0.01\% &      &      & Família de Agricultores Familiares & 0.01\% \\
+         & Família Acampada & 0.03\% &      &      & Família Acampada & 0.00\% \\
+         & Família Atingida por Empreendimentos de Infraestrutura & 0.02\% &      &      & Família Atingida por Empreendimentos de Infraestrutura & 0.00\% \\
+         & Família de Preso do Sistema Carcerário & 0.03\% &      &      & Família de Preso do Sistema Carcerário & 0.04\% \\
+         & Família de Catadores de Material Reciclável & 3.37\% &      &      & Família de Catadores de Material Reciclável & 1.46\% \\
+         & Sem Dados & 18.24\% &      &      & Sem Dados & 29.53\% \\
+\cmidrule{1-3}\cmidrule{5-7}    \multirow{4}[2]{*}{2013} & Família de Agricultores Familiares & 0.0\% &      & \multirow{4}[2]{*}{2012} & Família de Agricultores Familiares & 0.00\% \\
+         & Família de Preso do Sistema Carcerário & 0.0\% &      &      & Família de Preso do Sistema Carcerário & 1.07\% \\
+         & Família de Catadores de Material Reciclável & 1.3\% &      &      & Família de Catadores de Material Reciclável & 0.00\% \\
+         & Sem Dados & 98.6\% &      &      & Sem Dados & 98.93\% \\
+\cmidrule{1-3}\cmidrule{5-7}    
+\end{tabular}%
+\end{adjustbox}
+  \label{tab:tab_gte_perc}%
+\end{table}%
+
+% Table generated by Excel2LaTeX from sheet 'GTE'
+
+\begin{table}[htbp]
+  \centering
+  \caption{Dados Tabulados Grupos Tradicionais e Específicos, Números Absolutos}
+  \tabcolsep=0.20cm
+	\renewcommand{\arraystretch}{1.5}
+	\begin{adjustbox}{max width=\linewidth}
+    \begin{tabular}{clcrclc}
+    \toprule
+    \multicolumn{7}{c}{Série Histórica População em Situação de Rua, São Paulo 2012-2021} \\
+    \midrule
+         &      &      &      &      &      &  \\
+\cmidrule{1-3}\cmidrule{5-7}    \rowcolor[rgb]{ .906,  .902,  .902} \textbf{Ano} & \textbf{Grupos Tradicionais e Específicos} & \textbf{Total} & \cellcolor[rgb]{ 1,  1,  1} & \textbf{Ano} & \textbf{Grupos Tradicionais e Específicos} & \textbf{Total} \\
+\cmidrule{1-3}\cmidrule{5-7}    \multirow{9}[2]{*}{2021} & Sem Código & 34866 &      & \multirow{9}[2]{*}{2020} & Nenhuma & 44101 \\
+         & Família Cigana & 3    &      &      & Família Cigana & 2 \\
+         & Família de Agricultores Familiares & 5    &      &      & Família de Agricultores Familiares & 6 \\
+         & Família Assentada da Reforma Agrária & 2    &      &      & Família Assentada da Reforma Agrária & 4 \\
+         & Família Acampada & 4    &      &      & Família Acampada & 8 \\
+         & Família Atingida por Empreendimentos de Infraestrutura & 3    &      &      & Família Atingida por Empreendimentos de Infraestrutura & 3 \\
+         & Família de Preso do Sistema Carcerário & 10    &      &      & Família de Preso do Sistema Carcerário & 18 \\
+         & Família de Catadores de Material Reciclável & 2284 &      &      & Família de Catadores de Material Reciclável & 2370 \\
+         & Sem Dados & 23   &      &      & Sem Dados & 1622 \\
+\cmidrule{1-3}\cmidrule{5-7}    \multirow{9}[2]{*}{2019} & Nenhuma & 40586 &      & \multirow{9}[2]{*}{2018} & Nenhuma & 35511 \\
+         & Família Cigana & 2    &      &      & Família Extrativista & 1 \\
+         & Família de Agricultores Familiares & 6    &      &      & Família de Agricultores Familiares & 5 \\
+         & Família Assentada da Reforma Agrária & 4    &      &      & Família Assentada da Reforma Agrária & 4 \\
+         & Família Acampada & 8    &      &      & Família Acampada & 9 \\
+         & Família Atingida por Empreendimentos de Infraestrutura & 3    &      &      & Família Atingida por Empreendimentos de Infraestrutura & 3 \\
+         & Família de Preso do Sistema Carcerário & 18   &      &      & Família de Preso do Sistema Carcerário & 16 \\
+         & Família de Catadores de Material Reciclável & 2111 &      &      & Família de Catadores de Material Reciclável & 1624 \\
+         & Sem Dados & 1634 &      &      & Sem Dados & 1714 \\
+\cmidrule{1-3}\cmidrule{5-7}    \multirow{9}[2]{*}{2017} & Nenhuma & 28078 &      & \multirow{9}[2]{*}{2016} & Nenhuma & 21574 \\
+         & Família de Pescadores Artesanais & 1    &      &      & Família Cigana & 2 \\
+         & Família de Agricultores Familiares & 5    &      &      & Família de Pescadores Artesanais & 1 \\
+         & Família Acampada & 2    &      &      & Família de Agricultores Familiares & 5 \\
+         & Família Assentada da Reforma Agrária & 3    &      &      & Família Acampada & 5 \\
+         & Família Atingida por Empreendimentos de Infraestrutura & 2    &      &      & Família Atingida por Empreendimentos de Infraestrutura & 2 \\
+         & Família de Preso do Sistema Carcerário & 7    &      &      & Família de Preso do Sistema Carcerário & 5 \\
+         & Família de Catadores de Material Reciclável & 1255 &      &      & Família de Catadores de Material Reciclável & 859 \\
+         & Sem Dados & 1983 &      &      & Sem Dados & 2642 \\
+\cmidrule{1-3}\cmidrule{5-7}    \multirow{9}[2]{*}{2015} & Nenhuma & 14566 &      & \multirow{9}[2]{*}{2014} & Nenhuma & 9090 \\
+         & Família Cigana & 2    &      &      & Família Cigana & 3 \\
+         & Família de Pescadores Artesanais & 1    &      &      & Família de Pescadores Artesanais & 0 \\
+         & Família de Agricultores Familiares & 2    &      &      & Família de Agricultores Familiares & 1 \\
+         & Família Acampada & 6    &      &      & Família Acampada & 0 \\
+         & Família Atingida por Empreendimentos de Infraestrutura & 3    &      &      & Família Atingida por Empreendimentos de Infraestrutura & 0 \\
+         & Família de Preso do Sistema Carcerário & 6    &      &      & Família de Preso do Sistema Carcerário & 5 \\
+         & Família de Catadores de Material Reciclável & 627  &      &      & Família de Catadores de Material Reciclável & 192 \\
+         & Sem Dados & 3395 &      &      & Sem Dados & 3894 \\
+\cmidrule{1-3}\cmidrule{5-7}    \multirow{4}[2]{*}{2013} & Família de Agricultores Familiares & 1    &      & \multirow{4}[2]{*}{2012} & Família de Agricultores Familiares & 0 \\
+         & Família de Preso do Sistema Carcerário & 3    &      &      & Família de Preso do Sistema Carcerário & 41 \\
+         & Família de Catadores de Material Reciclável & 103  &      &      & Família de Catadores de Material Reciclável & 0 \\
+         & Sem Dados & 7776 &      &      & Sem Dados & 3801 \\
+\cmidrule{1-3}\cmidrule{5-7}    
+\end{tabular}%
+\end{adjustbox}
+  \label{tab:tab_gte_num_abso}%
+\end{table}
+
+
+
+\subsection{Família Indígena e Quilombola}
+%
+\vspace{1cm}
+
+\begin{mynote}
+Em 2021, entre as 37.200 pessoas em situação de rua em São Paulo, não houve nenhum cadastro para quilombolas nem para indígenas. Na marcação indígena, variável cor, contudo, encontram-se 39 pessoas. Essa discrepância no número de cadastrados como indígenas entre as variáveis cor da pele e etnia também é observada no Cadastro Único para outras capitais brasileiras.
+
+\end{mynote}
+
+%%%
+
+\subsection{Índice de Gestão Descentralizada}
+\label{indice_gestao_desc}
+
+De acordo com o Ministério da Cidadania, o Índice de Gestão Descentralizada para os Municípios (IGD-M) mede mensalmente as Taxas de Atualização Cadastral e de Acompanhamento das Condicionalidades de Educação e Saúde em todo o país. Ressalta-se que, devido à pandemia de Covid-19, essas taxas foram congeladas, sendo utilizados como referência para o cálculo do IGD-M os valores de fevereiro de 2020.\\
+
+Segundo o site ``\href{https://aplicacoes.cidadania.gov.br/ri/pabcad/}{Cadastro Único: conhecer para incluir}" do Ministério da Cidadania: ``Com base nesse Índice, que varia de 0 (zero) a 1 (um), são calculados os repasses financeiros que o Ministério da Cidadania realiza aos municípios para ajudar na gestão do Cadastro Único e do Auxílio Brasil, havendo o repasse dos recursos do Fundo Nacional de Assistência Social (FNAS) para o Fundo Municipal de Assistência Social (FMAS) do município."\\
+
+De acordo com as informações obtidas junto ao Ministério da Cidadania, o último repasse de recursos realizado pelo Fundo Nacional de Assistência Social para o Fundo Municipal de Assistência Social do município de São Paulo foi de R\$ 1.937.810,00, tendo por base o índice de 0,78 do IGD-M relativo ao mês de outubro de 2021. Vale destacar que, se o IGD-M de São Paulo tivesse alcançado o nível máximo, ou seja, fosse igual ou muito próximo a 1 (um), o município receberia R\$ 2.512.662,75 mensalmente.\\
+
+\begin{figure}[H]
+\centering
+	\caption{Índice de Gestão Descentralizada dos Municípios (IGD-M), Valores Mensais Repassados (R\$), 2015-2021}
+	\includegraphics[height=10cm, width=15.3cm]{gráficos/totais_sp_igd_serie_historica.pdf}
+	\label{fig:pop_rua_igd_anual1}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+	\caption{Índice de Gestão Descentralizada dos Municípios (IGD-M), Valores Anuais Acumulados (R\$), 2015-2021}
+	\includegraphics[height=10cm, width=15.3cm]{gráficos/totais_sp_igd_serie_historica2.pdf}
+	\label{fig:pop_rua_igd_anual2}
+\end{figure}
+
+As Figuras \ref{fig:pop_rua_igd_anual1} e \ref{fig:pop_rua_igd_anual2} mostram os valores mensais repassados e acumulados entre 2015 e 2021. Os valores financeiros calculados, com base no IGD-M, que chegaram ao município no exercício corrente, somam o montante de R\$ 16.858.951,08. Em abril de 2022, o saldo em conta corrente do município (BL GBF FNAS) era de R\$ 74.958,77.\\
+
+No relatório, produzido pelo Ministério da Cidadania sobre o Auxílio Brasil e o Cadastro Único no município de São Paulo, encontramos ainda destacadas as seguintes informações:
+
+\vspace{-0.5cm}
+\begin{trivlist}\leftskip=4cm
+\begin{singlespace}
+\item\small ``Os recursos recebidos devem ser aplicados em melhorias da gestão do Cadastro Único e do Auxílio Brasil e, por isso, planejar bem as ações, eleger as prioridades e decidir sobre como e onde devem ser aplicados os recursos provenientes do IGD-M dentro da gestão do Cadastro Único e do Auxílio Brasil são tarefas sistemáticas que a gestão local desempenha em conjunto com os responsáveis pela área orçamentária e financeira e pelas áreas de Saúde, Educação e Assistência Social.\\
+\item\small A participação do Conselho Municipal de Assistência Social (CMAS) também é vital durante todo o processo, desde o planejamento até a aprovação regular das contas. Esse relacionamento demonstra transparência e garante a continuidade do recebimento dos recursos.\\
+\item\small Os dados referentes ao IGD-M são atualizados mensalmente [...] A Coordenação Estadual é um importante parceiro do Governo Federal para o sucesso da gestão descentralizada do Cadastro Único e do Auxílio Brasil. Por isso, a aproximação entre as gestões municipais e estaduais e a integração de ações são fundamentais. A coordenação do estado dispõe de informações sobre as capacitações oferecidas e outros temas, que irão contribuir, ainda mais, para a evolução da gestão do Programa no município. Ela recebe recursos financeiros com base no Índice de Gestão Descentralizada dos Estados (IGD-E) e também possui acesso aos dados do IGD-M de cada município" \citep{igdm}.
+\end{singlespace}
+\end{trivlist}
+
+O relatório produzido pelo Ministério da Cidadania sobre o Auxílio Brasil e o CadÚnico no município de São Paulo concluiu que:
+\vspace{-0.5cm}
+\begin{trivlist}\leftskip=4cm
+\begin{singlespace}
+
+\item\small  ``A Taxa de Atualização Cadastral (TAC) do município é de 52,12\%, enquanto que a média nacional encontra-se em 67,77\%. A TAC é calculada dividindo o número de famílias cadastradas com renda mensal per capita de até ½ salário mínimo com cadastro atualizado pelo total de famílias cadastradas com renda mensal per capita de até ½ salário mínimo, multiplicado por cem.\\
+
+\item\small  Isso significa que o cadastro no município \textbf{\underline{não} está bem focalizado e atualizado}, o que fará com que o município {\textcolor{red}{não receba}} os recursos federais para gestão do programa (ver item 3, sobre o Índice de Gestão Descentralizada). Isso indica que a gestão necessita identificar onde estão as famílias com renda de até ½ salário mínimo por pessoa e com cadastro desatualizado, a fim de atualizar seus dados no Cadastro Único. Para tanto, indicamos algumas ações que podem ajudar o município nessa tarefa, como: realizar ações itinerantes, mutirões, alertar as famílias sobre a necessidade de manter suas informações atualizadas no Cadastro Único e procurar garantir que essas informações estejam corretas." \footnote{Ver relatório do Ministério da Cidadania em \href{https://aplicacoes.cidadania.gov.br/ri/pabcad/relatorio-completo.html}{Auxílio Brasil, Cadastro Único, Conhecer para Incluir}. Ao acessar a página, busque o cabeçalho à direita ``Para começar precisamos da sua localização!". Depois, em ``Escolha você mesmo", selecione o Estado de São Paulo em UF e, por fim, São Paulo em ``Selecione o seu município".}
+\end{singlespace}
+\end{trivlist}
+\newpage
+
+%%%%%%%%% Parte Final
+
+\section{\centering \MakeUppercase {Considerações Finais e Proposições}}
+\label{parte_4}
+\vspace{1cm}
+
+Por que é importante compreender o fenômeno da população em situação de rua? Um dos motivos mais diretos relaciona imediatamente esse estrato socioeconomicamente vulnerável à necessidade de efetivar políticas públicas e direitos. Essas razões são por si só muito pertinentes, embora não necessariamente as únicas que devem tomar centralidade no debate. Conforme vimos na subseção \ref{pobreza_centripeta}, a pobreza é vizinha da condição de pessoas em situação de rua. Dados do Instituto Brasileiro de Geografia e Estatística (IBGE) de 2020 revelaram que ``Cerca de 12 milhões de pessoas viviam em extrema pobreza e mais de 50 milhões viviam em situação de pobreza”. E o que o IBGE nos diz sobre a pobreza por faixa etária e gênero? Ainda segundo o mesmo estudo: ``Entre os grupos etários, crianças de até 14 anos apresentavam o maior percentual de extrema pobreza (8,9\%) e pobreza (38,6\%). Mulheres pretas ou pardas tinham as maiores incidências de pobreza (31,9\%) e extrema pobreza (7,5\%)”\footnote{Ver \href{https://agenciadenoticias.ibge.gov.br/agencia-noticias/2012-agencia-de-noticias/noticias/32420-mesmo-com-beneficios-emergenciais-1-em-cada-4-brasileiros-vivia-em-situacao-de-pobreza-em-2020}{Mesmo com benefícios emergenciais, 1 em cada 4 brasileiros vivia em situação de pobreza em 2020, 2021. Síntese de Indicadores Sociais} \citep{ibge2}.}.\\
+
+Esse é um possível primeiro indício de que renda talvez não seja a variável mais apropriada para explicar nem o fenômeno da pobreza nem o da população em situação de rua. Muitas vezes não nos perguntamos o porquê de um nível de salário ser mais frequente em determinados estratos sociais e não outros. Além disso, não é muito comum considerar infância e gênero nos estudos que tenham como objetivo evidenciar possíveis causas da pobreza ou os motivos que levam pessoas à situação de rua. No entanto, as estatísticas sobre gênero e crianças apontam para alguns elementos geracionais da pobreza que, em uma perspectiva de longo prazo, diferem da questão renda em si e podem nos ajudar a encontrar algumas pistas valiosas. Trata-se, portanto, de conhecer como foi a infância dos adultos de hoje e quem foram seus pais ou responsáveis. Vejamos mais alguns dados sobre esses fatores, ainda que de forma sucinta.\\ 
+
+Com base em números publicados pelo IBGE: ``A frequência à creche ou escola de crianças pretas ou pardas de 0 a 5 anos aumentou de 49,1\% (2016) para 53\% (2018), enquanto a de crianças brancas era de 55,8\%”\footnote{Ver \href{https://agenciadenoticias.ibge.gov.br/agencia-sala-de-imprensa/2013-agencia-de-noticias/releases/25989-pretos-ou-pardos-estao-mais-escolarizados-mas-desigualdade-em-relacao-aos-brancos-permanece}{Pretos ou pardos estão mais escolarizados, mas desigualdade em relação aos brancos permanece, 2019. Síntese de Indicadores Sociais} \citep{ibge3}.}. Se estendermos a mesma pergunta aos jovens, encontraremos que: ``Cerca de 40\% da população brasileira com 25 anos ou mais de idade não tinham instrução ou sequer concluíram o ensino fundamental. Considerando-se o analfabetismo entre as pessoas com 15 anos ou mais de idade, o Brasil tem a quinta maior taxa (8\%) entre 16 países da América Latina, segundo a Unesco. Além disso, 49\% dos brasileiros com 25 a 64 anos não haviam concluído o ensino médio, o dobro da média dos países analisados pela OCDE neste tema (21,8\%)"\footnote{Ver \href{https://agenciadenoticias.ibge.gov.br/agencia-sala-de-imprensa/2013-agencia-de-noticias/releases/25885-11-8-dos-jovens-com-menores-rendimentos-abandonaram-a-escola-sem-concluir-a-educacao-basica-em-2018}{11,8\% dos jovens com menores rendimentos abandonaram a escola sem concluir a educação básica em 2018, 2019. Síntese de Indicadores Sociais} \citep{ibge4}.}.\\ 
+
+Em 2021, o IBGE divulgou que: ``As mulheres pretas ou pardas com crianças de até 3 anos de idade no domicílio apresentaram os menores níveis de ocupação: 49,7\% em 2019”\footnote{Ver \href{https://censoagro2017.ibge.gov.br/agencia-sala-de-imprensa/2013-agencia-de-noticias/releases/30172-estatisticas-de-genero-ocupacao-das-mulheres-e-menor-em-lares-com-criancas-de-ate-tres-anos#:~:text=Em\%20lares\%20sem\%20crian\%C3\%A7as\%20nessa,et\%C3\%A1rio\%20(83\%2C4\%25).}{Estatísticas de Gênero: ocupação das mulheres é menor em lares com crianças de até três anos, 2021. Síntese de Indicadores Sociais} \citep{ibge5}.}. Também mostrou que ``Em 2019, o nível de ocupação das mulheres de 25 a 49 anos vivendo com crianças de até 3 anos de idade foi de 54,6\% e o dos homens foi de 89,2\%. Em lares sem crianças nesse grupo etário, o nível de ocupação foi de 67,2\% para as mulheres e 83,4\% para os homens”\footnote{Idem}. Ainda que não tenhamos espaço para comentários mais extensos sobre a abordagem conceitual adotada pelo IBGE sobre o que vem a ser ou não uma pessoa ocupada profissionalmente, cabe ressaltar a importância de se considerar a convivência e atenção com os filhos, sobretudo para as mulheres, como uma forma de trabalho. Trabalho doméstico não remunerado que, tal como se verifica atualmente, é um dos grandes vetores da reprodução desigual de conhecimento e de acumulação de capital cultural entre gerações. A ausência de crianças na educação infantil ou a evasão escolar de adolescentes corroboram sem dúvida a pobreza intergeracional.\\ 
+
+Esse panorama estatístico geral sobre crianças, bem como mães pretas e pardas, leva-nos a observar a série histórica sobre a população em situação de rua no Município de São Paulo com maior cuidado. Conforme vimos nas Tabelas \ref{tab:tab_escolaridade1} e \ref{tab:tab_escolaridade2}, ano de 2021, 14,69\% das pessoas em situação de rua disseram não ter instrução alguma; 34,77\% com Ensino Fundamental incompleto; e 16,24\% possuir o Fundamental Completo. São 65,7\% com estudos básicos incompletos se excluirmos o Ensino Médio e, com a inclusão dos que tinham o Ensino Médio por concluir, chegamos aos 75,82\%. Na variável sexo para o mesmo ano, 13.26\% dos respondentes que se encontravam nas ruas de São Paulo eram mulheres. Esse percentual corresponde a quase 5 mil mulheres sem ter onde morar na cidade. Pessoas com até 17 anos representavam 4,2\% dos cadastros ou 1.562 crianças. Na Tabela \ref{tab:sexo_percentual}, vimos que, a cada 10 declarantes em situação de rua, quase 9 são do sexo masculino. O que está implícito nessa proporção sobre o fenômeno, se partirmos dos percentuais relacionados à ocupação, nível de escolaridade e cuidado infantil, é o fato de a família brasileira produzir mulheres e menores dependentes. Nos estratos mais pobres da Região Metropolitana de São Paulo, Mapas \ref{fig:mapa_extrema_pobreza}, \ref{fig:mapa_pobreza}, \ref{fig:mapa_baixa_renda} e \ref{fig:mapa_meio_salario}, é muito provável que essa cultura da tutela masculina empobrecedora ganhe escalas maiores na hipótese de não haver mudanças estruturais para se enfrentar a pobreza centrípeta.\\
+
+O investimento na educação e aquisição de conhecimento é peça de destaque nas agendas internacionais. Virá dele o protagonismo daquelas nações que alcançarão níveis mais altos de desenvolvimento humano, bem-estar e valores de proteção à dignidade humana desenhados para primeira metade do século XXI. Nos pontos 13 (c) e 34 da Nova Agenda Urbana, lemos princípios e metas aparentemente abrangentes, entretanto, façamos uma breve reflexão sobre como isso pode se dar na prática\footnote{``Vislumbramos cidades e assentamentos humanos que: 13 (c) alcancem igualdade de gênero e empoderem todas as mulheres e meninas, garantindo a participação plena e efetiva das mulheres e direitos iguais em todas as áreas e em funções de liderança em processos decisórios em todos os níveis; garantindo emprego decente e remuneração igual para trabalho igual ou de igual valor para todas as mulheres; e previnam e eliminem todas as formas de discriminação, violência e assédio contra mulheres e meninas em espaços públicos e privados; 34. Comprometemo-nos a promover o acesso equitativo e economicamente viável à infraestrutura física e social básica sustentável para todos, sem discriminação, incluindo terra urbanizada, habitação, energia moderna e renovável, água potável e saneamento, alimentação segura, nutritiva e adequada, coleta de resíduos, mobilidade sustentável, serviços de saúde e planejamento familiar, educação, cultura, e tecnologias de informação e comunicação. Comprometemo-nos, ainda, a assegurar que estes serviços estejam atentos aos direitos e às necessidades das mulheres, crianças e jovens, idosos e pessoas com deficiência, migrantes, povos indígenas e comunidades locais, conforme o caso, e de outras pessoas em situações de vulnerabilidade. Nesse aspecto, encorajamos a eliminação de barreiras legais, institucionais, socioeconômicas e físicas". Ver \href{https://habitat3.org/wp-content/uploads/NUA-Portuguese-Brazil.pdf}{Nova Agenda Urbana. Conferência das Nações Unidas sobre Habitação e Desenvolvimento Urbano Sustentável, ocorreu em Quito, Equador, de 17 a 20 de outubro de 2016.}}.\\ 
+
+Os mecanismos de superação da pobreza, entre eles a economia do conhecimento ou a economia experimental, preveem que: ``São necessários três instrumentos: um sistema nacional para avaliar o desempenho escolar e descobrir o que funciona melhor, um mecanismo para redistribuir recursos e pessoal de lugares mais ricos para lugares mais pobres (evitando a dependência exclusiva das escolas do financiamento local) e um procedimento de intervenção corretiva. Se um sistema escolar local ficar persistentemente abaixo do mínimo nível aceitável de eficácia, o governo central e local (ou os três níveis da federação sob um regime federal) devem agir em conjunto para assumir o comando das escolas locais falidas, atribuir sua gestão a administradores independentes e especialistas, corrigi-las e consertá-las. Na ausência de tal procedimento, a garantia de que a oportunidade educacional por princípio não fique refém dos acidentes de nascimento permanece desvirtuada"\footnote{Tradução livre do trecho ``Three instruments are needed: a national system for assessing school performance and discovering what works best, a mechanism to redistribute resources and staff from richer places to poorer places (preventing the exclusive dependence of the schools on local finance), and a procedure for corrective intervention. If a local school system falls persistently below the minimum acceptable level of efficacy, central and local government (or the three levels of the federation under a federal regime) must act together to take command of the local failing schools, assign their management to independent administrators and specialists, fix them, and return them fixed. In the absence of such a procedure, the principle of ensuring that educational opportunity not be hostage to the accidents of birth remains dishonored". Ver \href{https://www.oecd.org/naec/THE-KNOWLEDGE-ECONOMY.pdf}{\textit{The knowledge economy}, \citep[p. 41]{unger}}.}.\\ 
+
+Mas que protagonismo as mulheres podem exercer na economia do conhecimento? Conforme a experiência recolhida na literatura do desenvolvimento humano e econômico, o legado imaterial da pobreza, isto é, o alto nível de pauperização material e cultural repassado de geração em geração, deve ser combatido por um vanguardismo que resolva a relativa estagnação econômica brasileira ao incluir a massa de mulheres ``desocupadas'' e crianças em condição de pobreza em um projeto de desenvolvimento de longo prazo desvencilhado da dependência masculina. O fato de cerca de 90\% das pessoas em situação de rua em São Paulo serem homens nos induz ao erro de que, de alguma forma, essas mulheres e mães pardas ou pretas em sua maioria possuem fórmulas que escapam das estatísticas da dependência e, por conseguinte, da vida nas ruas. A hipótese que levantamos para essa estatística é a de que essas mulheres apenas passaram da tutela masculina para outra forma de dependência e, portanto, continuam sendo vetores de reprodução da pobreza nas suas relações familiares.\\
+
+A economia do conhecimento não postula a questão de gênero no debate do experimentalismo vanguardista, uma vez que entende o desenvolvimento humano a partir de um projeto inclusivo e de dinamismo econômico. No entanto, é preciso sublinhar que não há possibilidade de experimentação, inovação e combate às desigualdades sem o empoderamento dos indivíduos. Torna-se tarefa muito mais árdua e estéril acreditar que sem eliminar a dinâmica de dependência, tanto material quanto intelectual de mulheres e crianças em relação aos homens, por melhor que seja um decálogo moral de afeto ou de uma visão específica sobre o que vem a ser uma família, essa equação se resolverá por si só\footnote{``In this process of combined and uneven development, the project of inclusive vanguardism plays a major role. All our moral as well as our material interests become harder to achieve in a context of relative economic stagnation and disempowerment. In such a context we deny to the majority of ordinary men and women a chance to share in the experience, the powers, and the rewards of the most advanced practice of production", \href{https://www.oecd.org/naec/THE-KNOWLEDGE-ECONOMY.pdf}{\textit{The knowledge economy}, \citep[p. 80]{unger}}.} O empoderamento de mulheres significa oferecer a elas, tanto na educação básica, técnica ou superior quanto por meio de políticas públicas de cuidado infantil destinado a seus filhos, as condições materiais mínimas para que exerçam o real papel de vanguarda na luta contra a pobreza centrípeta\footnote{Um programa de renda mínima para 1 milhão de mulheres no valor nominal de um salário mínimo de 2022, ou R\$ 1.212, exigiria \textbf{um investimento da ordem de R\$ 14,5 bilhões anualmente}. Só em renúncias fiscais, \textbf{o governo brasileiro deixou de arrecadar R\$ 456,6 bilhões em 2021}. Desse montante, R\$ 141,1 bilhões apresentam contrapartida ao conjunto da sociedade. Os dados são da Associação Nacional dos Auditores Fiscais da Receita Federal do Brasil, \href{https://unafisconacional.org.br/nota-tecnica-unafisco-no-21-2021/}{\citep[p. 17-18]{unafisco}}.}.\\ 
+
+Além disso, escancarar e encarar de frente o Racismo Estrutural que, historicamente, deixa marcas profundas nas vidas negras no Brasil, como a população em situação de rua, é responsabilidade dos Governos e de toda sociedade brasileira. Sem a ampla compreensão do fenômeno da população em situação de rua como mais uma evidência do Racismo Estrutural secularmente perpetrado em nosso país, muito pouco avançaremos na construção de políticas públicas estruturantes, como a moradia, o trabalho e renda, a educação, a cultura e outras.\\
+
+Conforme já destacado no início desta Nota Técnica, uma primeira e urgente medida que deveria ser assegurada à população em situação de rua em todos os Estados e municípios brasileiros é a sua ampla inclusão, não somente nos Censos realizados pelo IBGE, mas nas diversas bases de dados administrativas utilizadas no país, como o Cadastro Único para Programas Sociais do Governo Federal (CadÚnico), atualmente, a melhor base de dados ou instrumento disponível para a amplificação e a visualização das realidades vivenciadas pelas pessoas em situação de rua e suas múltiplas existências em todo o território nacional.\\
+
+O fortalecimento da base de dados do Cadastro Único para Programas Sociais do Governo Federal (CadÚnico) a partir da sua atualização, alimentação constante e estabilidade de informações fidedignas relativas às pessoas em situação de rua no município é um dever ético, administrativo e constitucional de todas as Administrações Públicas no país.\\
+
+Entendemos que é urgente a inserção de mais cadastros e de atualizações no CadÚnico para o devido acesso da população em situação de rua aos programas sociais brasileiros. Além disso, com o aumento e a atualização dos cadastros do CadÚnico com a população em situação de rua, poderemos (1) definir melhores critérios para a realização de censos e estudos diagnósticos nacionais, regionais e locais; (2) estimular e fortalecer outras bases de dados, como as do Sistema Único de Saúde, e também a interoperabilidade delas.\\
+
+A atualização do CadÚnico e sua devida alimentação resultará ainda em mais investimentos na área social, por meio da coleta de dados e sua disponibilização em forma de séries históricas, assim como mais condições para a efetivação de direitos fundamentais da população em situação de rua.\\ 
+
+Por isso, a liberdade discricionária no poder de decisão das Prefeituras deve estar restringida pelo controle de seus atos de modo que a prática de subnotificação do CadÚnico não se torne um aparato técnico gerador de riscos à vida e gerador de uma política de morte.\\
+
+Por fim, gostaríamos de salientar o necessário compromisso de reparação histórica que todos os Governos e a sociedade brasileira como um todo deveriam ter com a população em situação de rua em nosso país, sempre respeitando sua centralidade, sua autonomia e seu protagonismo na elaboração e na condução das políticas públicas para a efetivação dos seus direitos.\\
+
+O nosso desafio ético é trabalhar para que pessoas em situação de rua, majoritariamente negras e historicamente silenciadas, invisibilizadas, patologizadas, criminalizadas, encarceradas e eliminadas nas nossas cidades, possam falar por si próprias e ganhar agência. É preciso, ainda, amplificar e potencializar as vozes dessas pessoas para que cheguem em outros espaços de poder e atuação nas cidades, nos Estados e no país.\\
+
+
+\newpage
+%\bibliographystyle{apacite}
+%\bibliographystyle{apalike}
+\begingroup
+\setstretch{1.2}
+\bibliographystyle{apacite}
+\bibliography{rbib.bib} % APA
+\endgroup
+
+\end{document}
