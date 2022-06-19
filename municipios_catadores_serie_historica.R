@@ -55,6 +55,10 @@ munic_2021_pop_rua$geometry <- NULL
 munic_2021_pop_rua$Ano <- "2021"
 munic_2021_pop_rua <- na.omit(munic_2021_pop_rua)
 
+total_2021 <- data.frame(count(brasil_munic_2021, "codigo_ibge"))
+munic_2021_pop_rua <- merge(munic_2021_pop_rua, total_2021, by="codigo_ibge")
+munic_2021_pop_rua$proporcao <- (munic_2021_pop_rua$n/munic_2021_pop_rua$freq)*100
+
 write_xlsx(munic_2021_pop_rua, "/Users/wemigliari/Documents/R/tabelas/min_cid_observatorio/catadores_cidades_2021.xlsx")
 
 
@@ -98,6 +102,10 @@ munic_2020_pop_rua$geometry <- NULL
 munic_2020_pop_rua$Ano <- "2020"
 munic_2020_pop_rua <- na.omit(munic_2020_pop_rua)
 
+total_2020 <- data.frame(count(brasil_munic_2020, "codigo_ibge"))
+munic_2020_pop_rua <- merge(munic_2020_pop_rua, total_2020, by="codigo_ibge")
+munic_2020_pop_rua$proporcao <- (munic_2020_pop_rua$n/munic_2020_pop_rua$freq)*100
+
 write_xlsx(munic_2020_pop_rua, "/Users/wemigliari/Documents/R/tabelas/min_cid_observatorio/catadores_cidades_2020.xlsx")
 
 
@@ -139,6 +147,10 @@ munic_2019_pop_rua <- merge(test3, brasil, by = "codigo_ibge")
 munic_2019_pop_rua$geometry <- NULL
 munic_2019_pop_rua$Ano <- "2019"
 munic_2019_pop_rua <- na.omit(munic_2019_pop_rua)
+
+total_2019 <- data.frame(count(brasil_munic_2019, "codigo_ibge"))
+munic_2019_pop_rua <- merge(munic_2019_pop_rua, total_2019, by="codigo_ibge")
+munic_2019_pop_rua$proporcao <- (munic_2019_pop_rua$n/munic_2019_pop_rua$freq)*100
 
 write_xlsx(munic_2019_pop_rua, "/Users/wemigliari/Documents/R/tabelas/min_cid_observatorio/catadores_cidades_2019.xlsx")
 
@@ -182,6 +194,10 @@ munic_2018_pop_rua$geometry <- NULL
 munic_2018_pop_rua$Ano <- "2018"
 munic_2018_pop_rua <- na.omit(munic_2018_pop_rua)
 
+total_2018 <- data.frame(count(brasil_munic_2018, "codigo_ibge"))
+munic_2018_pop_rua <- merge(munic_2018_pop_rua, total_2018, by="codigo_ibge")
+munic_2018_pop_rua$proporcao <- (munic_2018_pop_rua$n/munic_2018_pop_rua$freq)*100
+
 write_xlsx(munic_2018_pop_rua, "/Users/wemigliari/Documents/R/tabelas/min_cid_observatorio/catadores_cidades_2018.xlsx")
 
 
@@ -217,13 +233,16 @@ test5 <-subset(test5, IN_PARC_MDS_FAM!="Sem Dados" & IN_PARC_MDS_FAM!="Sem Códi
                & IN_PARC_MDS_FAM!="Família de Agricultores Familiares" & IN_PARC_MDS_FAM!="Família Assentada da Reforma Agrária"
                & IN_PARC_MDS_FAM!="Família Beneficiária do Programa Nacional de Crédito Fundiário" & IN_PARC_MDS_FAM!="Família Acampada"
                & IN_PARC_MDS_FAM!="Família Atingida por Empreendimentos de Infraestrutura" & IN_PARC_MDS_FAM!="Família de Preso do Sistema Carcerário")
-               & IN_PARC_MDS_FAM!="Família Atingida por Empreendimentos de Infraestrutura" & IN_PARC_MDS_FAM!="Família de Catadores de Material Reciclável")
 
 
 munic_2017_pop_rua <- merge(test5, brasil, by = "codigo_ibge")
 munic_2017_pop_rua$geometry <- NULL
 munic_2017_pop_rua$Ano <- "2017"
 munic_2017_pop_rua <- na.omit(munic_2017_pop_rua)
+
+total_2017 <- data.frame(count(brasil_munic_2017, "codigo_ibge"))
+munic_2017_pop_rua <- merge(munic_2017_pop_rua, total_2017, by="codigo_ibge")
+munic_2017_pop_rua$proporcao <- (munic_2017_pop_rua$n/munic_2017_pop_rua$freq)*100
 
 write_xlsx(munic_2017_pop_rua, "/Users/wemigliari/Documents/R/tabelas/min_cid_observatorio/catadores_cidades_2017.xlsx")
 
@@ -268,6 +287,10 @@ munic_2016_pop_rua$geometry <- NULL
 munic_2016_pop_rua$Ano <- "2016"
 munic_2016_pop_rua <- na.omit(munic_2016_pop_rua)
 
+total_2016 <- data.frame(count(brasil_munic_2016, "codigo_ibge"))
+munic_2016_pop_rua <- merge(munic_2016_pop_rua, total_2016, by="codigo_ibge")
+munic_2016_pop_rua$proporcao <- (munic_2016_pop_rua$n/munic_2016_pop_rua$freq)*100
+
 write_xlsx(munic_2016_pop_rua, "/Users/wemigliari/Documents/R/tabelas/min_cid_observatorio/catadores_cidades_2016.xlsx")
 
 ### Tabela 2015 do Ministério das Cidades
@@ -309,6 +332,10 @@ munic_2015_pop_rua$geometry <- NULL
 munic_2015_pop_rua$Ano <- "2015"
 munic_2015_pop_rua <- na.omit(munic_2015_pop_rua)
 
+total_2015 <- data.frame(count(brasil_munic_2015, "codigo_ibge"))
+munic_2015_pop_rua <- merge(munic_2015_pop_rua, total_2015, by="codigo_ibge")
+munic_2015_pop_rua$proporcao <- (munic_2015_pop_rua$n/munic_2015_pop_rua$freq)*100
+
 write_xlsx(munic_2015_pop_rua, "/Users/wemigliari/Documents/R/tabelas/min_cid_observatorio/catadores_cidades_2015.xlsx")
 
 ### Tabela 2014 do Ministério das Cidades
@@ -349,6 +376,10 @@ munic_2014_pop_rua <- merge(test8, brasil, by = "codigo_ibge")
 munic_2014_pop_rua$geometry <- NULL
 munic_2014_pop_rua$Ano <- "2014"
 munic_2014_pop_rua <- na.omit(munic_2014_pop_rua)
+
+total_2014 <- data.frame(count(brasil_munic_2014, "codigo_ibge"))
+munic_2014_pop_rua <- merge(munic_2014_pop_rua, total_2014, by="codigo_ibge")
+munic_2014_pop_rua$proporcao <- (munic_2014_pop_rua$n/munic_2014_pop_rua$freq)*100
 
 write_xlsx(munic_2014_pop_rua, "/Users/wemigliari/Documents/R/tabelas/min_cid_observatorio/catadores_cidades_2014.xlsx")
 
@@ -392,6 +423,10 @@ munic_2013_pop_rua$geometry <- NULL
 munic_2013_pop_rua$Ano <- "2013"
 munic_2013_pop_rua <- na.omit(munic_2013_pop_rua)
 
+total_2013 <- data.frame(count(brasil_munic_2013, "codigo_ibge"))
+munic_2013_pop_rua <- merge(munic_2013_pop_rua, total_2013, by="codigo_ibge")
+munic_2013_pop_rua$proporcao <- (munic_2013_pop_rua$n/munic_2013_pop_rua$freq)*100
+
 write_xlsx(munic_2013_pop_rua, "/Users/wemigliari/Documents/R/tabelas/min_cid_observatorio/catadores_cidades_2013.xlsx")
 
 ### Tabela 2012 do Ministério das Cidades
@@ -434,6 +469,10 @@ munic_2012_pop_rua$geometry <- NULL
 munic_2012_pop_rua$Ano <- "2012"
 munic_2012_pop_rua <- na.omit(munic_2012_pop_rua)
 
+total_2012 <- data.frame(count(brasil_munic_2012, "codigo_ibge"))
+munic_2012_pop_rua <- merge(munic_2012_pop_rua, total_2012, by="codigo_ibge")
+munic_2012_pop_rua$proporcao <- (munic_2012_pop_rua$n/munic_2012_pop_rua$freq)*100
+
 write_xlsx(munic_2012_pop_rua, "/Users/wemigliari/Documents/R/tabelas/min_cid_observatorio/catadores_cidades_2012.xlsx")
 
 
@@ -441,17 +480,18 @@ write_xlsx(munic_2012_pop_rua, "/Users/wemigliari/Documents/R/tabelas/min_cid_ob
 
 
 serie_historica_catadores_cidades <- rbind(munic_2021_pop_rua,
-                                             munic_2020_pop_rua,
-                                             munic_2019_pop_rua, 
-                                             munic_2018_pop_rua, 
-                                             munic_2017_pop_rua, 
-                                             munic_2016_pop_rua, 
-                                             munic_2015_pop_rua, 
-                                             munic_2014_pop_rua, 
-                                             munic_2013_pop_rua)
+                                           munic_2020_pop_rua,
+                                           munic_2019_pop_rua, 
+                                           munic_2018_pop_rua, 
+                                           munic_2017_pop_rua, 
+                                           munic_2016_pop_rua, 
+                                           munic_2015_pop_rua, 
+                                           munic_2014_pop_rua, 
+                                           munic_2013_pop_rua,
+                                           munic_2012_pop_rua)
 
 
-write_xlsx(serie_historica_carcerarios_cidades, "/Users/wemigliari/Documents/R/tabelas/min_cid_observatorio/catadores_familias_serie_historica_cidades.xlsx")
+write_xlsx(serie_historica_catadores_cidades, "/Users/wemigliari/Documents/R/tabelas/min_cid_observatorio/catadores_familias_serie_historica_cidades.xlsx")
 
 ####### 10 Cidades com maiores casos
 
@@ -482,16 +522,21 @@ munic_2014_pop_rua_10 <- munic_2014_pop_rua_10[1:10, ]
 munic_2013_pop_rua_10 <- munic_2013_pop_rua[order(munic_2013_pop_rua$n, decreasing = TRUE),]
 munic_2013_pop_rua_10 <- munic_2013_pop_rua_10[1:10, ]
 
+munic_2012_pop_rua_10 <- munic_2012_pop_rua[order(munic_2012_pop_rua$n, decreasing = TRUE),]
+munic_2012_pop_rua_10 <- munic_2012_pop_rua_10[1:10, ]
+
+
 
 serie_historica_catadores_cidades_10 <- rbind(munic_2013_pop_rua_10,
-                                                munic_2014_pop_rua_10, 
-                                                munic_2015_pop_rua_10, 
-                                                munic_2016_pop_rua_10, 
-                                                munic_2017_pop_rua_10, 
-                                                munic_2018_pop_rua_10, 
-                                                munic_2019_pop_rua_10, 
-                                                munic_2020_pop_rua_10, 
-                                                munic_2021_pop_rua_10)
+                                              munic_2013_pop_rua_10,
+                                              munic_2014_pop_rua_10, 
+                                              munic_2015_pop_rua_10, 
+                                              munic_2016_pop_rua_10, 
+                                              munic_2017_pop_rua_10, 
+                                              munic_2018_pop_rua_10, 
+                                              munic_2019_pop_rua_10, 
+                                              munic_2020_pop_rua_10, 
+                                              munic_2021_pop_rua_10)
 
 serie_historica_catadores_cidades_10 <- na.omit(serie_historica_catadores_cidades_10)
 
