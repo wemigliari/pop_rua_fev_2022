@@ -42,6 +42,10 @@ munic_2021_pop_rua$geometry <- NULL
 munic_2021_pop_rua$Ano <- "2021"
 munic_2021_pop_rua <- na.omit(munic_2021_pop_rua)
 
+total_2021 <- data.frame(count(brasil_munic_2021, "codigo_ibge"))
+munic_2021_pop_rua <- merge(munic_2021_pop_rua, total_2021, by="codigo_ibge")
+munic_2021_pop_rua$proporcao <- (munic_2021_pop_rua$n/munic_2021_pop_rua$freq)*100
+
 write_xlsx(munic_2021_pop_rua, "/Users/wemigliari/Documents/R/tabelas/min_cid_observatorio/idade_criancas_cidades_2021.xlsx")
 
 
@@ -69,6 +73,10 @@ munic_2020_pop_rua <- merge(test2, brasil, by = "codigo_ibge")
 munic_2020_pop_rua$geometry <- NULL
 munic_2020_pop_rua$Ano <- "2020"
 munic_2020_pop_rua <- na.omit(munic_2020_pop_rua)
+
+total_2020 <- data.frame(count(brasil_munic_2020, "codigo_ibge"))
+munic_2020_pop_rua <- merge(munic_2020_pop_rua, total_2020, by="codigo_ibge")
+munic_2020_pop_rua$proporcao <- (munic_2020_pop_rua$n/munic_2020_pop_rua$freq)*100
 
 write_xlsx(munic_2020_pop_rua, "/Users/wemigliari/Documents/R/tabelas/min_cid_observatorio/idade_criancas_cidades_2020.xlsx")
 
@@ -98,6 +106,10 @@ munic_2019_pop_rua$geometry <- NULL
 munic_2019_pop_rua$Ano <- "2019"
 munic_2019_pop_rua <- na.omit(munic_2019_pop_rua)
 
+total_2019 <- data.frame(count(brasil_munic_2019, "codigo_ibge"))
+munic_2019_pop_rua <- merge(munic_2019_pop_rua, total_2019, by="codigo_ibge")
+munic_2019_pop_rua$proporcao <- (munic_2019_pop_rua$n/munic_2019_pop_rua$freq)*100
+
 write_xlsx(munic_2019_pop_rua, "/Users/wemigliari/Documents/R/tabelas/min_cid_observatorio/idade_criancas_cidades_2019.xlsx")
 
 ### Tabela 2018 do Ministério das Cidades
@@ -123,6 +135,10 @@ munic_2018_pop_rua <- merge(test4, brasil, by = "codigo_ibge")
 munic_2018_pop_rua$geometry <- NULL
 munic_2018_pop_rua$Ano <- "2018"
 munic_2018_pop_rua <- na.omit(munic_2018_pop_rua)
+
+total_2018 <- data.frame(count(brasil_munic_2018, "codigo_ibge"))
+munic_2018_pop_rua <- merge(munic_2018_pop_rua, total_2018, by="codigo_ibge")
+munic_2018_pop_rua$proporcao <- (munic_2018_pop_rua$n/munic_2018_pop_rua$freq)*100
 
 write_xlsx(munic_2018_pop_rua, "/Users/wemigliari/Documents/R/tabelas/min_cid_observatorio/idade_criancas_cidades_2018.xlsx")
 
@@ -151,6 +167,10 @@ munic_2017_pop_rua$geometry <- NULL
 munic_2017_pop_rua$Ano <- "2017"
 munic_2017_pop_rua <- na.omit(munic_2017_pop_rua)
 
+total_2017 <- data.frame(count(brasil_munic_2017, "codigo_ibge"))
+munic_2017_pop_rua <- merge(munic_2017_pop_rua, total_2017, by="codigo_ibge")
+munic_2017_pop_rua$proporcao <- (munic_2017_pop_rua$n/munic_2017_pop_rua$freq)*100
+
 write_xlsx(munic_2017_pop_rua, "/Users/wemigliari/Documents/R/tabelas/min_cid_observatorio/idade_criancas_cidades_2017.xlsx")
 
 ### Tabela 2016 do Ministério das Cidades
@@ -178,6 +198,10 @@ munic_2016_pop_rua$geometry <- NULL
 munic_2016_pop_rua$Ano <- "2016"
 munic_2016_pop_rua <- na.omit(munic_2016_pop_rua)
 
+total_2016 <- data.frame(count(brasil_munic_2016, "codigo_ibge"))
+munic_2016_pop_rua <- merge(munic_2016_pop_rua, total_2016, by="codigo_ibge")
+munic_2016_pop_rua$proporcao <- (munic_2016_pop_rua$n/munic_2016_pop_rua$freq)*100
+
 write_xlsx(munic_2016_pop_rua, "/Users/wemigliari/Documents/R/tabelas/min_cid_observatorio/idade_criancas_cidades_2016.xlsx")
 
 ### Tabela 2015 do Ministério das Cidades
@@ -204,6 +228,10 @@ munic_2015_pop_rua$geometry <- NULL
 munic_2015_pop_rua$Ano <- "2015"
 munic_2015_pop_rua <- na.omit(munic_2015_pop_rua)
 
+total_2015 <- data.frame(count(brasil_munic_2015, "codigo_ibge"))
+munic_2015_pop_rua <- merge(munic_2015_pop_rua, total_2015, by="codigo_ibge")
+munic_2015_pop_rua$proporcao <- (munic_2015_pop_rua$n/munic_2015_pop_rua$freq)*100
+
 write_xlsx(munic_2015_pop_rua, "/Users/wemigliari/Documents/R/tabelas/min_cid_observatorio/idade_criancas_cidades_2015.xlsx")
 
 ### Tabela 2014 do Ministério das Cidades
@@ -229,6 +257,10 @@ munic_2014_pop_rua <- merge(test8, brasil, by = "codigo_ibge")
 munic_2014_pop_rua$geometry <- NULL
 munic_2014_pop_rua$Ano <- "2014"
 munic_2014_pop_rua <- na.omit(munic_2014_pop_rua)
+
+total_2014 <- data.frame(count(brasil_munic_2014, "codigo_ibge"))
+munic_2014_pop_rua <- merge(munic_2014_pop_rua, total_2014, by="codigo_ibge")
+munic_2014_pop_rua$proporcao <- (munic_2014_pop_rua$n/munic_2014_pop_rua$freq)*100
 
 write_xlsx(munic_2014_pop_rua, "/Users/wemigliari/Documents/R/tabelas/min_cid_observatorio/idade_criancas_cidades_2014.xlsx")
 
@@ -257,6 +289,10 @@ munic_2013_pop_rua$geometry <- NULL
 munic_2013_pop_rua$Ano <- "2013"
 munic_2013_pop_rua <- na.omit(munic_2013_pop_rua)
 
+total_2013 <- data.frame(count(brasil_munic_2013, "codigo_ibge"))
+munic_2013_pop_rua <- merge(munic_2013_pop_rua, total_2013, by="codigo_ibge")
+munic_2013_pop_rua$proporcao <- (munic_2013_pop_rua$n/munic_2013_pop_rua$freq)*100
+
 write_xlsx(munic_2013_pop_rua, "/Users/wemigliari/Documents/R/tabelas/min_cid_observatorio/idade_criancas_cidades_2013.xlsx")
 
 ### Tabela 2012 do Ministério das Cidades
@@ -283,6 +319,10 @@ munic_2012_pop_rua <- merge(test10, brasil, by = "codigo_ibge")
 munic_2012_pop_rua$geometry <- NULL
 munic_2012_pop_rua$Ano <- "2012"
 munic_2012_pop_rua <- na.omit(munic_2012_pop_rua)
+
+total_2012 <- data.frame(count(brasil_munic_2012, "codigo_ibge"))
+munic_2012_pop_rua <- merge(munic_2012_pop_rua, total_2012, by="codigo_ibge")
+munic_2012_pop_rua$proporcao <- (munic_2012_pop_rua$n/munic_2012_pop_rua$freq)*100
 
 write_xlsx(munic_2012_pop_rua, "/Users/wemigliari/Documents/R/tabelas/min_cid_observatorio/idade_criancas_cidades_2012.xlsx")
 
