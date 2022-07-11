@@ -99,7 +99,7 @@ mds_fam_2020$IN_PARC_MDS_FAM <- gsub(c("306"), c("Família de Catadores de Mater
 
 
 write.xlsx(mds_fam_2020, "/Users/wemigliari/Documents/R/tabelas/min_cid_observatorio/df/2020.xlsx",
-           sheetName="Grupos Tradicionais Epaecíficos", append=TRUE)
+           sheetName="Grupos Tradicionais Específicos", append=TRUE)
 
 ###6 Seleção de Dados pa MESES_APOS_ULT_ATUALIZACAO
 ### Já está pronto o quadro, pois não há o que identificar entre as repaostas
