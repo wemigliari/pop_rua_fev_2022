@@ -4,15 +4,15 @@ library(plyr)
 library(stringr)
 library(readr)
 library(tidyverse)
-library(writexl)
+library(xlsx)
 
 
 ### Tabela 2021 do Ministério das Cidades
 
-brasil_munic_2021  <- read_excel("/Users/wemigliari/Documents/R/tabelas/pop_rua_min_cidades/TB_POP_RUA_202112.xlsx", 
+brasil_munic_2021  <- read_excel("/Users/wemigliari/Documents/R/tabelas/pop_rua_min_cidades/TB_POP_RUA_202112_abril.xlsx", 
                                col_names = TRUE)
 
-names(brasil_munic_2021)[1]<- "id"
+names(brasil_munic_2021)[4]<- "id"
 
 ### Subseccionar Dados de Belo Horizonte de 2021
 
