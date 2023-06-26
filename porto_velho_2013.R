@@ -131,7 +131,8 @@ write.xlsx(esta_cadas_2013, "/Users/wemigliari/Documents/R/tabelas/min_cid_obser
 ###8 Seleção de Dados pa CO_SEXO_PESSOA
 sexo_2013 <- data.frame(count(munic_2013 , "CO_SEXO_PESSOA"))
 
-sexo_2013$CO_SEXO_PESSOA <- sexo_2013$CO_SEXO_PESSOA[sexo_2013$CO_SEXO_PESSOA==c(1, 2)]<-c("Masculino", "Feminino")
+sexo_2013$CO_SEXO_PESSOA[which(sexo_2013$CO_SEXO_PESSOA=="1")] <- "Masculino"
+sexo_2013$CO_SEXO_PESSOA[which(sexo_2013$CO_SEXO_PESSOA=="2")] <- "Feminino"
 
 write.xlsx(sexo_2013, "/Users/wemigliari/Documents/R/tabelas/min_cid_observatorio/porto_velho/2013.xlsx",
            sheetName="Sexo", append=TRUE)
