@@ -130,7 +130,7 @@ write.xlsx(ler_escrever_2014, "/Users/wemigliari/Documents/R/tabelas/min_cid_obs
 ###13 Seleção de Dados SP GRAU_INSTRUCAO
 instrucao_2014 <- data.frame(count(munic_2014 , "GRAU_INSTRUCAO"))
 
-instrucao_2014$GRAU_INSTRUCAO <- instrucao_2014$GRAU_INSTRUCAO[instrucao_2014$GRAU_INSTRUCAO==c(0, 1, 2, 3, 4, 5, 6)]<-c("Sem Dados", "Sem Instrução", "Fundamental Incompleto", "Fundamental Completo", "Ensino Médio Incompleto", "Ensino Médio Completo", "Superior Completo")
+instrucao_2014$GRAU_INSTRUCAO <- instrucao_2014$GRAU_INSTRUCAO[instrucao_2014$GRAU_INSTRUCAO==c(0, 1, 2, 3, 4, 5, 6)]<-c("Sem Dados", "Sem Instrução", "Fundamental Incompleto", "Fundamental Completo", "Ensino Médio Incompleto", "Ensino Médio Completo", "Superior Incompleto ou Mais")
 
 write.xlsx(instrucao_2014, "/Users/wemigliari/Documents/R/tabelas/min_cid_observatorio/sp/2014.xlsx",
            sheetName="Instrução", append=TRUE)
